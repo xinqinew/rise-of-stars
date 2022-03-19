@@ -1098,7 +1098,14 @@ function zongHe(...)
                     end
                 end
             end
-            touchClick(20, 20)
+            if isColor(484, 101, 0x00ace4, 95) then -- 免费
+                touchClick(484, 101, 0x00ace4)
+            else
+
+                touchClick(20, 20)
+                isTrade = true
+                writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
+            end
         else
             touchClick(20, 20)
 
@@ -1914,6 +1921,9 @@ function meiRiChongZhi(...)
 
             numChuanShu = 0
             writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
+
+            isTrade = false
+            writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
 
             -- today = tonumber(os.date("%w",os.time()))
             -- if today == 1 then --如果是星期一
