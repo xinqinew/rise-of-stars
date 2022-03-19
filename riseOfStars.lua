@@ -101,17 +101,17 @@ function zongHe(...)
             touchClick(33, 493)
         end
     end
-    if isColor(474,421,0x1d6fbb,95) and isColor(391,306,0x556c82,95) and isColor(569,304,0x556c82,95) then
+    if isColor(474, 421, 0x1d6fbb, 95) and isColor(391, 306, 0x556c82, 95) and isColor(569, 304, 0x556c82, 95) then
         tiaoShi("移动坐标")
-        touchClick(508,464,0x0c0c0e    )
+        touchClick(508, 464, 0x0c0c0e)
     end
     if isColor(1099, 35, 0x7c7c7c, 95) and isColor(1100, 41, 0xfafafa, 95) then
         tiaoShi("关广告--X,灰白色")
         touchClick(1099, 35, 0x7c7c7c)
     end
-    if isColor(1088,47,0x202124,95) and isColor(1088,58,0xfafafa,95) then
+    if isColor(1088, 47, 0x202124, 95) and isColor(1088, 58, 0xfafafa, 95) then
         tiaoShi("关广告--X,黑色")
-        touchClick(1088,47,0x202124    )
+        touchClick(1088, 47, 0x202124)
     end
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(792, 121, 0xe0b8ab, 95) and
         isColor(836, 102, 0xfab1cb, 95) then
@@ -1310,23 +1310,31 @@ function checkRed()
     if tmpXuanXiang ~= nil then
         tmpRed = true
     end
-    if isColor(385,129,0x2ed4fc,95) then
+    if isColor(448, 78, 0x33d6ff, 95) then
         tiaoShi("收资源1")
-        touchClick(385,129)
+        touchClick(448, 78)
         return true
-    elseif isColor(448,78,0x33d6ff,95) then
+    elseif isColor(385, 129, 0x2ed4fc, 95) then
         tiaoShi("收资源2")
-        touchClick(448,78)
+        touchClick(385, 129)
         return true
-    elseif isColor(20,297,0x24c8e9,95) then
+    elseif isColor(266, 171, 0x28cdf2, 95) then
         tiaoShi("收资源3")
-        touchClick(20,297)
+        touchClick(266,171)
         return true
-    elseif isColor(796,191,0x1ccbc8    , 95) and isGuangGao == true and numGuangGao <= 9 then
+    elseif isColor(175, 238, 0x25c9eb, 95) then
+        tiaoShi("收资源4")
+        touchClick(175, 238)
+        return true
+    elseif isColor(20, 297, 0x24c8e9, 95) then
+        tiaoShi("收资源5")
+        touchClick(20, 297)
+        return true
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
         return true
-    elseif isColor(796,191,0x1ccbc8    , 95) and isChuanShu == true and numChuanShu <= 4 then
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isChuanShu == true and numChuanShu <= 4 then
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
         return true
