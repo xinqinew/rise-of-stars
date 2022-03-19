@@ -41,6 +41,7 @@ function main()
     doTarget()
     timeChongZhi()
     checkXXX()
+    meiRiChongZhi()
     resetIDLETimer();
     -- timeJianGe(debug.getinfo(1).currentline)
     -- nowTime2 = os.time();
