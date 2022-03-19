@@ -1,5 +1,52 @@
-toast("在线版本0.1.2")
+toast("在线版本0.1.3")
 -----------------------私有部分--------------------------
+
+function main()
+    nowTime1 = os.time();
+    -- go = go + 1
+    -- tiaoShi("go:"..go)
+    nowTime = os.time();
+    nowDateTime = os.date("*t")
+    today = tonumber(os.date("%w", os.time()))
+
+    if version ~= "2.2.4" then
+        if getBacklightLevel() ~= 0.5 then
+            setBacklightLevel(0.5);
+        end
+    end
+    bid = frontAppBid()
+    -- tiaoShi(bid)
+    if bid == apps1 then
+        -- tiaoShi("apps1")
+        APP = APP1
+    elseif bid == apps2 then
+        -- tiaoShi("apps2")
+        APP = APP2
+        -- elseif bid == appWeiXin and tmpWeiXinWeiHu ~= nil and isWeiXinWeiHu == false and nowDateTime.hour >= hourWeiXin and
+        --     nowDateTime.min >= minWeiXin then
+
+    else
+        -- tiaoShi("哪个都没开")
+        APP.isYiDengLu = 0
+        runApp(apps1)
+        APP = APP1
+        mSleep(5000)
+    end
+    m_iRunCount = m_iRunCount + 1
+
+    zongHe()
+    zongHe_Mult()
+    zongHe_Screen()
+    muBiaoZhuanHuan() -- 公用
+    doTarget()
+    timeChongZhi()
+    checkXXX()
+    resetIDLETimer();
+    -- timeJianGe(debug.getinfo(1).currentline)
+    -- nowTime2 = os.time();
+    -- dialog(nowTime2 - nowTime1,0)
+    -- lua_exit()
+end
 -- 变量及常量
 function bianLiang()
     isLiZi = false -- 粒子
@@ -24,6 +71,9 @@ function bianLiang()
     timeLianMeng = nowTime - 60 * 60 * 2 -- 联盟
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
+end
+-- onecePlist
+function onecePlist()
     -- 广告次数
     numGuangGao = loadPlist(luaMuLu .. xiangMu .. ".plist", "广告次数")
     if numGuangGao == nil then
@@ -37,8 +87,12 @@ function bianLiang()
         numChuanShu = 0
         writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
     end
+end
+-- oneceOther
+function oneceOther()
 
 end
+
 -- 综合
 function zongHe(...)
     if inside() then
@@ -802,15 +856,15 @@ function zongHe(...)
             touchClick(923, 571)
         elseif isColor(254, 571, 0xff9901, 95) then -- 有普通传输
             touchClick(452, 559)
-        elseif isColor(205,563,0x07706c,95) then--有免费传输
-            touchClick(205,563)
+        elseif isColor(205, 563, 0x07706c, 95) then -- 有免费传输
+            touchClick(205, 563)
         else
             touchClick(20, 20)
             isChuanShu = false
             numChuanShu = numChuanShu + 1
             writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
         end
-        
+
     end
 
     if isColor(1100, 35, 0x7c7c7c, 95) and isColor(611, 599, 0xcecece, 95) then
@@ -1734,7 +1788,7 @@ end
 -- 基地内
 function inside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
-        tiaoShi("室内")
+        -- tiaoShi("室内")
         return true
     else
         return false
@@ -1743,7 +1797,7 @@ end
 -- 基地外
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
-        tiaoShi("室外")
+        -- tiaoShi("室外")
         return true
     else
         return false
