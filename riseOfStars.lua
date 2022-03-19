@@ -101,6 +101,10 @@ function zongHe(...)
             touchClick(33, 493)
         end
     end
+    if isColor(474,421,0x1d6fbb,95) and isColor(391,306,0x556c82,95) and isColor(569,304,0x556c82,95) then
+        tiaoShi("移动坐标")
+        touchClick(508,464,0x0c0c0e    )
+    end
     if isColor(1099, 35, 0x7c7c7c, 95) and isColor(1100, 41, 0xfafafa, 95) then
         tiaoShi("关广告--X,灰白色")
         touchClick(1099, 35, 0x7c7c7c)
