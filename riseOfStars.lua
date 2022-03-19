@@ -987,13 +987,17 @@ function zongHe(...)
         elseif isColor(61, 346, 0x0aacc4, 95) and isColor(60, 296, 0xffffff, 95) then
             tiaoShi("生产界面")
             if bMultiColor == false then
+                if isColor(579, 617, 0x9f7249, 95) then
+                    tiaoShi("T5 => T4")
+                    touchClick(483, 603, 0x1e3248)
+                    mSleep(1000)
+                end
                 if isColor(1090, 527, 0x1d6eba, 95) then -- 可生产
                     if isColor(851, 357, 0x15273f, 95) and isColor(851, 411, 0x15273f, 95) and
                         isColor(1087, 357, 0x15273f, 95) and isColor(1087, 411, 0x15273f, 95) then
                         -- 不缺材料
                         tiaoShi("不缺材料")
                         touchClick(1090, 527)
-
                     else
                         -- 缺材料
                         tiaoShi("缺少材料")
@@ -1399,7 +1403,7 @@ function checkRed()
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
         return true
-    
+
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
         tiaoShi("基地现况--红点")
         touchClick(209, 111, 0x61d5e9)
