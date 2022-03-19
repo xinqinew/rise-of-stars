@@ -1291,6 +1291,7 @@ function checkRed()
         touchClick(869, 582)
         return true
     elseif isColor(1124, 51, 0x9e1111, 95) then -- 右上角红点
+        tiaoShi("右上角红点")
         touchClick(1106, 71, 0x111e2e)
         if isColor(730, 106, 0x9d1111, 95) then -- 1-1红点
             touchClick(684, 182, 0x445569)
@@ -1733,6 +1734,7 @@ end
 -- 基地内
 function inside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
+        tiaoShi("室内")
         return true
     else
         return false
@@ -1741,6 +1743,7 @@ end
 -- 基地外
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
+        tiaoShi("室外")
         return true
     else
         return false
