@@ -1320,7 +1320,7 @@ function checkRed()
         return true
     elseif isColor(266, 171, 0x28cdf2, 95) then
         tiaoShi("收资源3")
-        touchClick(266,171)
+        touchClick(266, 171)
         return true
     elseif isColor(175, 238, 0x25c9eb, 95) then
         tiaoShi("收资源4")
@@ -1834,4 +1834,73 @@ function outside(...)
     else
         return false
     end
+end
+-- 每日重置
+function meiRiChongZhi(...)
+    -- if nowDateTime.day ~= nowDayNight and nowDateTime.hour >= 23 and nowDateTime.min >= 55 then
+    --     tiaoShi("晚重置")
+    --     nowDayNight = nowDateTime.day
+    --     writePlist(luaMuLu .. xiangMu .. ".plist", "日期晚", nowDayNight)
+    --     numJiaoYi = 0
+    --     writePlist(luaMuLu .. xiangMu .. ".plist", "交易次数", numJiaoYi)
+    --     numJiaoYiChaoShi = 0
+    --     writePlist(luaMuLu .. xiangMu .. ".plist", "交易超时", numJiaoYiChaoShi)
+    -- end
+    -- if numQuanShu ~= 0 then
+    -- local tmpXuanXiang = string.find(duoXuan1, "1")
+    -- if tmpXuanXiang ~= nil then
+    if nowDateTime.day ~= nowDay then
+        if nowDateTime.hour >= 8 and nowDateTime.min >= 0 then
+            tiaoShi("8点0分重置")
+
+            nowDay = nowDateTime.day
+            writePlist(luaMuLu .. xiangMu .. ".plist", "日期", nowDay)
+
+            numDay = numDay + 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "第几天", numDay)
+
+            numGuangGao = 0
+            writePlist(luaMuLu .. xiangMu .. ".plist", "广告次数", numGuangGao)
+
+            numChuanShu = 0
+            writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
+
+            -- today = tonumber(os.date("%w",os.time()))
+            -- if today == 1 then --如果是星期一
+            --         if APP1.isZhuZhan == 2 then
+            --                 APP1.isZhuZhan = 1
+            --                 writePlist(luaMuLu..xiangMu..".plist","助战1",APP1.isZhuZhan)
+            --         end
+            --         if APP2.isZhuZhan == 2 then
+            --                 APP2.isZhuZhan = 1
+            --                 writePlist(luaMuLu..xiangMu..".plist","助战2",APP2.isZhuZhan)
+            --         end
+            --         if APP1.isJiFenDuiHuan == 1 then
+            --                 APP1.isJiFenDuiHuan = 0
+            --                 writePlist(luaMuLu..xiangMu..".plist","积分兑换1",APP1.isJiFenDuiHuan)
+            --         end
+            --         if APP2.isJiFenDuiHuan == 1 then
+            --                 APP2.isJiFenDuiHuan = 0
+            --                 writePlist(luaMuLu..xiangMu..".plist","积分兑换2",APP2.isJiFenDuiHuan)
+            --         end
+            -- end
+            -- closeApp(appXiangMu)
+            -- numJiaoSe = 0
+            -- writePlist(luaMuLu .. xiangMu .. ".plist", "角色", numJiaoSe)
+            -- huanJiaoSeChongZhi()
+            -- timeMaiLan = nowTime
+            -- writePlist(luaMuLu .. xiangMu .. ".plist", "timeMaiLan", timeMaiLan)
+
+            -- isWeiXinWeiHu = false
+            -- writePlist(luaMuLu .. xiangMu .. ".plist", "微信维护", isWeiXinWeiHu)
+            -- hourWeiXin = random(10, 22)
+            -- minWeiXin = random(1, 50)
+            -- writePlist(luaMuLu .. xiangMu .. ".plist", "时", hourWeiXin)
+            -- writePlist(luaMuLu .. xiangMu .. ".plist", "分", minWeiXin)
+
+            -- gaiMuBiao(1, mb_YouHua, mm_YouHua)
+        end
+    end
+    -- end
+    -- end
 end
