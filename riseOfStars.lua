@@ -1,4 +1,4 @@
-toast("在线版本0.1.0")
+toast("在线版本0.1.1")
 -----------------------私有部分--------------------------
 -- 变量及常量
 function bianLiang()
@@ -8,7 +8,8 @@ function bianLiang()
     isJiaSuProduce = false -- 加速生产
     isAutoNext = true -- 主动下一个建筑
     isJiDiXianKuangIntoProduce = false -- 从基地现况进入生产界面
-    isGuangGao = false --广告
+    isGuangGao = false -- 广告
+    isChuanShu = false -- 传输
 
     numDiaoXian = 0
     numChuHang = 1 -- 出航编号
@@ -23,6 +24,20 @@ function bianLiang()
     timeLianMeng = nowTime - 60 * 60 * 2 -- 联盟
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
+    -- 广告次数
+    numGuangGao = loadPlist(luaMuLu .. xiangMu .. ".plist", "广告次数")
+    if numGuangGao == nil then
+        numGuangGao = 0
+        writePlist(luaMuLu .. xiangMu .. ".plist", "广告次数", numGuangGao)
+    end
+
+    -- 传输次数
+    numChuanShu = loadPlist(luaMuLu .. xiangMu .. ".plist", "传输次数")
+    if numChuanShu == nil then
+        numChuanShu = 0
+        writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
+    end
+
 end
 -- 综合
 function zongHe(...)
@@ -32,15 +47,21 @@ function zongHe(...)
             touchClick(33, 493)
         end
     end
-    if isColor(1099,35,0x7c7c7c,95) and isColor(1100,41,0xfafafa,95) then
+    if isColor(1099, 35, 0x7c7c7c, 95) and isColor(1100, 41, 0xfafafa, 95) then
         tiaoShi("关广告--X,灰白色")
-        touchClick(1099,35,0x7c7c7c    )
+        touchClick(1099, 35, 0x7c7c7c)
     end
-    if isColor(17,25,0xffffff,95) and isColor(6,25,0xff9c00,95) and isColor(792,121,0xe0b8ab,95) and isColor(836,102,0xfab1cb,95) then
+    if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(792, 121, 0xe0b8ab, 95) and
+        isColor(836, 102, 0xfab1cb, 95) then
         tiaoShi("奖励积分币")
+        isGuangGao = false
         x, y = findColorInRegionFuzzy(0xd78b01, 95, 71, 87, 1121, 587);
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             touchClick(x, y)
+            -- 广告次数
+            numGuangGao = numGuangGao + 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "广告次数", numGuangGao)
+
         else
             touchClick(20, 20)
         end
@@ -331,7 +352,7 @@ function zongHe(...)
     end
 
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
-        tiaoShi("基地现况界面")
+        tiaoShi("基地现况界面--综合函数")
         local tmpDontProduce = string.find(zongHeXuanXiang2, "7")
         if isColor(814, 458, 0x9e1111, 95) then
             tiaoShi("资源--免费兑换--红点")
@@ -493,9 +514,9 @@ function zongHe(...)
         elseif isColor(135, 471, 0x9d1111, 95) and isColor(130, 482, 0x1b2a3d, 95) then
             tiaoShi("活动中心5--红点--未选")
             touchClick(94, 500, 0xc6c9cd)
-        elseif isColor(926,130,0xff9c00,95) and isColor(903,174,0x116eb9,95) and isColor(1013,176,0x168961,95) then
+        elseif isColor(926, 130, 0xff9c00, 95) and isColor(903, 174, 0x116eb9, 95) and isColor(1013, 176, 0x168961, 95) then
             tiaoShi("预定活动")
-            touchClick(20,20)
+            touchClick(20, 20)
         else
             x, y = findColorInRegionFuzzy(0x931012, 95, 135, 75, 135, 612)
             if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
@@ -517,7 +538,7 @@ function zongHe(...)
         tiaoShi("每日报告1")
         touchClick(510, 609)
     end
-    if isColor(207,23,0xff6600,95) and isColor(221,105,0x356290,95) and isColor(618,24,0xff6600,95) then
+    if isColor(207, 23, 0xff6600, 95) and isColor(221, 105, 0x356290, 95) and isColor(618, 24, 0xff6600, 95) then
         tiaoShi("每日报告2")
         touchClick(510, 609)
     end
@@ -781,12 +802,14 @@ function zongHe(...)
             touchClick(923, 571)
         elseif isColor(254, 571, 0xff9901, 95) then -- 有普通传输
             touchClick(452, 559)
-            -- elseif isColor(254,571,0xff9901,95) then--有免费传输 
-            -- touchClick(254,559        )
-
+        elseif isColor(205,563,0x07706c,95) then--有免费传输
+            touchClick(205,563)
         else
             touchClick(20, 20)
+            numChuanShu = numChuanShu + 1
+            writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
         end
+        
     end
 
     if isColor(1100, 35, 0x7c7c7c, 95) and isColor(611, 599, 0xcecece, 95) then
@@ -932,14 +955,14 @@ function zongHe(...)
             end
         elseif isColor(41, 296, 0xffffff, 95) and isColor(36, 321, 0xc3952b, 95) then
             tiaoShi("维修界面")
-            if isColor(1077,527,0x1eb686,95) and isColor(993,574,0x237bc8,95) then --重置
+            if isColor(1077, 527, 0x1eb686, 95) and isColor(993, 574, 0x237bc8, 95) then -- 重置
                 tiaoShi("可修理--不缺少资源")
                 touchClick(984, 589, 0x1d6ebb)
-            elseif isColor(988,525,0x15a976,95) and isColor(989,588,0x1f2830,95) then
+            elseif isColor(988, 525, 0x15a976, 95) and isColor(989, 588, 0x1f2830, 95) then
                 tiaoShi("可修理--缺少资源")
                 isReceiveEmail = true
-                touchClick(20,20)
-                touchClick(698,586,0xb4cdf3            )--打开邮件
+                touchClick(20, 20)
+                touchClick(698, 586, 0xb4cdf3) -- 打开邮件
             else
                 touchClick(20, 20)
             end
@@ -1224,9 +1247,12 @@ function checkRed()
     if tmpXuanXiang ~= nil then
         tmpRed = true
     end
-    if isColor(773,249,0x368a83,95) and isGuangGao == true then
-        tiaoShi("广告在右上角")
-        touchClick(809,221,0x7aa0d8    )
+    if isColor(773, 249, 0x368a83, 95) and isGuangGao == true and numGuangGao <= 9 then
+        tiaoShi("看广告")
+        touchClick(809, 221, 0x7aa0d8)
+    elseif isColor(773, 249, 0x368a83, 95) and isChuanShu == true and numChuanShu <= 4 then
+        tiaoShi("点传输")
+        touchClick(623, 497, 0xffd4a1)
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
         tiaoShi("基地现况--红点")
         touchClick(209, 111, 0x61d5e9)
@@ -1522,28 +1548,28 @@ function chuHang()
                 mSleep(1000)
                 touchClick(353, 432, 0x075ea8) -- 搜索
                 mSleep(1000)
-                if isColor(303,431,0x116eb9,95) == false then
+                if isColor(303, 431, 0x116eb9, 95) == false then
                     break
                 end
                 if i == 10 then
                     isKillPirate = false
                 end
             end
-           
+
         elseif isLiZi == false then
             for i = 1, 10, 1 do
                 touchClick(925, 561, 0x1f101d) -- 粒子
                 mSleep(1000)
                 touchClick(925, 431, 0x075ea8) -- 搜索
                 mSleep(1000)
-                if isColor(876,430,0x116eb9,95) == false then
+                if isColor(876, 430, 0x116eb9, 95) == false then
                     break
                 end
                 if i == 10 then
                     isLiZi = true
                 end
             end
-            
+
         else
             if numChuHang == 1 then
                 touchClick(643, 548) -- 金属
@@ -1687,7 +1713,7 @@ function waKuang()
         end
     end
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
-        tiaoShi("基地现况")
+        tiaoShi("基地现况界面--函数挖矿")
         if isColor(94, 325, 0x306090, 95) then -- 4号休息中
             tiaoShi("4号休息中,出航")
             touchClick(94, 325)
