@@ -735,7 +735,7 @@ function zongHe(...)
             mSleep(2000)
         end
     end
-    if isColor(89, 59, 0xf5a801, 95) and isColor(138, 313, 0x3394a3, 95) and isColor(176, 295, 0x00798c, 95) then
+    if isColor(89,59,0xf5a801,95) and isColor(192,250,0x325270,95) and isColor(300,407,0x8f4d14,95) then
         tiaoShi("补充资源")
         if isColor(1028, 113, 0xffffff, 95) then
             tiaoShi("资源充足")
