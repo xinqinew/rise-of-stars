@@ -32,6 +32,10 @@ function zongHe(...)
             touchClick(33, 493)
         end
     end
+    if isColor(1099,35,0x7c7c7c,95) and isColor(1100,41,0xfafafa,95) then
+        tiaoShi("关广告--X,灰白色")
+        touchClick(1099,35,0x7c7c7c    )
+    end
     if isColor(17,25,0xffffff,95) and isColor(6,25,0xff9c00,95) and isColor(792,121,0xe0b8ab,95) and isColor(836,102,0xfab1cb,95) then
         tiaoShi("奖励积分币")
         x, y = findColorInRegionFuzzy(0xd78b01, 95, 71, 87, 1121, 587);
