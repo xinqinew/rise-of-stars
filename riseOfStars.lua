@@ -1,4 +1,4 @@
-toast("在线版本0.0.7")
+toast("在线版本0.0.8")
 -----------------------私有部分--------------------------
 -- 变量及常量
 function bianLiang()
@@ -1500,8 +1500,10 @@ function chuHang()
                 touchClick(353, 432, 0x075ea8) -- 搜索
                 mSleep(1000)
                 if isColor(303,431,0x116eb9,95) == false then
-                    isKillPirate = false
                     break
+                end
+                if i == 10 then
+                    isKillPirate = false
                 end
             end
            
@@ -1512,8 +1514,10 @@ function chuHang()
                 touchClick(925, 431, 0x075ea8) -- 搜索
                 mSleep(1000)
                 if isColor(876,430,0x116eb9,95) == false then
-                    isLiZi = true
                     break
+                end
+                if i == 10 then
+                    isLiZi = true
                 end
             end
             
