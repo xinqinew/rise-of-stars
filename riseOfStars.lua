@@ -88,9 +88,29 @@ function onecePlist()
         numChuanShu = 0
         writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
     end
+
+    -- 交易行
+    isTrade = loadPlist(luaMuLu .. xiangMu .. ".plist", "交易行")
+    if isTrade == nil then
+        isTrade = false
+        writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
+    end
 end
 -- oneceOther
 function oneceOther()
+    haoLV = 0
+    local tmpXiaoHao = string.find(zongHeXuanXiang2, "6") -- 小号
+    local tmpChengPinHao = string.find(zongHeXuanXiang2, "5") -- 成品号
+    local tmpDaHao = string.find(zongHeXuanXiang2, "4") -- 大号
+    if tmpXiaoHao ~= nil then
+        haoLV = 1
+    end
+    if tmpChengPinHao ~= nil then
+        haoLV = 2
+    end
+    if tmpDaHao ~= nil then
+        haoLV = 3
+    end
 
 end
 
@@ -102,6 +122,7 @@ function zongHe(...)
             touchClick(33, 493)
         end
     end
+
     if isColor(474, 421, 0x1d6fbb, 95) and isColor(391, 306, 0x556c82, 95) and isColor(569, 304, 0x556c82, 95) then
         tiaoShi("移动坐标")
         touchClick(508, 464, 0x0c0c0e)
@@ -924,7 +945,11 @@ function zongHe(...)
         end
         if isColor(57, 216, 0x69ff1d, 95) and isColor(53, 190, 0xffffff, 95) then
             tiaoShi("升级界面")
-
+            if haoLV >= 2 and isTrade == false and isColor(42, 331, 0x831c89, 95) then
+                tiaoShi("点击交易所")
+                touchClick(42, 331)
+                return
+            end
             if bMultiColor == false then
                 -- if (m_pOp->isColor(365, 504, 0x1c6dbb, 0.95))//可升级
                 if isColor(91, 625, 0xf27d12, 95) then
@@ -962,9 +987,6 @@ function zongHe(...)
         elseif isColor(61, 346, 0x0aacc4, 95) and isColor(60, 296, 0xffffff, 95) then
             tiaoShi("生产界面")
             if bMultiColor == false then
-                local tmpXiaoHao = string.find(zongHeXuanXiang2, "6") -- 小号
-                local tmpDaHao = string.find(zongHeXuanXiang2, "4") -- 大号
-                local tmpChengPinHao = string.find(zongHeXuanXiang2, "5") -- 成品号
                 if isColor(1090, 527, 0x1d6eba, 95) then -- 可生产
                     if isColor(851, 357, 0x15273f, 95) and isColor(851, 411, 0x15273f, 95) and
                         isColor(1087, 357, 0x15273f, 95) and isColor(1087, 411, 0x15273f, 95) then
@@ -975,17 +997,17 @@ function zongHe(...)
                     else
                         -- 缺材料
                         tiaoShi("缺少材料")
-                        if tmpDaHao ~= nil then -- 大号
+                        if haoLV == 3 then -- 大号
                             isShengChan = false
                             timeShengChan = nowTime
                             getOut()
-                        elseif tmpXiaoHao ~= nil then -- 小号
+                        elseif haoLV == 1 then -- 小号
                             touchClick(1090, 527)
                         end
                     end
                 elseif isColor(913, 532, 0x15a567, 95) then
                     tiaoShi("可加速")
-                    if tmpXiaoHao ~= nil then -- 小号加速
+                    if haoLV == 1 then -- 小号加速
                         tiaoShi("小号加速")
                         touchClick(913, 532)
                     elseif isJiaSuProduce == true then -- 临时加速
@@ -1003,11 +1025,11 @@ function zongHe(...)
 
                 elseif isColor(647, 548, 0xf27d12, 95) then
                     tiaoShi("升级中")
-                    if tmpDaHao ~= nil then -- 大号
+                    if haoLV == 3 then -- 大号
                         isShengChan = false
                         timeShengChan = nowTime
                         getOut()
-                    elseif tmpChengPinHao ~= nil then -- 成品号
+                    elseif haoLV == 2 then -- 成品号
                         isAutoNext = false
                         touchClick(47, 230, 0x7b4c2e) -- 升级
                     end
@@ -1065,10 +1087,38 @@ function zongHe(...)
             else
                 touchClick(20, 20)
             end
+        elseif isColor(42, 331, 0x831c89, 95) and isColor(48, 296, 0xffffff, 95) then
+            tiaoShi("交易界面")
+            for i = 0, 1, 1 do
+                for j = 0, 3, 1 do
+                    if isColor(515 + j * 167, 342 + i * 238, 0x051788, 95) or
+                        isColor(504 + j * 167, 353 + i * 238, 0x33323b, 95) then
+                        touchClick(515 + j * 167, 342 + i * 238)
+                        return
+                    end
+                end
+            end
+            touchClick(20, 20)
         else
             touchClick(20, 20)
 
         end
+    end
+    if isColor(476, 459, 0xd68b00, 95) and isColor(496, 470, 0x279fd5, 95) and isColor(469, 447, 0x8f4d14, 95) then
+        tiaoShi("购买道具--矿物")
+        touchClick(496, 470, 0x279fd5)
+    end
+    if isColor(476, 459, 0xd68b00, 95) and isColor(494, 474, 0x9a95a3, 95) and isColor(469, 447, 0x8f4d14, 95) then
+        tiaoShi("购买道具--金属")
+        touchClick(496, 470, 0x279fd5)
+    end
+    if isColor(476, 459, 0xd68b00, 95) and isColor(499, 476, 0x8644ed, 95) and isColor(469, 447, 0x8f4d14, 95) then
+        tiaoShi("购买道具--粒子")
+        touchClick(513, 552, 0x0c0c0e)
+    end
+    if isColor(476, 459, 0xd68b00, 95) and isColor(494, 464, 0xf8eea7) and isColor(469, 447, 0x8f4d14, 95) then
+        tiaoShi("购买道具--金币")
+        touchClick(513, 552, 0x0c0c0e)
     end
     if isColor(217, 437, 0x67e5f5, 95) and isColor(399, 444, 0x837e8b, 95) and isColor(597, 444, 0xb1d272, 95) then
         tiaoShi("充电--第二步")
@@ -1339,6 +1389,9 @@ function checkRed()
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
         return true
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isTrade == true then
+        tiaoShi("准备交易行")
+        touchClick(320, 468, 0x6e1313)
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
         tiaoShi("基地现况--红点")
         touchClick(209, 111, 0x61d5e9)
@@ -1459,8 +1512,7 @@ function task()
     if inside() == true then
         mSleep(1000)
         if checkRed() == false then
-            local tmpXuanXiang = string.find(zongHeXuanXiang2, "6") -- 小号
-            if tmpXuanXiang ~= nil then
+            if haoLV == 1 then
                 -- 主任务
                 tiaoShi("主任务")
                 touchClick(161, 268)
@@ -1470,14 +1522,11 @@ function task()
                 end
                 return
             end
-            tmpXuanXiang = string.find(zongHeXuanXiang2, "4") -- 大号
-            if tmpXuanXiang ~= nil then
+            if haoLV == 3 then
                 gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
                 return
             end
-            tmpXuanXiang = string.find(zongHeXuanXiang2, "5") -- 成品号
-            if tmpXuanXiang ~= nil then
-
+            if haoLV == 2 then
                 tiaoShi("主任务")
                 touchClick(161, 268)
                 if isColor(962, 576, 0xe59b48, 95) then
