@@ -1371,7 +1371,7 @@ function checkXXX(...)
 end
 -- 任务
 function task()
-    if inside() then
+    if inside() == true then
         if checkRed() == false then
             local tmpXuanXiang = string.find(zongHeXuanXiang2, "6") -- 小号
             if tmpXuanXiang ~= nil then
@@ -1699,7 +1699,7 @@ function findRed()
 end
 -- 挖矿
 function waKuang()
-    if inside() then
+    if inside() == true then
         if checkRed() == false then
             if isColor(212, 107, 0x5fe4e7, 95) then -- 有基地现况图标
                 touchClick(213, 107)
