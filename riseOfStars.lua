@@ -1440,6 +1440,7 @@ end
 -- 任务
 function task()
     if inside() == true then
+        mSleep(1000)
         if checkRed() == false then
             local tmpXuanXiang = string.find(zongHeXuanXiang2, "6") -- 小号
             if tmpXuanXiang ~= nil then
@@ -1768,6 +1769,7 @@ end
 -- 挖矿
 function waKuang()
     if inside() == true then
+        mSleep(1000)
         if checkRed() == false then
             if isColor(212, 107, 0x5fe4e7, 95) then -- 有基地现况图标
                 touchClick(213, 107)
