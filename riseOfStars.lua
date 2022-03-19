@@ -726,7 +726,7 @@ function zongHe(...)
     end
     if isColor(312, 76, 0xf5a802, 95) and isColor(308, 98, 0x0b4992, 95) and isColor(457, 438, 0xf27c00, 95) and
         isColor(511, 504, 0x1c6db9, 95) then
-        tiaoShi("道具信息--使用")
+        tiaoShi("道具信息--复数--使用")
         if isColor(571, 191, 0x9fa0a0, 95) then -- 灰色全用
             touchClick(511, 504)
         else -- 其它用一半
@@ -734,6 +734,10 @@ function zongHe(...)
             touchClick(511, 504)
             mSleep(2000)
         end
+    end
+    if isColor(312,116,0xf5a801,95) and isColor(307,127,0xe0e0e0,95) and isColor(486,436,0x114c8a,95) and isColor(490,455,0x1c6ebb,95) then
+        tiaoShi("道具信息--单数--使用")
+        touchClick(490,455,0x1c6ebb    )
     end
     if isColor(89,59,0xf5a801,95) and isColor(192,250,0x325270,95) and isColor(300,407,0x8f4d14,95) then
         tiaoShi("补充资源")
@@ -1117,12 +1121,12 @@ function zongHe(...)
     if isColor(476, 459, 0xd68b00, 95) and isColor(496, 470, 0x279fd5, 95) and isColor(469, 447, 0x8f4d14, 95) then
         tiaoShi("购买道具--矿物")
         touchClick(496, 470, 0x279fd5)
-        mSleep(5000)
+        mSleep(4000)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(494, 474, 0x9a95a3, 95) and isColor(469, 447, 0x8f4d14, 95) then
         tiaoShi("购买道具--金属")
         touchClick(496, 470, 0x279fd5)
-        mSleep(5000)
+        mSleep(4000)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(499, 476, 0x8644ed, 95) and isColor(469, 447, 0x8f4d14, 95) then
         tiaoShi("购买道具--粒子")
