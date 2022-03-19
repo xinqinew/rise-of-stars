@@ -1458,9 +1458,8 @@ function checkRed()
             touchClick(1068, 182)
         elseif isColor(730, 247, 0x9d1111, 95) then -- 2-1红点
             touchClick(737, 254)
-        elseif isColor(866, 254, 0x9d1111, 95) then -- 2-2红点--推测 
+        elseif isColor(858,247,0x9d1111,95) then-- 2-2红点
             touchClick(816, 321, 0x1e2635)
-
         elseif isColor(993, 254, 0x9d1111, 95) then -- 2-3红点
             touchClick(946, 299, 0x182738)
 
