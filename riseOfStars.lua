@@ -806,6 +806,7 @@ function zongHe(...)
             touchClick(205,563)
         else
             touchClick(20, 20)
+            isChuanShu = false
             numChuanShu = numChuanShu + 1
             writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
         end
@@ -1411,6 +1412,7 @@ function chongZhiJiDiXianKuang()
     numSearch = 0
     isLiZi = false -- 粒子
     isGuangGao = true
+    isChuanShu = true
 
 end
 -- 主线
