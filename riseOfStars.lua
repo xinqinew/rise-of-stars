@@ -1493,16 +1493,30 @@ function chuHang()
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         tiaoShi("搜索界面--出航")
         if isKillPirate == true then
-            tiaoShi("有体力,杀海盗")
-            touchClick(358, 537, 0xaecffa) -- 精英
-            mSleep(1000)
-            touchClick(353, 432, 0x075ea8) -- 搜索
-            mSleep(1000)
+            for i = 1, 10, 1 do
+                tiaoShi("有体力,杀海盗")
+                touchClick(358, 537, 0xaecffa) -- 精英
+                mSleep(1000)
+                touchClick(353, 432, 0x075ea8) -- 搜索
+                mSleep(1000)
+                if isColor(303,431,0x116eb9,95) == false then
+                    isKillPirate = false
+                    break
+                end
+            end
+           
         elseif isLiZi == false then
-            touchClick(925, 561, 0x1f101d) -- 粒子
-            mSleep(1000)
-            touchClick(925, 431, 0x075ea8) -- 搜索
-            mSleep(1000)
+            for i = 1, 10, 1 do
+                touchClick(925, 561, 0x1f101d) -- 粒子
+                mSleep(1000)
+                touchClick(925, 431, 0x075ea8) -- 搜索
+                mSleep(1000)
+                if isColor(876,430,0x116eb9,95) == false then
+                    isLiZi = true
+                    break
+                end
+            end
+            
         else
             if numChuHang == 1 then
                 touchClick(643, 548) -- 金属
