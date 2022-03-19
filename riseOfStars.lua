@@ -1,4 +1,4 @@
-toast("在线版本0.1.4")
+toast("在线版本0.1.5")
 -----------------------私有部分--------------------------
 
 function main()
@@ -1305,9 +1305,11 @@ function checkRed()
     if isColor(773, 249, 0x368a83, 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
+        return true
     elseif isColor(773, 249, 0x368a83, 95) and isChuanShu == true and numChuanShu <= 4 then
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
+        return true
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
         tiaoShi("基地现况--红点")
         touchClick(209, 111, 0x61d5e9)
