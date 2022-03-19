@@ -1,4 +1,4 @@
-toast("在线版本0.1.5")
+toast("在线版本0.1.6")
 -----------------------私有部分--------------------------
 
 function main()
@@ -1302,6 +1302,8 @@ function checkRed()
     if tmpXuanXiang ~= nil then
         tmpRed = true
     end
+    tiaoShi("numGuangGao  =  "..numGuangGao )
+    tiaoShi("numChuanShu  =  "..numChuanShu )
     if isColor(773, 249, 0x368a83, 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
