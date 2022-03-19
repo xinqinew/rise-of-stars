@@ -1097,6 +1097,7 @@ function zongHe(...)
                     if isColor(515 + j * 167, 342 + i * 238, 0x051788, 95) or
                         isColor(504 + j * 167, 353 + i * 238, 0x33323b, 95) then
                         touchClick(515 + j * 167, 342 + i * 238)
+                        mSleep(5000)
                         return
                     end
                 end
