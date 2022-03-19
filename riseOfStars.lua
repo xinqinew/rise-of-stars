@@ -1,4 +1,4 @@
-toast("在线版本0.0.9")
+toast("在线版本0.1.0")
 -----------------------私有部分--------------------------
 -- 变量及常量
 function bianLiang()
@@ -1431,6 +1431,7 @@ function zhuXian()
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isColor(902, 457, 0xffa100, 95) then -- 4队出完
+            tiaoShi("4队出完")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         else
@@ -1634,6 +1635,7 @@ function chuHang()
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         elseif isColor(902, 457, 0xffa100, 95) then -- 4队出完
+            tiaoShi("4队出完")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
         else
@@ -1675,7 +1677,9 @@ function waKuang()
         if muBiao == mb_ChuHang then
 
         else
+            tiaoShi("目标挖矿,回基地")
             touchClick(1074, 582) -- 回基地
+            chongZhiJiDiXianKuang()
         end
     end
     if isColor(69, 23, 0xff6600, 95) and isColor(92, 37, 0xb4c0ce, 95) and isColor(173, 44, 0x9eabbb, 95) then
