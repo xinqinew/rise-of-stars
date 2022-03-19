@@ -1306,23 +1306,11 @@ function checkRed()
     if tmpXuanXiang ~= nil then
         tmpRed = true
     end
-    tiaoShi("numGuangGao  =  " .. numGuangGao)
-    tiaoShi("numChuanShu  =  " .. numChuanShu)
-    if isGuangGao == true then
-        tiaoShi("isGuangGao  = true")
-    else
-        tiaoShi("isGuangGao  = false")
-    end
-    if isChuanShu == true then
-        tiaoShi("isChuanShu  = true")
-    else
-        tiaoShi("isChuanShu  = false")
-    end
-    if isColor(773, 249, 0x368a83, 95) and isGuangGao == true and numGuangGao <= 9 then
+    if isColor(796,191,0x1ccbc8    , 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
         return true
-    elseif isColor(773, 249, 0x368a83, 95) and isChuanShu == true and numChuanShu <= 4 then
+    elseif isColor(796,191,0x1ccbc8    , 95) and isChuanShu == true and numChuanShu <= 4 then
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
         return true
