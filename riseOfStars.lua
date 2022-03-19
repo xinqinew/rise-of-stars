@@ -1310,7 +1310,19 @@ function checkRed()
     if tmpXuanXiang ~= nil then
         tmpRed = true
     end
-    if isColor(796,191,0x1ccbc8    , 95) and isGuangGao == true and numGuangGao <= 9 then
+    if isColor(385,129,0x2ed4fc,95) then
+        tiaoShi("收资源1")
+        touchClick(385,129)
+        return true
+    elseif isColor(448,78,0x33d6ff,95) then
+        tiaoShi("收资源2")
+        touchClick(448,78)
+        return true
+    elseif isColor(20,297,0x24c8e9,95) then
+        tiaoShi("收资源3")
+        touchClick(20,297)
+        return true
+    elseif isColor(796,191,0x1ccbc8    , 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
         return true
