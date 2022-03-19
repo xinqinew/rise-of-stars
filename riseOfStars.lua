@@ -1097,7 +1097,6 @@ function zongHe(...)
                     if isColor(515 + j * 167, 342 + i * 238, 0x051788, 95) or
                         isColor(504 + j * 167, 353 + i * 238, 0x33323b, 95) then
                         touchClick(515 + j * 167, 342 + i * 238)
-                        mSleep(5000)
                         return
                     end
                 end
@@ -1118,10 +1117,12 @@ function zongHe(...)
     if isColor(476, 459, 0xd68b00, 95) and isColor(496, 470, 0x279fd5, 95) and isColor(469, 447, 0x8f4d14, 95) then
         tiaoShi("购买道具--矿物")
         touchClick(496, 470, 0x279fd5)
+        mSleep(5000)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(494, 474, 0x9a95a3, 95) and isColor(469, 447, 0x8f4d14, 95) then
         tiaoShi("购买道具--金属")
         touchClick(496, 470, 0x279fd5)
+        mSleep(5000)
     end
     if isColor(476, 459, 0xd68b00, 95) and isColor(499, 476, 0x8644ed, 95) and isColor(469, 447, 0x8f4d14, 95) then
         tiaoShi("购买道具--粒子")
