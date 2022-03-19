@@ -56,8 +56,7 @@ function bianLiang()
     isJiaSuProduce = false -- 加速生产
     isAutoNext = true -- 主动下一个建筑
     isJiDiXianKuangIntoProduce = false -- 从基地现况进入生产界面
-    isGuangGao = false -- 广告
-    isChuanShu = false -- 传输
+    isJustBack = false -- 刚回基地
 
     numDiaoXian = 0
     numChuHang = 1 -- 出航编号
@@ -138,7 +137,7 @@ function zongHe(...)
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(792, 121, 0xe0b8ab, 95) and
         isColor(836, 102, 0xfab1cb, 95) then
         tiaoShi("奖励积分币")
-        isGuangGao = false
+        isJustBack = false
         x, y = findColorInRegionFuzzy(0xd78b01, 95, 71, 87, 1121, 587);
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某点符合条件
             touchClick(x, y)
@@ -890,7 +889,7 @@ function zongHe(...)
             touchClick(205, 563)
         else
             touchClick(20, 20)
-            isChuanShu = false
+            isJustBack = false
             numChuanShu = numChuanShu + 1
             writePlist(luaMuLu .. xiangMu .. ".plist", "传输次数", numChuanShu)
         end
@@ -1392,18 +1391,18 @@ function checkRed()
         tiaoShi("收资源5")
         touchClick(20, 297)
         return true
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isTrade == true then
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and isTrade == false and haoLV >= 2 then
         tiaoShi("准备交易行")
         touchClick(320, 468, 0x6e1313)
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isGuangGao == true and numGuangGao <= 9 then
+        return true
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numGuangGao <= 9 and haoLV >= 2 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
         return true
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isChuanShu == true and numChuanShu <= 4 then
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numChuanShu <= 4 and haoLV >= 2 then
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
         return true
-
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
         tiaoShi("基地现况--红点")
         touchClick(209, 111, 0x61d5e9)
@@ -1559,8 +1558,7 @@ function chongZhiJiDiXianKuang()
 
     numSearch = 0
     isLiZi = false -- 粒子
-    isGuangGao = true
-    isChuanShu = true
+    isJustBack = true
 
 end
 -- 主线
