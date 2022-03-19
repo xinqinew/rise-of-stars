@@ -1388,6 +1388,9 @@ function checkRed()
         tiaoShi("收资源5")
         touchClick(20, 297)
         return true
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isTrade == true then
+        tiaoShi("准备交易行")
+        touchClick(320, 468, 0x6e1313)
     elseif isColor(796, 191, 0x1ccbc8, 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
@@ -1396,9 +1399,7 @@ function checkRed()
         tiaoShi("点传输")
         touchClick(623, 497, 0xffd4a1)
         return true
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isTrade == true then
-        tiaoShi("准备交易行")
-        touchClick(320, 468, 0x6e1313)
+    
     elseif isColor(233, 100, 0x9e1111, 95) and isColor(210, 108, 0x6de4e9, 95) and nowTime - timeJiDi >= 10 * 60 then
         tiaoShi("基地现况--红点")
         touchClick(209, 111, 0x61d5e9)
@@ -1687,10 +1688,10 @@ function chuHang()
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         tiaoShi("搜索界面--出航")
         if isKillPirate == true then
+            tiaoShi("有体力,杀海盗")
+            touchClick(358, 537, 0xaecffa) -- 精英
+            mSleep(1000)
             for i = 1, 10, 1 do
-                tiaoShi("有体力,杀海盗")
-                touchClick(358, 537, 0xaecffa) -- 精英
-                mSleep(1000)
                 touchClick(353, 432, 0x075ea8) -- 搜索
                 mSleep(1000)
                 if isColor(303, 431, 0x116eb9, 95) == false then
@@ -1702,9 +1703,9 @@ function chuHang()
             end
 
         elseif isLiZi == false then
+            touchClick(925, 561, 0x1f101d) -- 粒子
+            mSleep(1000)
             for i = 1, 10, 1 do
-                touchClick(925, 561, 0x1f101d) -- 粒子
-                mSleep(1000)
                 touchClick(925, 431, 0x075ea8) -- 搜索
                 mSleep(1000)
                 if isColor(876, 430, 0x116eb9, 95) == false then
