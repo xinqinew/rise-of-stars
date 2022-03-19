@@ -1304,6 +1304,9 @@ function checkRed()
     end
     tiaoShi("numGuangGao  =  "..numGuangGao )
     tiaoShi("numChuanShu  =  "..numChuanShu )
+    tiaoShi("isGuangGao  = "..isGuangGao)
+    tiaoShi("isChuanShu  = "..isChuanShu)
+
     if isColor(773, 249, 0x368a83, 95) and isGuangGao == true and numGuangGao <= 9 then
         tiaoShi("看广告")
         touchClick(809, 221, 0x7aa0d8)
