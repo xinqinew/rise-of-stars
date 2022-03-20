@@ -2044,7 +2044,7 @@ function searchLiZi()
         -- 1: 0,0,0,0 范围坐标，请自行修改
         -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
         -- 3: 90 匹配精度 【0-100】
-        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 93)
+        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 94)
         -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
         if x ~= -1 then
             touchClick(x + 48, y - 23)
