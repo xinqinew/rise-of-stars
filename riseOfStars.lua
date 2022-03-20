@@ -121,6 +121,21 @@ function oneceOther()
                  "3000e001c007ffffffffffdfff@1$1$67$15$7", "7000e0038007ffffffffffdfff@1$1$68$15$7",
                  "70007000e000fffefffffffffffe$1$71$16$7"}
     index_lizi1 = addTSOcrDictEx(tab_lizi1)
+    tab_lizi2 =
+        {"ffffffffffffffffffffffffffffff3fffc7fff0fffe000fc001f8003fffffffffffffffffffffffffffffffff@1$1$313$19$19",
+         "ffffffffffffffffffffffffffffffffffff87fff8ffff0007f0007f0007fffffffffffffffffffffffffffffffffff$1$334$20$19",
+         "ffffffffffffffffffffffffffffffffffff8ffff0ffff0ffff0007f0007f0007ffffffffffffffffffffffffffffffffffffffff$1$370$20$21",
+         "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
+         "ffffffffffffffffffffffffffffffffffffff8ffff87fffc7fffe000ff0007f8003ffffffffffffffffffffffffffffffffffffffffff@1$1$392$21$21",
+         "fffffffffffffffffffffffffffffffffffffffffff87fffc7fffc000fe0007f0003f8001fffffffffffffffffffffffffffffffffffff@1$1$378$21$21",
+         "fffffffffffffffffffffffffffffffffffffffffffff87fffe1ffff0001fc0007f0001fc0007fffffffffffffffffffffffffffffffffffffffffffffffff@11$1$438$22$23",
+         "fffffffffffffffffffffffffffffffffffffffffffffffc3ffff0ffffe1ffffc0007f8000ff0001fe0003ffffffffffffffffffffffffffffffffffffffffffffffffffff$1$480$23$24",
+         "fffffffffffffffffffffffffffffffffffffffffffffffffc3ffffc3ffff87ffff8000ff8000ff8000ff8000fffffffffffffffffffffffffffffffffffffffffffffffffffffff$1$504$24$24",
+         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80007fc0003fe0001ff0000fffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$549$25$25",
+         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0fffff0fffff87ffff80003fc0001fe0000ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffff@1$1$545$25$25",
+         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff87ffffc1fffff0fffffc0001ff00007fc0001ff00007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff@11$1$569$26$25"}
+    index_lizi2 = addTSOcrDictEx(tab_lizi2)
+    -- 请自行更改参数
 
     haoLV = 0
     local tmpXiaoHao = string.find(zongHeXuanXiang2, "6") -- 小号
@@ -2026,7 +2041,11 @@ function searchLiZi()
         -- 1: 0,0,0,0 范围坐标，请自行修改
         -- 2: "775D13 , 4D3D0F" 偏色,多组或单组.请在偏色列表中选择
         -- 3: 90 匹配精度 【0-100】
-        x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
+        -- 1: 0,0,0,0 范围坐标，请自行修改
+        -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
+        -- 3: 90 匹配精度 【0-100】
+        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 90)
+        -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
         if x ~= -1 then
             touchClick(x + 48, y - 23)
             mSleep(1000)
