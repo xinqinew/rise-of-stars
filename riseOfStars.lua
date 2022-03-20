@@ -1551,6 +1551,9 @@ function doTarget()
     elseif muBiao == mb_ChuHang then
         chuHang()
     elseif muBiao1 == mb_EveryDay then
+        tiaoShi("标记1")
+        mSleep(1000)
+
         everyDayTask()
     end
 
@@ -1561,8 +1564,14 @@ function everyDayTask()
         gaiMuBiao(2, mb_5DaoJu, mm_5DaoJu)
     end
     if muBiao == mb_5DaoJu then
+        tiaoShi("标记2")
+        mSleep(1000)
+        
         everyDay5DaoJu()
     elseif muBiao == mb_CaiJi then
+        tiaoShi("标记3")
+        mSleep(1000)
+        
         task_CaiJi()
     end
     if outside() then
@@ -1573,6 +1582,9 @@ end
 -- 采集任务
 function task_CaiJi()
     if inside() then
+        tiaoShi("标记4")
+        mSleep(1000)
+        
         tiaoShi("采集任务")
         touchClick(1015, 71, 0x0d1a2c) -- 基地加成
     end
