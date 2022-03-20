@@ -2012,7 +2012,7 @@ end
 function searchLiZi()
     for i = 1, numSearchLiZiSecond, 1 do
         -- 返回值为 x : 0 y : 0 n = 0，x : 0 y : 0 为找到图片左上角的坐标，n = 0 表示找到第 1 个图片
-        x, y, n = findImageInRegionFuzzy("3.bmp,4.bmp,5.bmp", 90, 123, 145, 893, 474, 0, 3);
+        x, y, n = findImageInRegionFuzzy("3.bmp,4.bmp,5.bmp", 80, 123, 145, 893, 474, 0, 3);
         if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某图片符合条件
             touchClick(x + 48, y - 23)
             mSleep(1000)
