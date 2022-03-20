@@ -1847,6 +1847,7 @@ function zhuXian()
                 touchClick(504, 432, 0x1c6eba)
             end
             isLiZi = true -- 粒子
+            timeLiZi = nowTime
         else -- 普通采集
             touchClick(842, 594, 0xd78b02) -- 出航
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
@@ -1878,6 +1879,7 @@ function chuHang()
                 touchClick(504, 432, 0x1c6eba)
             end
             isLiZi = true -- 粒子
+            timeLiZi = nowTime
         else -- 普通采集
             touchClick(842, 594, 0xd78b02) -- 出航
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
@@ -1910,7 +1912,6 @@ function chuHang()
             end
 
         elseif isLiZi == false and nowTime - timeLiZi >= 40 * 60 then
-            timeLiZi = nowTime
             touchClick(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 1, 10, 1 do
