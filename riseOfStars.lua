@@ -151,8 +151,7 @@ function zongHe(...)
         tiaoShi("加成信息--采集道具--使用")
         if muBiao == mb_CaiJi then
             touchClick(833, 184, 0x116eb9)
-            gaiMuBiao(2, mb_wu, mm_Wu)
-            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+            gaiMuBiao(2, mb_Reward, mm_Reward)
         else
             touchClick(511, 585, 0x0c0c0e)
         end
@@ -526,6 +525,9 @@ function zongHe(...)
         elseif isColor(410, 490, 0x9d1111, 95) then
             tiaoShi("防卫工程--红点")
             touchClick(331, 537, 0x306090)
+        elseif isColor(808,314,0x9d1111,95) then
+            tiaoShi("联盟协助--红点")
+            touchClick(758,362,0x0c2037        )
         elseif isColor(558, 321, 0x9e1111, 95) then
             tiaoShi("联盟研究--红点")
             touchClick(510, 357, 0x0c2037)
@@ -1640,9 +1642,7 @@ function everyDayTask()
         chongZhiJiDiXianKuang()
     end
 end
-function task_AddChanLiang()
 
-end
 -- 收获
 function task_Reward()
     if inside() then
