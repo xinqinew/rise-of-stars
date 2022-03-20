@@ -151,7 +151,8 @@ function zongHe(...)
         tiaoShi("加成信息--采集道具--使用")
         if muBiao == mb_CaiJi then
             touchClick(833, 184, 0x116eb9)
-            gaiMuBiao(2, mb_AddChanLiang, mm_AddChanLiang)
+            gaiMuBiao(2, mb_wu, mm_Wu)
+            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         else
             touchClick(511, 585, 0x0c0c0e)
         end
@@ -1173,15 +1174,12 @@ function zongHe(...)
             end
         elseif isColor(30, 336, 0x01f520, 95) and isColor(41, 296, 0xffffff, 95) then
             tiaoShi("金属资源地界面--增产")
-            if muBiao == mb_AddChanLiang then
+            if numAddChangLiang <= 2 then
                 touchClick(1004, 385, 0x1c6dba)
                 touchClick(20, 20)
                 numAddChangLiang = numAddChangLiang + 1
                 writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChangLiang)
-                if numAddChangLiang >= 3 then
-                    gaiMuBiao(2, mb_wu, mm_Wu)
-                    gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
-                end
+
             else
                 touchClick(20, 20)
             end
@@ -1483,15 +1481,15 @@ function checkRed()
         tiaoShi("收资源5")
         touchClick(20, 297)
         return true
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numGuangGao == 0 and haoLV >= 2 then
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numAddChangLiang == 0 and haoLV >= 2 then
         tiaoShi("准备增产1")
         touchClick(449, 105, 0x28171d)
         return true
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numGuangGao == 1 and haoLV >= 2 then
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numAddChangLiang == 1 and haoLV >= 2 then
         tiaoShi("准备增产2")
         touchClick(387, 153, 0x203d5a)
         return true
-    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numGuangGao == 2 and haoLV >= 2 then
+    elseif isColor(796, 191, 0x1ccbc8, 95) and isJustBack == true and numAddChangLiang == 2 and haoLV >= 2 then
         tiaoShi("准备增产3")
         touchClick(37, 321, 0x257700)
         return true
@@ -1605,8 +1603,7 @@ function everyDayTask()
         everyDay5DaoJu()
     elseif muBiao == mb_CaiJi then
         task_CaiJi()
-    elseif muBiao == mb_AddChanLiang then
-        task_AddChanLiang()
+
     end
     if outside() then
         tiaoShi("回基地--日常")
