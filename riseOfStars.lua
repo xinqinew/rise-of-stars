@@ -1450,7 +1450,7 @@ function checkRed()
         tiaoShi("收资源4")
         touchClick(175, 238)
         return true
-    elseif isColor(20, 297, 0x24c8e9, 95) then
+    elseif isColor(20, 297, 0x24c8e9, 95) or isColor(20,295,0x703a0d,95) then
         tiaoShi("收资源5")
         touchClick(20, 297)
         return true
