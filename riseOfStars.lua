@@ -1179,9 +1179,11 @@ function zongHe(...)
                 touchClick(20, 20)
                 numAddChangLiang = numAddChangLiang + 1
                 writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChangLiang)
+                isJustBack = false
 
             else
                 touchClick(20, 20)
+                isJustBack = false
             end
 
         else
