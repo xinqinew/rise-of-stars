@@ -115,6 +115,13 @@ function onecePlist()
 end
 -- oneceOther
 function oneceOther()
+    tab_lizi1 = {"600c00fffffffff$1$40$12$5", "600e00fffffffff$1$41$12$5", "6003003fffffffff@1$1$43$13$5",
+                 "3001c006003ffffffdffe$1$47$14$6", "6007003fffffffff@1$1$44$13$5", "3001c006003ffffffdfff$1$48$14$6",
+                 "7003800e003ffffffffff$1$51$14$6", "7000e0038007ffefffffff@10$1$52$15$6",
+                 "3000e001c007ffffffffffdfff@1$1$67$15$7", "7000e0038007ffffffffffdfff@1$1$68$15$7",
+                 "70007000e000fffefffffffffffe$1$71$16$7"}
+    index_lizi1 = addTSOcrDictEx(tab_lizi1)
+
     haoLV = 0
     local tmpXiaoHao = string.find(zongHeXuanXiang2, "6") -- 小号
     local tmpChengPinHao = string.find(zongHeXuanXiang2, "5") -- 成品号
@@ -1954,7 +1961,7 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        if isColor(147,80,0x37b8d8    ) then
+        if isColor(147, 80, 0x37b8d8) then
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
@@ -2012,8 +2019,15 @@ end
 function searchLiZi()
     for i = 1, numSearchLiZiSecond, 1 do
         -- 返回值为 x : 0 y : 0 n = 0，x : 0 y : 0 为找到图片左上角的坐标，n = 0 表示找到第 1 个图片
-        x, y, n = findImageInRegionFuzzy("3.bmp,4.bmp,5.bmp", 80, 123, 145, 893, 474, 0, 3);
-        if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某图片符合条件
+        -- x, y, n = findImageInRegionFuzzy("3.bmp,4.bmp,5.bmp", 80, 123, 145, 893, 474, 0, 3);
+        -- if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某图片符合条件
+        -- 内容已复制到剪贴板!
+
+        -- 1: 0,0,0,0 范围坐标，请自行修改
+        -- 2: "775D13 , 4D3D0F" 偏色,多组或单组.请在偏色列表中选择
+        -- 3: 90 匹配精度 【0-100】
+        x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
+        if x ~= -1 then
             touchClick(x + 48, y - 23)
             mSleep(1000)
             if isColor(1106, 574, 0xd88b00, 95) then
@@ -2045,16 +2059,16 @@ function searchLiZi()
             mSleep(1000)
         end
         if i == numSearchLiZiSecond then
-            touchClick(568,569,0x0a0a0f        )--归位
+            touchClick(568, 569, 0x0a0a0f) -- 归位
             mSleep(1000)
             numSearchLiZi = numSearchLiZi + 1
-            if numSearchLiZi==7 and numSearchLiZiSecond == 10 then
+            if numSearchLiZi == 7 and numSearchLiZiSecond == 10 then
                 numSearchLiZiSecond = 20
                 numSearchLiZi = 0
-            elseif numSearchLiZi==7 and numSearchLiZiSecond == 20 then
+            elseif numSearchLiZi == 7 and numSearchLiZiSecond == 20 then
                 numSearchLiZiSecond = 30
                 numSearchLiZi = 0
-            elseif numSearchLiZi==7 and numSearchLiZiSecond == 30 then
+            elseif numSearchLiZi == 7 and numSearchLiZiSecond == 30 then
                 numSearchLiZiSecond = 10
                 numSearchLiZi = 0
                 isLiZi = true
