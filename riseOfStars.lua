@@ -129,7 +129,24 @@ function zongHe(...)
             touchClick(33, 493)
         end
     end
-
+    if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(561, 439, 0xf1fc6a, 95) then
+        tiaoShi("基地加成")
+        if muBiao == mb_CaiJi then
+            touchClick(561, 439)
+        else
+            touchClick(20, 20)
+        end
+    end
+    if isColor(143, 57, 0xe0e0e0, 95) and isColor(500, 164, 0xd4dc39, 95) and isColor(833, 184, 0x116eb9, 95) then
+        tiaoShi("加成信息--采集道具--使用")
+        if muBiao == mb_CaiJi then
+            touchClick(833, 184, 0x116eb9)
+            gaiMuBiao(2, mb_Wu, mm_Wu)
+            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+        else
+            touchClick(511, 585, 0x0c0c0e)
+        end
+    end
     if isColor(474, 421, 0x1d6fbb, 95) and isColor(391, 306, 0x556c82, 95) and isColor(569, 304, 0x556c82, 95) then
         tiaoShi("移动坐标")
         touchClick(508, 464, 0x0c0c0e)
@@ -142,7 +159,7 @@ function zongHe(...)
         tiaoShi("关广告--X,黑色")
         touchClick(1088, 47, 0x202124)
     end
-    if isColor(1088,48,0xffffff,95) and isColor(1088,62,0x3c4043,95) and isColor(1087,36,0x3c4043,95) then
+    if isColor(1088, 48, 0xffffff, 95) and isColor(1088, 62, 0x3c4043, 95) and isColor(1087, 36, 0x3c4043, 95) then
         tiaoShi("关广告--X,白色")
         touchClick(1088, 47, 0x202124)
     end
@@ -303,7 +320,7 @@ function zongHe(...)
                     -- elseif isColor(848, 170, 0x34b200, 95) then -- 右
                     --     touchClick(890, 450, 0xb4cbe4)
                 else
-                    touchClick(825,532,0x116eb9                ) -- 更新
+                    touchClick(825, 532, 0x116eb9) -- 更新
                 end
             else
                 tiaoShi("不可更新")
@@ -744,8 +761,7 @@ function zongHe(...)
             touchClick(458, 438, 0xf27c00) -- 1个 
             touchClick(511, 504)
             if num5DaoJu >= 5 then
-                gaiMuBiao(2, mb_Wu, mm_Wu)
-                gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+                gaiMuBiao(2, mb_CaiJi, mm_CaiJi)
             end
         else
             if isColor(571, 191, 0x9fa0a0, 95) then -- 灰色全用
@@ -763,8 +779,7 @@ function zongHe(...)
         touchClick(490, 455, 0x1c6ebb)
         if muBiao == mb_5DaoJu then
             if num5DaoJu >= 5 then
-                gaiMuBiao(2, mb_Wu, mm_Wu)
-                gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+                gaiMuBiao(2, mb_CaiJi, mm_CaiJi)
             end
         end
     end
@@ -1547,10 +1562,19 @@ function everyDayTask()
     end
     if muBiao == mb_5DaoJu then
         everyDay5DaoJu()
+    elseif muBiao == mb_CaiJi then
+        task_CaiJi()
     end
     if outside() then
         tiaoShi("回基地--日常")
         touchClick(1074, 582) -- 回基地
+    end
+end
+-- 采集任务
+function task_CaiJi()
+    if inside() then
+        tiaoShi("采集任务")
+        touchClick(1015, 71, 0x0d1a2c) -- 基地加成
     end
 end
 -- 每日5道具
@@ -1843,7 +1867,7 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        if isColor(135,82,0x33a9c7    ) then
+        if isColor(135, 82, 0x33a9c7) then
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
