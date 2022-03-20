@@ -2051,7 +2051,9 @@ function searchLiZi()
             mSleep(1000)
             if isColor(1106, 574, 0xd88b00, 95) then
                 tiaoShi("这是海盗,不是粒子")
+                mSleep(2000)
                 touchClick(20, 20)
+                mSleep(1000)
             end
             x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
             if x1 ~= -1 then
