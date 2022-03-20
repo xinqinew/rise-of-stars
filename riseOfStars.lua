@@ -2049,7 +2049,7 @@ function searchLiZi()
         if x ~= -1 then
             touchClick(x + 48, y - 23)
             mSleep(2000)
-            x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
+            x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
             if x1 ~= -1 then
                 touchClick(x1, y1)
             elseif isColor(1106, 574, 0xd88b00, 95) then
