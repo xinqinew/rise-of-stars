@@ -2044,7 +2044,7 @@ function searchLiZi()
         -- 1: 0,0,0,0 范围坐标，请自行修改
         -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
         -- 3: 90 匹配精度 【0-100】
-        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 90)
+        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 95)
         -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
         if x ~= -1 then
             touchClick(x + 48, y - 23)
@@ -2058,6 +2058,8 @@ function searchLiZi()
             x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
             if x1 ~= -1 then
                 touchClick(x1, y1)
+            else
+                touchClick(1127,526,0x050605            )--瞎点一下
             end
         else -- 如果找不到符合条件的图片
             if numSearchLiZi == 0 then -- 上
