@@ -2026,9 +2026,9 @@ function searchLiZi()
             end
         else -- 如果找不到符合条件的图片
             if numSearchLiZi == 0 then -- 上
-                touchMoveXY(504, 25, 511, 603)
+                touchMoveXY(504, 58, 511, 603)
             elseif numSearchLiZi == 1 then -- 下
-                touchMoveXY(511, 603, 504, 25)
+                touchMoveXY(511, 565, 504, 25)
             elseif numSearchLiZi == 2 then -- 左
                 touchMoveXY(17, 297, 874, 282)
             elseif numSearchLiZi == 3 then -- 右
