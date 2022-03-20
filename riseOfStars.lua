@@ -41,7 +41,7 @@ function main()
     doTarget()
     timeChongZhi()
     checkXXX()
-    meiRiChongZhi()
+    everyDayInit()
     resetIDLETimer();
     -- timeJianGe(debug.getinfo(1).currentline)
     -- nowTime2 = os.time();
@@ -58,6 +58,7 @@ function bianLiang()
     isJiDiXianKuangIntoProduce = false -- 从基地现况进入生产界面
     isJustBack = false -- 刚回基地
 
+    num5DaoJu = 0
     numDiaoXian = 0
     numChuHang = 1 -- 出航编号
     numSearch = 0 -- 搜索
@@ -94,6 +95,14 @@ function onecePlist()
         isTrade = false
         writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
     end
+
+    -- 每日5道具
+    num5DaoJu = loadPlist(luaMuLu .. xiangMu .. ".plist", "每日5道具")
+    if num5DaoJu == nil then
+        num5DaoJu = 0
+        writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
+    end
+
 end
 -- oneceOther
 function oneceOther()
@@ -112,7 +121,6 @@ function oneceOther()
     end
 
 end
-
 -- 综合
 function zongHe(...)
     if inside() then
@@ -252,6 +260,7 @@ function zongHe(...)
         tiaoShi("联盟任务")
         if isColor(218, 105, 0x9d1111, 95) and isColor(113, 143, 0x956b1a, 95) then
             tiaoShi("任务--红点--已选中")
+            mSleep(100)
             if isColor(842, 524, 0x116eb9, 95) then
                 tiaoShi("可更新")
                 -- 红 0xb61d2c
@@ -727,19 +736,35 @@ function zongHe(...)
     if isColor(312, 76, 0xf5a802, 95) and isColor(308, 98, 0x0b4992, 95) and isColor(457, 438, 0xf27c00, 95) and
         isColor(511, 504, 0x1c6db9, 95) then
         tiaoShi("道具信息--复数--使用")
-        if isColor(571, 191, 0x9fa0a0, 95) then -- 灰色全用
+        if muBiao == mb_5DaoJu then
+            touchClick(458, 438, 0xf27c00) -- 1个 
             touchClick(511, 504)
-        else -- 其它用一半
-            touchClick(570, 435)
-            touchClick(511, 504)
-            mSleep(2000)
+            if num5DaoJu >= 5 then
+                gaiMuBiao(2, mb_Wu, mm_Wu)
+                gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+            end
+        else
+            if isColor(571, 191, 0x9fa0a0, 95) then -- 灰色全用
+                touchClick(511, 504)
+            else -- 其它用一半
+                touchClick(570, 435)
+                touchClick(511, 504)
+                mSleep(2000)
+            end
         end
     end
-    if isColor(312,116,0xf5a801,95) and isColor(307,127,0xe0e0e0,95) and isColor(486,436,0x114c8a,95) and isColor(490,455,0x1c6ebb,95) then
+    if isColor(312, 116, 0xf5a801, 95) and isColor(307, 127, 0xe0e0e0, 95) and isColor(486, 436, 0x114c8a, 95) and
+        isColor(490, 455, 0x1c6ebb, 95) then
         tiaoShi("道具信息--单数--使用")
-        touchClick(490,455,0x1c6ebb    )
+        touchClick(490, 455, 0x1c6ebb)
+        if muBiao == mb_5DaoJu then
+            if num5DaoJu >= 5 then
+                gaiMuBiao(2, mb_Wu, mm_Wu)
+                gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+            end
+        else
     end
-    if isColor(89,59,0xf5a801,95) and isColor(192,250,0x325270,95) and isColor(300,407,0x8f4d14,95) then
+    if isColor(89, 59, 0xf5a801, 95) and isColor(192, 250, 0x325270, 95) and isColor(300, 407, 0x8f4d14, 95) then
         tiaoShi("补充资源")
         if isColor(1028, 113, 0xffffff, 95) then
             tiaoShi("资源充足")
@@ -1194,25 +1219,38 @@ function zongHe(...)
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(101, 75, 0xffb500, 95) then
         tiaoShi("背包界面")
-        if isColor(137, 105, 0x9e1111, 95) then -- 资源
-            touchClick(83, 129, 0x5c6571)
+        if muBiao == mb_5DaoJu and num5DaoJu <= 4 then
+            for i = 0, 8, 1 do
+                if isColor(215 + i * 100, 78, 0xa0a0a0, 95) or isColor(215 + i * 100, 78, 0x33a904, 95) then
+                    touchClick(215 + i * 100, 117)
+                    num5DaoJu = num5DaoJu + 1
+                    writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
+                    
+                    break
+                end
+            end
+        else
+
+            -- if isColor(137, 105, 0x9e1111, 95) then -- 资源
+            --     touchClick(83, 129, 0x5c6571)
+            -- end
+            -- if isColor(137, 169, 0x9e1111, 95) then -- 加速
+            --     touchClick(83, 191, 0x5c6571)
+            -- end
+            -- if isColor(137, 233, 0x9e1111, 95) then -- 战争
+            --     touchClick(83, 258, 0x5c6571)
+            -- end
+            -- if isColor(137, 297, 0x9e1111, 95) then -- 材料
+            --     touchClick(83, 325, 0x5c6571)
+            -- end
+            -- if isColor(137, 361, 0x9e1111, 95) then -- 装备
+            --     touchClick(83, 383, 0x5c6571)
+            -- end
+            -- if isColor(137, 425, 0x9e1111, 95) then -- 其它
+            --     touchClick(83, 449, 0x5c6571)
+            -- end
+            touchClick(20, 20, 449, 0x5c6571)
         end
-        if isColor(137, 169, 0x9e1111, 95) then -- 加速
-            touchClick(83, 191, 0x5c6571)
-        end
-        if isColor(137, 233, 0x9e1111, 95) then -- 战争
-            touchClick(83, 258, 0x5c6571)
-        end
-        if isColor(137, 297, 0x9e1111, 95) then -- 材料
-            touchClick(83, 325, 0x5c6571)
-        end
-        if isColor(137, 361, 0x9e1111, 95) then -- 装备
-            touchClick(83, 383, 0x5c6571)
-        end
-        if isColor(137, 425, 0x9e1111, 95) then -- 其它
-            touchClick(83, 449, 0x5c6571)
-        end
-        touchClick(20, 20, 449, 0x5c6571)
     end
     if isColor(4, 23, 0xff9c00, 95) and isColor(17, 23, 0xffffff, 95) and isColor(1001, 25, 0x0d9098, 95) then
         tiaoShi("邮件界面")
@@ -1458,7 +1496,7 @@ function checkRed()
             touchClick(1068, 182)
         elseif isColor(730, 247, 0x9d1111, 95) then -- 2-1红点
             touchClick(737, 254)
-        elseif isColor(858,247,0x9d1111,95) then-- 2-2红点
+        elseif isColor(858, 247, 0x9d1111, 95) then -- 2-2红点
             touchClick(816, 321, 0x1e2635)
         elseif isColor(993, 254, 0x9d1111, 95) then -- 2-3红点
             touchClick(946, 299, 0x182738)
@@ -1481,7 +1519,11 @@ end
 -- 执行目标
 function doTarget()
     if muBiao == mb_GuaJi then
-        gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+        if haoLV == 1 then
+            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+        elseif haoLV >= 2 then
+            gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
+        end
     elseif muBiao == mb_ZhuXian then
         task()
         zhuXian()
@@ -1489,6 +1531,29 @@ function doTarget()
         waKuang()
     elseif muBiao == mb_ChuHang then
         chuHang()
+    elseif muBiao1 == mb_EveryDay then
+        everyDayTask()
+    end
+
+end
+-- 日常
+function everyDayTask()
+    if muBiao2 == mb_Wu then
+        gaiMuBiao(2, mb_5DaoJu, mm_5DaoJu)
+    end
+    if muBiao == mb_5DaoJu then
+        everyDay5DaoJu()
+    end
+    if outside() then
+        tiaoShi("回基地--日常")
+        touchClick(1074, 582) -- 回基地
+    end
+end
+-- 每日5道具
+function everyDay5DaoJu()
+    if inside() then
+        tiaoShi("打开背包")
+        touchClick(963, 591, 0x373b37)
     end
 end
 -- 定时重置
@@ -1826,7 +1891,6 @@ function chuHang()
         end
     end
 end
-
 -- 退出
 function getOut()
     for i = 1, 10, 1 do
@@ -1901,7 +1965,7 @@ function outside(...)
     end
 end
 -- 每日重置
-function meiRiChongZhi(...)
+function everyDayInit(...)
     -- if nowDateTime.day ~= nowDayNight and nowDateTime.hour >= 23 and nowDateTime.min >= 55 then
     --     tiaoShi("晚重置")
     --     nowDayNight = nowDateTime.day
@@ -1932,6 +1996,15 @@ function meiRiChongZhi(...)
 
             isTrade = false
             writePlist(luaMuLu .. xiangMu .. ".plist", "交易行", isTrade)
+
+            num5DaoJu = 0
+            writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
+
+            if haoLV >= 2 then
+                gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
+                gaiMuBiao(2, mb_Wu, mm_Wu)
+                gaiMuBiao(3, mb_Wu, mm_Wu)
+            end
 
             -- today = tonumber(os.date("%w",os.time()))
             -- if today == 1 then --如果是星期一
