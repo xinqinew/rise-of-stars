@@ -1325,20 +1325,36 @@ function zongHe(...)
 
     if isColor(91, 156, 0xff6600, 95) and isColor(272, 156, 0x863f13, 95) then
         tiaoShi("任务界面")
-        if isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
-            touchClick(354, 135, 0xb0b0b0)
-        elseif isColor(957, 226, 0xfaba00, 95) then -- 宝箱
-            touchClick(985, 213)
+        if muBiao == mb_Reward then
+            touchClick(354, 135, 0xb0b0b0) -- 每日任务
         else
-            touchClick(23, 29)
+
+            if isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
+                touchClick(354, 135, 0xb0b0b0)
+            elseif isColor(957, 226, 0xfaba00, 95) then -- 宝箱
+                touchClick(985, 213)
+            else
+                touchClick(23, 29)
+            end
         end
     end
     if isColor(272, 156, 0xff6600, 95) and isColor(267, 156, 0x843c10, 95) then
         tiaoShi("每日任务界面")
-        if isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
-            touchClick(354, 135, 0xb0b0b0)
+        if muBiao == mb_Reward then
+            if isColor(124,507,0xf18e07,95) then
+                touchClick(124,507)
+            else
+                touchClick(513,574)
+                gaiMuBiao(2, mb_wu, mm_Wu)
+                gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+            end
         else
-            touchClick(23, 29)
+            
+            if isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
+                touchClick(354, 135, 0xb0b0b0)
+            else
+                touchClick(23, 29)
+            end
         end
     end
     if isColor(314, 113, 0xf6a801, 95) and isColor(311, 143, 0xe0e0e0, 95) and isColor(311, 142, 0x0b4992, 95) then
@@ -1605,7 +1621,8 @@ function everyDayTask()
         everyDay5DaoJu()
     elseif muBiao == mb_CaiJi then
         task_CaiJi()
-
+    elseif muBiao == mb_Reward then
+        task_Reward()
     end
     if outside() then
         tiaoShi("回基地--日常")
@@ -1615,6 +1632,13 @@ function everyDayTask()
 end
 function task_AddChanLiang()
 
+end
+-- 收获
+function task_Reward()
+    if inside() then
+        tiaoShi("收获")
+        touchClick(45, 188, 0x060f0f)
+    end
 end
 -- 采集任务
 function task_CaiJi()
