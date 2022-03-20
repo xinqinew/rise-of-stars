@@ -1611,6 +1611,7 @@ function everyDayTask()
     if outside() then
         tiaoShi("回基地--日常")
         touchClick(1074, 582) -- 回基地
+        chongZhiJiDiXianKuang()
     end
 end
 function task_AddChanLiang()
