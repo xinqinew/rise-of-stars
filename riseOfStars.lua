@@ -1954,7 +1954,7 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        if isColor(135, 82, 0x33a9c7) then
+        if isColor(147,80,0x37b8d8    ) then
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
