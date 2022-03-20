@@ -2057,13 +2057,50 @@ function searchLiZi()
                 mSleep(1000)
                 touchClick(20, 20)
                 mSleep(1000)
+                if numSearchLiZi == 0 then -- 上
+                    touchMoveXY(504, 101, 511, 603)
+                elseif numSearchLiZi == 1 then -- 下
+                    touchMoveXY(511, 530, 504, 25)
+                elseif numSearchLiZi == 2 then -- 左
+                    touchMoveXY(17, 297, 874, 282)
+                elseif numSearchLiZi == 3 then -- 右
+                    touchMoveXY(874, 282, 17, 297)
+                elseif numSearchLiZi == 4 then -- 左上
+                    touchMoveXY(107, 130, 983, 503)
+                elseif numSearchLiZi == 5 then -- 右上
+                    touchMoveXY(885, 117, 16, 478)
+                elseif numSearchLiZi == 6 then -- 右下
+                    touchMoveXY(983, 503, 107, 130)
+                elseif numSearchLiZi == 7 then -- 左下
+                    touchMoveXY(16, 478, 885, 117)
+                end
+                mSleep(1000)
             else
                 touchClick(20, 20) -- 瞎点一下
                 mSleep(1000)
                 if isColor(9, 10, 0xff9c00, 95) then
                     tiaoShi("误开司令官")
                     touchClick(20, 20)
+                    mSleep(1000)
                 end
+                if numSearchLiZi == 0 then -- 上
+                    touchMoveXY(504, 101, 511, 603)
+                elseif numSearchLiZi == 1 then -- 下
+                    touchMoveXY(511, 530, 504, 25)
+                elseif numSearchLiZi == 2 then -- 左
+                    touchMoveXY(17, 297, 874, 282)
+                elseif numSearchLiZi == 3 then -- 右
+                    touchMoveXY(874, 282, 17, 297)
+                elseif numSearchLiZi == 4 then -- 左上
+                    touchMoveXY(107, 130, 983, 503)
+                elseif numSearchLiZi == 5 then -- 右上
+                    touchMoveXY(885, 117, 16, 478)
+                elseif numSearchLiZi == 6 then -- 右下
+                    touchMoveXY(983, 503, 107, 130)
+                elseif numSearchLiZi == 7 then -- 左下
+                    touchMoveXY(16, 478, 885, 117)
+                end
+                mSleep(1000)
             end
         else -- 如果找不到符合条件的图片
             if numSearchLiZi == 0 then -- 上
