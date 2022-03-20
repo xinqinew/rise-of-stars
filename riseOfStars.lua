@@ -1986,7 +1986,6 @@ function chuHang()
         else
             tiaoShi("无体力")
             isKillPirate = false -- 不杀海盗
-
         end
         if isColor(387, 372, 0xa43b40, 95) and isColor(501, 389, 0xa43b40, 95) and isColor(109, 371, 0x00ace4, 95) then
             tiaoShi("粒子--左")
