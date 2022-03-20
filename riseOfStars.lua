@@ -2044,14 +2044,14 @@ function searchLiZi()
         -- 1: 0,0,0,0 范围坐标，请自行修改
         -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
         -- 3: 90 匹配精度 【0-100】
-        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 92)
+        x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 93)
         -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
         if x ~= -1 then
             touchClick(x + 48, y - 23)
-            mSleep(1000)
+            mSleep(2000)
             if isColor(1106, 574, 0xd88b00, 95) then
                 tiaoShi("这是海盗,不是粒子")
-                mSleep(2000)
+                mSleep(1000)
                 touchClick(20, 20)
                 mSleep(1000)
             end
@@ -2059,7 +2059,12 @@ function searchLiZi()
             if x1 ~= -1 then
                 touchClick(x1, y1)
             else
-                touchClick(1127,526,0x050605            )--瞎点一下
+                touchClick(20,20       )--瞎点一下
+                mSleep(1000)
+                 if isColor(9,10,0xff9c00,95) then
+                    tiaoShi("误开司令官")
+                    touchClick(20,20)
+                 end
             end
         else -- 如果找不到符合条件的图片
             if numSearchLiZi == 0 then -- 上
