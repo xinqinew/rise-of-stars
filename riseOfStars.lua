@@ -1341,15 +1341,25 @@ function zongHe(...)
     if isColor(272, 156, 0xff6600, 95) and isColor(267, 156, 0x843c10, 95) then
         tiaoShi("每日任务界面")
         if muBiao == mb_Reward then
-            if isColor(124,507,0xf18e07,95) then
-                touchClick(124,507)
+            if isColor(124, 507, 0xf18e07, 95) then
+                touchClick(124, 507)
+            elseif isColor(299, 197, 0xc5f3f9, 95) then
+                touchClick(299, 197)
+            elseif isColor(482, 197, 0x8cfbfc, 95) then
+                touchClick(482, 197, 0x8cfbfc)
+            elseif isColor(672, 197, 0xc4f3f9, 95) then
+                touchClick(672, 197, 0xc4f3f9)
+            elseif isColor(859, 197, 0xb8f9f7, 95) then
+                touchClick(859, 197, 0xb8f9f7)
+            elseif isColor(1045, 197, 0xb8f9f7, 95) then
+                touchClick(1045, 197)
             else
-                touchClick(513,574)
+                touchClick(513, 574)
                 gaiMuBiao(2, mb_wu, mm_Wu)
                 gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
             end
         else
-            
+
             if isColor(433, 111, 0x9d1111, 95) then -- 每日任务--红点
                 touchClick(354, 135, 0xb0b0b0)
             else
