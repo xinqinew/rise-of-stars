@@ -1555,6 +1555,9 @@ function doTarget()
         mSleep(1000)
 
         everyDayTask()
+    else
+        tiaoShi("标记0")
+        mSleep(1000)
     end
 
 end
