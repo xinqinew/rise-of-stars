@@ -66,6 +66,7 @@ function bianLiang()
     numChuHang = 1 -- 出航编号
     numSearch = 0 -- 搜索
 
+    timeLiZi = nowTime - 60 * 40 -- 粒子--40分钟
     timeYanJiu = nowTime - 60 -- 研究
     timeJiDi = nowTime - 10 * 60 -- 基地红点
     timeLianMengRenWu = nowTime - 60 * 60 -- 联盟任务
@@ -1908,7 +1909,8 @@ function chuHang()
                 end
             end
 
-        elseif isLiZi == false then
+        elseif isLiZi == false and nowTime - timeLiZi >= 40 * 60 then
+            timeLiZi = nowTime
             touchClick(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 1, 10, 1 do
@@ -1923,7 +1925,6 @@ function chuHang()
                     touchClick(20, 20)
                 end
             end
-
         else
             if numChuHang == 1 then
                 touchClick(643, 548) -- 金属
@@ -1975,8 +1976,8 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        -- if isColor(147, 80, 0x37b8d8) then--20体力
-        if isColor(210, 79, 0x39bfe1) then -- 70体力
+        if isColor(147, 80, 0x37b8d8) then -- 20体力
+            -- if isColor(210, 79, 0x39bfe1) then -- 70体力
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
@@ -2057,10 +2058,16 @@ function searchLiZi()
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif isColor(1106, 574, 0xd88b00, 95) then
                 tiaoShi("这是海盗,不是粒子")
                 mSleep(1000)
@@ -2083,10 +2090,16 @@ function searchLiZi()
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif isColor(1106, 574, 0xd88b00, 95) then
                 tiaoShi("这是海盗,不是粒子")
                 mSleep(1000)
@@ -2109,10 +2122,16 @@ function searchLiZi()
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif isColor(1106, 574, 0xd88b00, 95) then
                 tiaoShi("这是海盗,不是粒子")
                 mSleep(1000)
@@ -2136,10 +2155,16 @@ function searchLiZi()
             -- x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
-                break
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
             elseif isColor(1106, 574, 0xd88b00, 95) then
                 tiaoShi("这是海盗,不是粒子")
                 mSleep(1000)
