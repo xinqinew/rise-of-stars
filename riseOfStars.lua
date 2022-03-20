@@ -1538,17 +1538,25 @@ end
 -- 执行目标
 function doTarget()
     if muBiao == mb_GuaJi then
+        tiaoShi("标记5")
+        mSleep(1000)
         if haoLV == 1 then
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         elseif haoLV >= 2 then
             gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
         end
     elseif muBiao == mb_ZhuXian then
+        tiaoShi("标记6")
+        mSleep(1000)
         task()
         zhuXian()
     elseif muBiao == mb_WaKuang then
+        tiaoShi("标记7")
+        mSleep(1000)
         waKuang()
     elseif muBiao == mb_ChuHang then
+        tiaoShi("标记8")
+        mSleep(1000)
         chuHang()
     elseif muBiao1 == mb_EveryDay then
         tiaoShi("标记1")
