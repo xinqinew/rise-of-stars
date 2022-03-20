@@ -952,7 +952,7 @@ function zongHe(...)
         tiaoShi("广告--关闭")
         touchClick(1088, 51)
     end
-    if isColor(435, 30, 0x1b68c8, 95) and isColor(568, 237, 0xffffff, 95) and isColor(510, 623, 0x48678c, 95) then
+    if isColor(435,30,0x1b68c8,95) and isColor(515,53,0xbbbec1,95) and isColor(626,75,0xb6b8bb,95) and isColor(510,617,0x0c0c0e,95) then
         tiaoShi("传输结果")
         touchClick(510, 623)
     end
