@@ -2059,12 +2059,12 @@ function searchLiZi()
             if x1 ~= -1 then
                 touchClick(x1, y1)
             else
-                touchClick(20,20       )--瞎点一下
+                touchClick(20, 20) -- 瞎点一下
                 mSleep(1000)
-                 if isColor(9,10,0xff9c00,95) then
+                if isColor(9, 10, 0xff9c00, 95) then
                     tiaoShi("误开司令官")
-                    touchClick(20,20)
-                 end
+                    touchClick(20, 20)
+                end
             end
         else -- 如果找不到符合条件的图片
             if numSearchLiZi == 0 then -- 上
