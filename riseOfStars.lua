@@ -762,7 +762,7 @@ function zongHe(...)
                 gaiMuBiao(2, mb_Wu, mm_Wu)
                 gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
             end
-        else
+        end
     end
     if isColor(89, 59, 0xf5a801, 95) and isColor(192, 250, 0x325270, 95) and isColor(300, 407, 0x8f4d14, 95) then
         tiaoShi("补充资源")
@@ -1225,7 +1225,7 @@ function zongHe(...)
                     touchClick(215 + i * 100, 117)
                     num5DaoJu = num5DaoJu + 1
                     writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
-                    
+
                     break
                 end
             end
