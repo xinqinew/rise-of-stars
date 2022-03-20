@@ -269,40 +269,22 @@ function zongHe(...)
                 -- 蓝 0x1050ac
                 -- 绿 0x34b200
                 if isColor(340, 171, 0xb61d2c, 95) then -- 左--红
-                mSleep(1000)
-                    tiaoShi("可更新1")
-                touchClick(381, 452, 0x145ca8)
+                    touchClick(381, 452, 0x145ca8)
                 elseif isColor(594, 171, 0xb61d2c, 95) then -- 中
-                    mSleep(1000)
-                    tiaoShi("可更新2")
-                touchClick(644, 450, 0xa3bfdd)
+                    touchClick(644, 450, 0xa3bfdd)
                 elseif isColor(848, 170, 0xb61d2c, 95) then -- 右
-                    mSleep(1000)
-                    tiaoShi("可更新3")
-                touchClick(890, 450, 0xb4cbe4)
+                    touchClick(890, 450, 0xb4cbe4)
                 elseif isColor(340, 171, 0xc56600, 95) then -- 左--橙
-                    mSleep(1000)
-                    tiaoShi("可更新4")
-                 touchClick(381, 452, 0x145ca8)
+                    touchClick(381, 452, 0x145ca8)
                 elseif isColor(594, 171, 0xc56600, 95) then -- 中
-                    mSleep(1000)
-                    tiaoShi("可更新5")
                     touchClick(644, 450, 0xa3bfdd)
                 elseif isColor(848, 170, 0xc56600, 95) then -- 右
-                    mSleep(1000)
-                    tiaoShi("可更新6")
                     touchClick(890, 450, 0xb4cbe4)
                 elseif isColor(340, 171, 0x7d079b, 95) then -- 左--紫
-                    mSleep(1000)
-                    tiaoShi("可更新7")
                     touchClick(381, 452, 0x145ca8)
                 elseif isColor(594, 171, 0x7d079b, 95) then -- 中
-                    mSleep(1000)
-                    tiaoShi("可更新8")
                     touchClick(644, 450, 0xa3bfdd)
                 elseif isColor(848, 170, 0x7d079b, 95) then -- 右
-                    mSleep(1000)
-                    tiaoShi("可更新9")
                     touchClick(890, 450, 0xb4cbe4)
                     -- elseif isColor(340, 171, 0x1050ac, 95) then -- 左--蓝
                     --     touchClick(381, 452, 0x145ca8)
@@ -317,7 +299,7 @@ function zongHe(...)
                     -- elseif isColor(848, 170, 0x34b200, 95) then -- 右
                     --     touchClick(890, 450, 0xb4cbe4)
                 else
-                    touchClick(890, 450, 0xb4cbe4) -- 更新
+                    touchClick(825,532,0x116eb9                ) -- 更新
                 end
             else
                 tiaoShi("不可更新")
