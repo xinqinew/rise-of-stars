@@ -57,7 +57,10 @@ function bianLiang()
     isAutoNext = true -- 主动下一个建筑
     isJiDiXianKuangIntoProduce = false -- 从基地现况进入生产界面
     isJustBack = false -- 刚回基地
+    isBug_LiZi = false -- bug 粒子
 
+    numSearchLiZiSecond = 10
+    numSearchLiZi = 0
     num5DaoJu = 0
     numDiaoXian = 0
     numChuHang = 1 -- 出航编号
@@ -525,9 +528,9 @@ function zongHe(...)
         elseif isColor(410, 490, 0x9d1111, 95) then
             tiaoShi("防卫工程--红点")
             touchClick(331, 537, 0x306090)
-        elseif isColor(808,314,0x9d1111,95) then
+        elseif isColor(808, 314, 0x9d1111, 95) then
             tiaoShi("联盟协助--红点")
-            touchClick(758,362,0x0c2037        )
+            touchClick(758, 362, 0x0c2037)
         elseif isColor(558, 321, 0x9e1111, 95) then
             tiaoShi("联盟研究--红点")
             touchClick(510, 357, 0x0c2037)
@@ -1737,6 +1740,8 @@ function chongZhiJiDiXianKuang()
     numSearch = 0
     isLiZi = false -- 粒子
     isJustBack = true
+    numSearchLiZi = 0
+    numSearchLiZiSecond = 10
 
 end
 -- 主线
@@ -1892,7 +1897,9 @@ function chuHang()
                     break
                 end
                 if i == 10 then
-                    isLiZi = true
+                    -- isLiZi = true
+                    isBug_LiZi = true -- bug 粒子
+                    touchClick(20, 20)
                 end
             end
 
@@ -1994,8 +2001,65 @@ function chuHang()
             tiaoShi("4队出完")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
+        elseif isBug_LiZi == true then
+            searchLiZi()
         else
             touchClick(199, 522) -- 搜索
+        end
+    end
+end
+-- 搜索粒子
+function searchLiZi()
+    for i = 1, numSearchLiZiSecond, 1 do
+        -- 返回值为 x : 0 y : 0 n = 0，x : 0 y : 0 为找到图片左上角的坐标，n = 0 表示找到第 1 个图片
+        x, y, n = findImageInRegionFuzzy("3.bmp,4.bmp,5.bmp", 90, 123, 145, 893, 474, 0, 3);
+        if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某图片符合条件
+            touchClick(x + 48, y - 23)
+            mSleep(1000)
+            if isColor(1106, 574, 0xd88b00, 95) then
+                tiaoShi("这是海盗,不是粒子")
+                touchClick(20, 20)
+            end
+            x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
+            if x1 ~= -1 then
+                touchClick(x1, y1)
+            end
+        else -- 如果找不到符合条件的图片
+            if numSearchLiZi == 0 then -- 上
+                touchMoveXY(504, 25, 511, 603)
+            elseif numSearchLiZi == 1 then -- 下
+                touchMoveXY(511, 603, 504, 25)
+            elseif numSearchLiZi == 2 then -- 左
+                touchMoveXY(17, 297, 874, 282)
+            elseif numSearchLiZi == 3 then -- 右
+                touchMoveXY(874, 282, 17, 297)
+            elseif numSearchLiZi == 4 then -- 左上
+                touchMoveXY(107, 130, 983, 503)
+            elseif numSearchLiZi == 5 then -- 右上
+                touchMoveXY(885, 117, 16, 478)
+            elseif numSearchLiZi == 6 then -- 右下
+                touchMoveXY(983, 503, 107, 130)
+            elseif numSearchLiZi == 7 then -- 左下
+                touchMoveXY(16, 478, 885, 117)
+            end
+            mSleep(1000)
+        end
+        if i == numSearchLiZiSecond then
+            touchClick(568,569,0x0a0a0f        )--归位
+            mSleep(1000)
+            numSearchLiZi = numSearchLiZi + 1
+            if numSearchLiZi==7 and numSearchLiZiSecond == 10 then
+                numSearchLiZiSecond = 20
+                numSearchLiZi = 0
+            elseif numSearchLiZi==7 and numSearchLiZiSecond == 20 then
+                numSearchLiZiSecond = 30
+                numSearchLiZi = 0
+            elseif numSearchLiZi==7 and numSearchLiZiSecond == 30 then
+                numSearchLiZiSecond = 10
+                numSearchLiZi = 0
+                isLiZi = true
+                isBug_LiZi = false
+            end
         end
     end
 end
