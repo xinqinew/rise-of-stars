@@ -1411,7 +1411,7 @@ function zongHe(...)
                 touchClick(1045, 197)
             else
                 touchClick(513, 574)
-                gaiMuBiao(2, mb_wu, mm_Wu)
+                gaiMuBiao(2, mm_Wu, mm_Wu)
                 gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
             end
         else
