@@ -1734,6 +1734,10 @@ function task_JiDi()
     if inside() then
         if isColor(796, 191, 0x1ccbc8, 95) then -- 基地归位
             touchClick(583, 277, 0xffffff) -- 打开基地
+        elseif isColor(17, 505, 0x3b6890, 95) then -- 1号建设中
+            touchClick(44, 493, 0x3e342f)
+        elseif isColor(108, 505, 0x3b6890, 95) then -- 2号建设中
+            touchClick(133, 491, 0x52433d)
         else
             touchClick(1074, 582) -- 出基地
         end
