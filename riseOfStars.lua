@@ -1166,7 +1166,7 @@ function zongHe(...)
 
                 end
             end
-        elseif isColor(41, 296, 0xffffff, 95) and isColor(36, 321, 0xc3952b, 95) then
+        elseif isColor(41, 296, 0xffffff, 95) and isColor(36, 321, 0xc3952b, 95) and isColor(111, 108, 0x4c87ba, 95) then
             tiaoShi("维修界面")
             if isColor(1077, 527, 0x1eb686, 95) and isColor(993, 574, 0x237bc8, 95) then -- 重置
                 tiaoShi("可修理--不缺少资源")
@@ -1178,6 +1178,13 @@ function zongHe(...)
                 touchClick(698, 586, 0xb4cdf3) -- 打开邮件
             else
                 touchClick(20, 20)
+            end
+        elseif isColor(41, 296, 0xffffff, 95) and isColor(36, 321, 0xc3952b, 95) and isColor(341, 601, 0xd77500, 95) then
+            tiaoShi("指挥中心--维修界面")
+            if isColor(793, 584, 0x155daa, 95) then
+                touchClick(793, 584)
+            else
+                touchClick(48, 233, 0x325240)
             end
         elseif isColor(42, 357, 0xffe85d, 95) and isColor(43, 322, 0x0a57e4, 95) and isColor(45, 296, 0xffffff, 95) then
             tiaoShi("资源传输装置--兑换")
