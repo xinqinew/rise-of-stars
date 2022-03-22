@@ -249,6 +249,7 @@ function zongHe(...)
     end
     if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
         tiaoShi("云打码")
+        snapshot("yudama.png", 222, 12, 596, 157)
         mSleep(2000)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             local strDaMa = yunDaMa()
@@ -258,7 +259,12 @@ function zongHe(...)
                 touchClick(717, 104, 0x1270bb)
                 mSleep(1000)
                 touchClick(717, 104, 0x1270bb)
-                mSleep(1000)
+                mSleep(5000)
+                x, y = findImage("yudama.png", 221, 11, 597, 158)
+                if x ~= -1 and y ~= -1 then
+                    closeApp(appXiangMu)
+                end
+
             end
         end
         -- lua_exit();
@@ -2118,13 +2124,13 @@ function searchLiZi()
                 numSearchLiZi = 0
                 isLiZi = true
                 return
-            -- elseif x6 ~= -1 then
-            --     tiaoShi("红色攻击2")
-            --     touchClick(x6, y6)
-            --     isBug_LiZi = false
-            --     numSearchLiZi = 0
-            --     isLiZi = true
-            --     return
+                -- elseif x6 ~= -1 then
+                --     tiaoShi("红色攻击2")
+                --     touchClick(x6, y6)
+                --     isBug_LiZi = false
+                --     numSearchLiZi = 0
+                --     isLiZi = true
+                --     return
             elseif x7 ~= -1 then
                 tiaoShi("蓝色采集")
                 touchClick(x7, y7)
@@ -2162,13 +2168,13 @@ function searchLiZi()
                 numSearchLiZi = 0
                 isLiZi = true
                 return
-            -- elseif x6 ~= -1 then
-            --     tiaoShi("红色攻击2")
-            --     touchClick(x6, y6)
-            --     isBug_LiZi = false
-            --     numSearchLiZi = 0
-            --     isLiZi = true
-            --     return
+                -- elseif x6 ~= -1 then
+                --     tiaoShi("红色攻击2")
+                --     touchClick(x6, y6)
+                --     isBug_LiZi = false
+                --     numSearchLiZi = 0
+                --     isLiZi = true
+                --     return
             elseif x7 ~= -1 then
                 tiaoShi("蓝色采集")
                 touchClick(x7, y7)
@@ -2205,13 +2211,13 @@ function searchLiZi()
                 numSearchLiZi = 0
                 isLiZi = true
                 return
-            -- elseif x6 ~= -1 then
-            --     tiaoShi("红色攻击2")
-            --     touchClick(x6, y6)
-            --     isBug_LiZi = false
-            --     numSearchLiZi = 0
-            --     isLiZi = true
-            --     return
+                -- elseif x6 ~= -1 then
+                --     tiaoShi("红色攻击2")
+                --     touchClick(x6, y6)
+                --     isBug_LiZi = false
+                --     numSearchLiZi = 0
+                --     isLiZi = true
+                --     return
             elseif x7 ~= -1 then
                 tiaoShi("蓝色采集")
                 touchClick(x7, y7)
@@ -2250,13 +2256,13 @@ function searchLiZi()
                 numSearchLiZi = 0
                 isLiZi = true
                 return
-            -- elseif x6 ~= -1 then
-            --     tiaoShi("红色攻击2")
-            --     touchClick(x6, y6)
-            --     isBug_LiZi = false
-            --     numSearchLiZi = 0
-            --     isLiZi = true
-            --     return
+                -- elseif x6 ~= -1 then
+                --     tiaoShi("红色攻击2")
+                --     touchClick(x6, y6)
+                --     isBug_LiZi = false
+                --     numSearchLiZi = 0
+                --     isLiZi = true
+                --     return
             elseif x7 ~= -1 then
                 tiaoShi("蓝色采集")
                 touchClick(x7, y7)
