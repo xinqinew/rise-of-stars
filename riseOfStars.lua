@@ -873,7 +873,7 @@ function zongHe(...)
         end
     end
 
-    if isColor(5, 25, 0xff6600, 95) and isColor(17, 25, 0xffffff, 95) and isColor(21, 117, 0xbd871b, 95) then
+    if isColor(5, 25, 0xff6600, 95) and isColor(17, 25, 0xffffff, 95) and isColor(467, 518, 0x448db2, 95) then
         tiaoShi("舰长")
         if isColor(137, 102, 0x9e1111, 95) then
             tiaoShi("舰长--升级--左上角--红点--内")
@@ -901,6 +901,7 @@ function zongHe(...)
 
                 touchClick(20, 20)
             end
+
         else
             touchClick(20, 20)
         end
