@@ -59,6 +59,7 @@ function bianLiang()
     isJustBack = false -- 刚回基地
     isBug_LiZi = false -- bug 粒子
 
+    numTimeLIZi = 3
     numSearchLiZiSecond = 20
     numSearchLiZi = 0
     num5DaoJu = 0
@@ -1942,7 +1943,7 @@ function chuHang()
                 end
             end
 
-        elseif isLiZi == false and nowTime - timeLiZi >= 40 * 60 then
+        elseif isLiZi == false and nowTime - timeLiZi >= numTimeLIZi * 60 then
             touchClick(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 1, 10, 1 do
