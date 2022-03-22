@@ -1100,7 +1100,13 @@ function zongHe(...)
                 elseif isColor(652, 368, 0x3e8fee, 95) and isAutoNext == true then
                     tiaoShi("1蓝")
                     touchClick(1089, 356)
+                elseif isColor(1104, 356, 0x1a406b, 95) and isAutoNext == true then
+                    tiaoShi("1蓝")
+                    touchClick(1089, 356)
                 elseif isColor(652, 403, 0x3e8fee, 95) and isAutoNext == true then
+                    tiaoShi("2蓝")
+                    touchClick(843, 390)
+                elseif isColor(1104, 390, 0x1a406b, 95) and isAutoNext == true then
                     tiaoShi("2蓝")
                     touchClick(843, 390)
                 else
