@@ -206,6 +206,10 @@ function zongHe(...)
         tiaoShi("关广告--X,白色")
         touchClick(1088, 47, 0x202124)
     end
+    if isColor(1078,57,0xffffff,95) and isColor(1087,57,0x101010,95) and isColor(28,604,0xe6e6e6,95) then
+        tiaoShi("关广告--X,白色2")
+        touchClick(1078,57, 0x202124)
+    end
     if isColor(17, 25, 0xffffff, 95) and isColor(6, 25, 0xff9c00, 95) and isColor(792, 121, 0xe0b8ab, 95) and
         isColor(836, 102, 0xfab1cb, 95) then
         tiaoShi("奖励积分币")
@@ -1779,7 +1783,7 @@ function chongZhiJiDiXianKuang()
             if muBiao == mb_WaKuang then
                 gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
                 gaiMuBiao(2, mb_Reward, mm_Reward)
-                
+
                 isAgainReward = true
                 writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
             end
@@ -2070,6 +2074,10 @@ function searchLiZi()
         -- 1: 0,0,0,0 范围坐标，请自行修改
         -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
         -- 3: 90 匹配精度 【0-100】
+        if isColor(477,441,0x0f4a7d,80) and isColor(477,491,0x104a7d,80) and isColor(656,443,0x104a7d,80) and isColor(656,488,0x04315e,80) then
+            tiaoShi("外太空")
+            touchClick(571,467,0x05305c        )
+        end
         x1, y1 = tsFindText(index_lizi2, "1", 123, 145, 535 + 20, 310 + 20, "FAC52A , 030303", 94)
         x2, y2 = tsFindText(index_lizi2, "1", 535 - 20, 145, 893, 310 + 20, "FAC52A , 030303", 94)
         x3, y3 = tsFindText(index_lizi2, "1", 5, 310 - 20, 535 + 20, 492, "FAC52A , 030303", 94)
@@ -2081,6 +2089,7 @@ function searchLiZi()
             mSleep(2000)
             x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            x7,y7 = findMultiColorInRegionFuzzy( 0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
                 isBug_LiZi = false
@@ -2089,6 +2098,12 @@ function searchLiZi()
                 return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
+            elseif x7 ~= -1 then
+                touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
@@ -2113,6 +2128,7 @@ function searchLiZi()
             mSleep(2000)
             x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            x7,y7 = findMultiColorInRegionFuzzy( 0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
                 isBug_LiZi = false
@@ -2121,6 +2137,12 @@ function searchLiZi()
                 return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
+            elseif x7 ~= -1 then
+                touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
@@ -2145,6 +2167,7 @@ function searchLiZi()
             mSleep(2000)
             x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            x7,y7 = findMultiColorInRegionFuzzy( 0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
                 isBug_LiZi = false
@@ -2153,6 +2176,12 @@ function searchLiZi()
                 return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
+            elseif x7 ~= -1 then
+                touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
@@ -2177,6 +2206,7 @@ function searchLiZi()
             mSleep(2000)
             x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            x7,y7 = findMultiColorInRegionFuzzy( 0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             -- x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 touchClick(x5, y5)
@@ -2186,6 +2216,12 @@ function searchLiZi()
                 return
             elseif x6 ~= -1 then
                 touchClick(x6, y6)
+                isBug_LiZi = false
+                numSearchLiZi = 0
+                isLiZi = true
+                return
+            elseif x7 ~= -1 then
+                touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
