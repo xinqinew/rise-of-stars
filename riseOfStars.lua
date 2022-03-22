@@ -2123,6 +2123,9 @@ function searchLiZi()
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
+                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
+                    touchClick(490, 431)
+                end
                 return
                 -- elseif x6 ~= -1 then
                 --     tiaoShi("红色攻击2")
@@ -2167,6 +2170,9 @@ function searchLiZi()
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
+                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
+                    touchClick(490, 431)
+                end
                 return
                 -- elseif x6 ~= -1 then
                 --     tiaoShi("红色攻击2")
@@ -2210,6 +2216,9 @@ function searchLiZi()
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
+                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
+                    touchClick(490, 431)
+                end
                 return
                 -- elseif x6 ~= -1 then
                 --     tiaoShi("红色攻击2")
@@ -2255,6 +2264,9 @@ function searchLiZi()
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
+                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
+                    touchClick(490, 431)
+                end
                 return
                 -- elseif x6 ~= -1 then
                 --     tiaoShi("红色攻击2")
