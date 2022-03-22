@@ -2074,6 +2074,11 @@ function searchLiZi()
         -- 1: 0,0,0,0 范围坐标，请自行修改
         -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
         -- 3: 90 匹配精度 【0-100】
+        if isColor(180,147,0x215da6,95) and isColor(202,204,0x4c92da,95) and isColor(503,515,0x233341,95) and isColor(741,516,0x2f2a33,95) then
+            tiaoShi("外太空玩家")
+            touchClick(511,600,0x0c0c0e        )
+            touchClick(571,467,0x05305c        )
+        end
         if isColor(477,441,0x0f4a7d,80) and isColor(477,491,0x104a7d,80) and isColor(656,443,0x104a7d,80) and isColor(656,488,0x04315e,80) then
             tiaoShi("外太空")
             touchClick(571,467,0x05305c        )
