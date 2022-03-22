@@ -107,10 +107,18 @@ function onecePlist()
         writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
     end
 
+    -- 增产
     numAddChangLiang = loadPlist(luaMuLu .. xiangMu .. ".plist", "增产")
     if numAddChangLiang == nil then
         numAddChangLiang = 0
         writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChangLiang)
+    end
+
+    -- 再次收获
+    isAgainReward = loadPlist(luaMuLu .. xiangMu .. ".plist", "再次收获")
+    if isAgainReward == nil then
+        isAgainReward = false
+        writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
     end
 
 end
@@ -1725,7 +1733,7 @@ end
 -- 任务
 function task()
     if inside() == true then
-        mSleep(1000)
+        -- mSleep(1000)
         if checkRed() == false then
             if haoLV == 1 then
                 -- 主任务
@@ -1765,6 +1773,19 @@ function chongZhiJiDiXianKuang()
     isJustBack = true
     numSearchLiZi = 0
     numSearchLiZiSecond = 20
+
+    if isAgainReward == false then
+        if nowDateTime.hour >= 22 and nowDateTime.min >= 0 then
+            if muBiao == mb_WaKuang then
+                gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
+                gaiMuBiao(2, mb_Reward, mm_Reward)
+                
+                isAgainReward = true
+                writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
+            end
+
+        end
+    end
 
 end
 -- 主线
@@ -2362,6 +2383,9 @@ function everyDayInit(...)
 
             numAddChangLiang = 0
             writePlist(luaMuLu .. xiangMu .. ".plist", "增产", numAddChangLiang)
+
+            isAgainReward = false
+            writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
 
             if haoLV >= 2 then
                 gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
