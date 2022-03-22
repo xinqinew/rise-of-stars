@@ -177,7 +177,7 @@ function zongHe(...)
         isColor(741, 516, 0x2f2a33, 95) then
         tiaoShi("外太空玩家2")
         touchClick(511, 600, 0x0c0c0e)
-        -- touchClick(571,467,0x05305c        )
+        touchClick(571,467,0x05305c        )
     end
     if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(561, 439, 0xf1fc6a, 95) then
         tiaoShi("基地加成")
@@ -2058,14 +2058,19 @@ function chuHang()
         elseif isBug_LiZi == true then
             searchLiZi()
         else
-            touchClick(199, 522) -- 搜索
+            if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) then
+                touchClick(199, 522) -- 搜索
+            elseif isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95)==false then
+                touchClick(570,469,0x4a6181            )
+            end
+            
         end
     end
 end
 -- 搜索粒子
 function searchLiZi()
     for i = 1, numSearchLiZiSecond, 1 do
-        tiaoShi("搜索粒子")
+        -- tiaoShi("搜索粒子")
         if isColor(6, 24, 0xf59600, 95) and isColor(18, 24, 0xffffff, 95) and isColor(355, 86, 0x5195db, 95) then
             tiaoShi("司令官界面")
             touchClick(20, 20)
