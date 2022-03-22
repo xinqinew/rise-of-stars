@@ -2108,9 +2108,9 @@ function searchLiZi()
             touchClick(571, 467, 0x05305c)
         end
         x1, y1 = tsFindText(index_lizi2, "1", 123, 145, 535 + 20, 310 + 20, "FAC52A , 030303", 94)
-        x2, y2 = tsFindText(index_lizi2, "1", 535 - 20, 145, 893, 310 + 20, "FAC52A , 030303", 94)
+        x2, y2 = tsFindText(index_lizi2, "1", 535 - 20, 145, 1020, 310 + 20, "FAC52A , 030303", 94)
         x3, y3 = tsFindText(index_lizi2, "1", 5, 310 - 20, 535 + 20, 492, "FAC52A , 030303", 94)
-        x4, y4 = tsFindText(index_lizi2, "1", 535 - 20, 310 - 20, 893, 531, "FAC52A , 030303", 94)
+        x4, y4 = tsFindText(index_lizi2, "1", 535 - 20, 310 - 20, 1020, 531, "FAC52A , 030303", 94)
         -- x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 94)
         -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
         if x1 ~= -1 then
