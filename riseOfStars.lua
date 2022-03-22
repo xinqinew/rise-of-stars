@@ -176,7 +176,7 @@ function zongHe(...)
             tiaoShi("收缩任务栏")
             touchClick(335, 213)
         end
-        if isColor(99,212,0x2a6aab,95) and isColor(106,219,0x2a6aab,95) and haoLV <=2 then
+        if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
             tiaoShi("展开任务栏")
             touchClick(107, 213)
         end
@@ -1369,10 +1369,10 @@ function zongHe(...)
         elseif isColor(119, 98, 0x9d1111, 95) then
             -- 通知
             touchClick(68, 128, 0x233145)
-        elseif isColor(119,222,0x9d1111,95) then
+        elseif isColor(119, 222, 0x9d1111, 95) then
             tiaoShi("战争")
-            touchClick(67,251,0x949aa1        )
-            
+            touchClick(67, 251, 0x949aa1)
+
         elseif isColor(119, 160, 0x9d1111, 95) then
             tiaoShi("活动--红点--未选中")
             touchClick(61, 192, 0x3f4c5c)
@@ -1675,6 +1675,8 @@ function doTarget()
         elseif haoLV >= 2 then
             gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
         end
+    elseif muBiao == mb_YouHua then
+        task_JiDi()
     elseif muBiao == mb_ZhuXian then
         task()
         zhuXian()
@@ -1705,7 +1707,21 @@ function everyDayTask()
         chongZhiJiDiXianKuang()
     end
 end
-
+-- 只做基地
+function task_JiDi()
+    if inside() then
+        if isColor(796, 191, 0x1ccbc8, 95) then -- 基地归位
+            touchClick(583, 277, 0xffffff) -- 打开基地
+        else
+            touchClick(1074, 582) -- 出基地
+        end
+    end
+    if outside() then
+        tiaoShi("回基地--只做基地")
+        touchClick(1074, 582) -- 回基地
+        chongZhiJiDiXianKuang()
+    end
+end
 -- 收获
 function task_Reward()
     if inside() then
@@ -1779,12 +1795,13 @@ function task()
                 return
             end
             if haoLV == 2 then
-                tiaoShi("主任务")
-                touchClick(161, 268)
-                if isColor(962, 576, 0xe59b48, 95) then
-                    -- if findRed() == true then
-                    touchClick(38, 492)
-                end
+                gaiMuBiao(1, mb_YouHua, mm_YouHua)
+                -- tiaoShi("主任务")
+                -- touchClick(161, 268)
+                -- if isColor(962, 576, 0xe59b48, 95) then
+                --     -- if findRed() == true then
+                --     touchClick(38, 492)
+                -- end
                 return
 
             end
