@@ -172,10 +172,15 @@ function zongHe(...)
             tiaoShi("free")
             touchClick(33, 493)
         end
-        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and haoLV >= 2 then
-            tiaoShi("收起来")
+        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and haoLV >= 3 then
+            tiaoShi("收缩任务栏")
             touchClick(335, 213)
         end
+        if isColor(99,212,0x2a6aab,95) and isColor(106,219,0x2a6aab,95) and haoLV <=2 then
+            tiaoShi("展开任务栏")
+            touchClick(107, 213)
+        end
+
     end
     if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
         isColor(741, 516, 0x2f2a33, 95) then
