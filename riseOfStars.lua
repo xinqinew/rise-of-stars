@@ -892,6 +892,15 @@ function zongHe(...)
             else
                 touchClick(20, 20)
             end
+        elseif isColor(135, 167, 0x9e1111, 95) then
+            tiaoShi("舰长--提升星级--红点")
+            touchClick(99, 179, 0x9b6f15)
+            if isColor(823, 572, 0xd88b00, 95) then
+                touchClick(823, 572)
+            else
+
+                touchClick(20, 20)
+            end
         else
             touchClick(20, 20)
         end
