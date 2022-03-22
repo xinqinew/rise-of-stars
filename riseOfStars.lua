@@ -2106,8 +2106,11 @@ function searchLiZi()
         if x1 ~= -1 then
             touchClick(x1 + 48, y1 - 23)
             mSleep(2000)
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
+            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
+
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 tiaoShi("红色攻击1")
@@ -2148,8 +2151,11 @@ function searchLiZi()
         if x2 ~= -1 then
             touchClick(x2 + 48, y2 - 23)
             mSleep(2000)
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
+            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
+
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 tiaoShi("红色攻击1")
@@ -2190,8 +2196,11 @@ function searchLiZi()
         if x3 ~= -1 then
             touchClick(x3 + 48, y3 - 23)
             mSleep(2000)
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
+            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
+
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 tiaoShi("红色攻击1")
@@ -2232,8 +2241,11 @@ function searchLiZi()
         if x4 ~= -1 then
             touchClick(x4 + 48, y4 - 23)
             mSleep(2000)
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
+           -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
+            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
+
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             -- x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
