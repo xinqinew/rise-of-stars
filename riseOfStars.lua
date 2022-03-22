@@ -178,7 +178,7 @@ function zongHe(...)
         isColor(741, 516, 0x2f2a33, 95) then
         tiaoShi("外太空玩家2")
         touchClick(511, 600, 0x0c0c0e)
-        touchClick(571,467,0x05305c        )
+        touchClick(571, 467, 0x05305c)
     end
     if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(561, 439, 0xf1fc6a, 95) then
         tiaoShi("基地加成")
@@ -209,7 +209,7 @@ function zongHe(...)
         tiaoShi("关广告--X,黑色")
         touchClick(1088, 47, 0x202124)
     end
-    if isColor(1088, 48, 0xffffff, 95) and isColor(1088, 62, 0x3c4043, 95) and isColor(1132,4,0x292929,95) then
+    if isColor(1088, 48, 0xffffff, 95) and isColor(1088, 62, 0x3c4043, 95) and isColor(30, 599, 0xffffff, 95) == false then
         tiaoShi("关广告--X,白色")
         touchClick(1088, 47, 0x202124)
     end
@@ -2061,10 +2061,10 @@ function chuHang()
         else
             if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) then
                 touchClick(199, 522) -- 搜索
-            elseif isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95)==false then
-                touchClick(570,469,0x4a6181            )
+            elseif isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) == false then
+                touchClick(570, 469, 0x4a6181)
             end
-            
+
         end
     end
 end
@@ -2109,8 +2109,8 @@ function searchLiZi()
             -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
             -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
 
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529) -- 抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529) -- 抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 tiaoShi("红色攻击1")
@@ -2154,8 +2154,8 @@ function searchLiZi()
             -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
             -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
 
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529) -- 抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529) -- 抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 tiaoShi("红色攻击1")
@@ -2199,8 +2199,8 @@ function searchLiZi()
             -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
             -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
 
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529) -- 抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529) -- 抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
                 tiaoShi("红色攻击1")
@@ -2241,11 +2241,11 @@ function searchLiZi()
         if x4 ~= -1 then
             touchClick(x4 + 48, y4 - 23)
             mSleep(2000)
-           -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
+            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
             -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
 
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--抢
-            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--抢
+            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "119|-105|0xd7d9dc", 90, 66, 14, 1126, 529) -- 抢
+            x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "119|-106|0xd6d8db", 90, 66, 14, 1126, 529) -- 抢
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             -- x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
