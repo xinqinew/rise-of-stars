@@ -78,8 +78,8 @@ function bianLiang()
     timeShengChan = nowTime - 60 * 60 * 2 -- 生产
 
 end
--- onecePlist
-function onecePlist()
+-- oncePlist
+function oncePlist()
     -- 广告次数
     numGuangGao = loadPlist(luaMuLu .. xiangMu .. ".plist", "广告次数")
     if numGuangGao == nil then
@@ -123,8 +123,8 @@ function onecePlist()
     end
 
 end
--- oneceOther
-function oneceOther()
+-- onceOther
+function onceOther()
     tab_lizi1 = {"600c00fffffffff$1$40$12$5", "600e00fffffffff$1$41$12$5", "6003003fffffffff@1$1$43$13$5",
                  "3001c006003ffffffdffe$1$47$14$6", "6007003fffffffff@1$1$44$13$5", "3001c006003ffffffdfff$1$48$14$6",
                  "7003800e003ffffffffff$1$51$14$6", "7000e0038007ffefffffff@10$1$52$15$6",
@@ -160,6 +160,10 @@ function oneceOther()
     if tmpDaHao ~= nil then
         haoLV = 3
     end
+    
+    current_time = os.date("%m-%d_%H.%M", os.time());
+    snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
+    ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
 
 end
 -- 综合
