@@ -1369,6 +1369,10 @@ function zongHe(...)
         elseif isColor(119, 98, 0x9d1111, 95) then
             -- 通知
             touchClick(68, 128, 0x233145)
+        elseif isColor(119,222,0x9d1111,95) then
+            tiaoShi("战争")
+            touchClick(67,251,0x949aa1        )
+            
         elseif isColor(119, 160, 0x9d1111, 95) then
             tiaoShi("活动--红点--未选中")
             touchClick(61, 192, 0x3f4c5c)
