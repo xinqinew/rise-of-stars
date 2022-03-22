@@ -877,7 +877,6 @@ function zongHe(...)
         tiaoShi("舰长")
         if isColor(137, 102, 0x9e1111, 95) then
             tiaoShi("舰长--升级--左上角--红点--内")
-
             if isColor(1022, 547, 0x9e1111, 95) then
                 tiaoShi("舰长--升级--右下角--红点--内")
                 touchClick(1022, 547)
@@ -1783,19 +1782,26 @@ function checkXXX(...)
     if isColor(69, 23, 0xff6600, 95) and isColor(59, 579, 0x00428c, 95) then -- 左上角有基地现况
         timeXXX = nowTime
     end
-    if nowTime - timeXXX >= 5 * 60 then
-        closeApp(appXiangMu)
-        timeXXX = nowTime
-        -- numDiaoXian = numDiaoXian + 1
-        -- writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXian", numDiaoXian)
-        -- if numDiaoXian >= 6 then
-        --     numDiaoXian = 0
-        --     writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXian", numDiaoXian)
-        --     numDiaoXianDengDai = numDiaoXianDengDai + 1
-        --     writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXianDengDai", numDiaoXianDengDai)
-        --     -- dialog("掉线6次,等一小时",60*60)
-        -- end
+    if haoLV == 3 then
+        if nowTime - timeXXX >= 5 * 60 then
+            closeApp(appXiangMu)
+            timeXXX = nowTime
+            -- numDiaoXian = numDiaoXian + 1
+            -- writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXian", numDiaoXian)
+            -- if numDiaoXian >= 6 then
+            --     numDiaoXian = 0
+            --     writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXian", numDiaoXian)
+            --     numDiaoXianDengDai = numDiaoXianDengDai + 1
+            --     writePlist(luaMuLu .. xiangMu .. ".plist", "numDiaoXianDengDai", numDiaoXianDengDai)
+            --     -- dialog("掉线6次,等一小时",60*60)
+            -- end
 
+        end
+    else
+        if nowTime - timeXXX >= 10 * 60 then
+            closeApp(appXiangMu)
+            timeXXX = nowTime
+        end
     end
 end
 -- 任务
