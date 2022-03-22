@@ -2086,17 +2086,6 @@ function searchLiZi()
             tiaoShi("司令官界面")
             touchClick(20, 20)
         end
-        -- 返回值为 x : 0 y : 0 n = 0，x : 0 y : 0 为找到图片左上角的坐标，n = 0 表示找到第 1 个图片
-        -- x, y, n = findImageInRegionFuzzy("3.bmp,4.bmp,5.bmp", 80, 123, 145, 893, 474, 0, 3);
-        -- if x ~= -1 and y ~= -1 then -- 如果在指定区域找到某图片符合条件
-        -- 内容已复制到剪贴板!
-
-        -- 1: 0,0,0,0 范围坐标，请自行修改
-        -- 2: "775D13 , 4D3D0F" 偏色,多组或单组.请在偏色列表中选择
-        -- 3: 90 匹配精度 【0-100】
-        -- 1: 0,0,0,0 范围坐标，请自行修改
-        -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
-        -- 3: 90 匹配精度 【0-100】
         if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) == false then
             tiaoShi("外太空")
             touchClick(571, 467, 0x05305c)
@@ -2107,206 +2096,60 @@ function searchLiZi()
             touchClick(511, 600, 0x0c0c0e)
             touchClick(571, 467, 0x05305c)
         end
-        x1, y1 = tsFindText(index_lizi2, "1", 123, 145, 535 + 20, 310 + 20, "FAC52A , 030303", 94)
-        x2, y2 = tsFindText(index_lizi2, "1", 535 - 20, 145, 1020, 310 + 20, "FAC52A , 030303", 94)
-        x3, y3 = tsFindText(index_lizi2, "1", 5, 310 - 20, 535 + 20, 492, "FAC52A , 030303", 94)
-        x4, y4 = tsFindText(index_lizi2, "1", 535 - 20, 310 - 20, 1020, 531, "FAC52A , 030303", 94)
-        -- x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 94)
-        -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
-        if x1 ~= -1 then
-            touchClick(x1 + 48, y1 - 23)
-            mSleep(2000)
-            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
-            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,-265|-70|0x7e42e0", 80, 66, 14, 1126, 529) -- 抢
-            x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
-            if x5 ~= -1 then
-                tiaoShi("红色攻击1")
-                touchClick(x5, y5)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
-                    touchClick(490, 431)
-                end
-                return
-                -- elseif x6 ~= -1 then
-                --     tiaoShi("红色攻击2")
-                --     touchClick(x6, y6)
-                --     isBug_LiZi = false
-                --     numSearchLiZi = 0
-                --     isLiZi = true
-                --     return
-            elseif x7 ~= -1 then
-                tiaoShi("蓝色采集")
-                touchClick(x7, y7)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                return
-            elseif isColor(1106, 574, 0xd88b00, 95) then
-                tiaoShi("这是海盗,不是粒子")
-                mSleep(1000)
-                touchClick(20, 20)
-                mSleep(1000)
-            else
-                touchClick(20, 20) -- 瞎点一下
-                mSleep(1000)
-                if isColor(9, 10, 0xff9c00, 95) then
-                    tiaoShi("误开司令官")
+        local intX0 = 1
+        for j = 1, 10, 1 do
+            -- 1: 0,0,0,0 范围坐标，请自行修改
+            -- 2: "FAC52A , 030303" 偏色,多组或单组.请在偏色列表中选择
+            -- 3: 90 匹配精度 【0-100】
+            -- x1, y1 = tsFindText(index_lizi2, "1", 123, 145, 535 + 20, 310 + 20, "FAC52A , 030303", 94)
+            -- x2, y2 = tsFindText(index_lizi2, "1", 535 - 20, 145, 1020, 310 + 20, "FAC52A , 030303", 94)
+            -- x3, y3 = tsFindText(index_lizi2, "1", 5, 310 - 20, 535 + 20, 492, "FAC52A , 030303", 94)
+            -- x4, y4 = tsFindText(index_lizi2, "1", 535 - 20, 310 - 20, 1020, 531, "FAC52A , 030303", 94)
+            -- x, y = tsFindText(index_lizi2, "1", 123, 145, 893, 474, "FAC52A , 030303", 94)
+            -- x, y = tsFindText(index_lizi1, "1", 123, 145, 893, 474, "775D13 , 4D3D0F", 90)
+            x, y = tsFindText(index_lizi2, "1", intX0, 100, 1020, 540, "FAC52A , 030303", 94) -- 竖着从左至右全屏扫
+            if x ~= -1 then
+                touchClick(x + 48, y - 23)
+                mSleep(2000)
+                -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--红攻击 不抢
+                -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--红攻击 不抢
+                x1, y1 =
+                    findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,-265|-70|0x7e42e0", 80, 66, 14, 1126, 529) -- 红攻击 抢
+                x2, y2 =
+                    findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529) -- 蓝采集
+                if x1 ~= -1 then
+                    tiaoShi("红色攻击")
+                    touchClick(x1, y1)
+                    isBug_LiZi = false
+                    numSearchLiZi = 0
+                    isLiZi = true
+                    if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
+                        touchClick(490, 431)
+                    end
+                    return
+                elseif x2 ~= -1 then
+                    tiaoShi("蓝色采集")
+                    touchClick(x2, y2)
+                    isBug_LiZi = false
+                    numSearchLiZi = 0
+                    isLiZi = true
+                    return
+                elseif isColor(1106, 574, 0xd88b00, 95) then
+                    tiaoShi("这是海盗,不是粒子")
+                    mSleep(1000)
                     touchClick(20, 20)
                     mSleep(1000)
-                end
-            end
-        end
-        if x2 ~= -1 then
-            touchClick(x2 + 48, y2 - 23)
-            mSleep(2000)
-            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
-            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
-
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,-265|-70|0x7e42e0", 90, 66, 14, 1126, 529) -- 抢
-            x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
-            if x5 ~= -1 then
-                tiaoShi("红色攻击1")
-                touchClick(x5, y5)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
-                    touchClick(490, 431)
-                end
-                return
-                -- elseif x6 ~= -1 then
-                --     tiaoShi("红色攻击2")
-                --     touchClick(x6, y6)
-                --     isBug_LiZi = false
-                --     numSearchLiZi = 0
-                --     isLiZi = true
-                --     return
-            elseif x7 ~= -1 then
-                tiaoShi("蓝色采集")
-                touchClick(x7, y7)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                return
-            elseif isColor(1106, 574, 0xd88b00, 95) then
-                tiaoShi("这是海盗,不是粒子")
-                mSleep(1000)
-                touchClick(20, 20)
-                mSleep(1000)
-            else
-                touchClick(20, 20) -- 瞎点一下
-                mSleep(1000)
-                if isColor(9, 10, 0xff9c00, 95) then
-                    tiaoShi("误开司令官")
-                    touchClick(20, 20)
+                else
+                    touchClick(20, 20) -- 瞎点一下
                     mSleep(1000)
+                    if isColor(9, 10, 0xff9c00, 95) then
+                        tiaoShi("误开司令官")
+                        touchClick(20, 20)
+                        mSleep(1000)
+                    end
                 end
-            end
-        end
-        if x3 ~= -1 then
-            touchClick(x3 + 48, y3 - 23)
-            mSleep(2000)
-            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
-            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,-265|-70|0x7e42e0", 90, 66, 14, 1126, 529) -- 抢
-            x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
-            if x5 ~= -1 then
-                tiaoShi("红色攻击1")
-                touchClick(x5, y5)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
-                    touchClick(490, 431)
-                end
-                return
-                -- elseif x6 ~= -1 then
-                --     tiaoShi("红色攻击2")
-                --     touchClick(x6, y6)
-                --     isBug_LiZi = false
-                --     numSearchLiZi = 0
-                --     isLiZi = true
-                --     return
-            elseif x7 ~= -1 then
-                tiaoShi("蓝色采集")
-                touchClick(x7, y7)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                return
-            elseif isColor(1106, 574, 0xd88b00, 95) then
-                tiaoShi("这是海盗,不是粒子")
-                mSleep(1000)
-                touchClick(20, 20)
-                mSleep(1000)
+                intX0 = x+10
             else
-                touchClick(20, 20) -- 瞎点一下
-                mSleep(1000)
-                if isColor(9, 10, 0xff9c00, 95) then
-                    tiaoShi("误开司令官")
-                    touchClick(20, 20)
-                    mSleep(1000)
-                end
-            end
-        end
-        if x4 ~= -1 then
-            touchClick(x4 + 48, y4 - 23)
-            mSleep(2000)
-            -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--不抢
-            -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--不抢
-
-            x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,-265|-70|0x7e42e0", 90, 66, 14, 1126, 529) -- 抢
-            x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-195|-69|0x8446e5,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
-            -- x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
-            if x5 ~= -1 then
-                tiaoShi("红色攻击1")
-                touchClick(x5, y5)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                if isColor(490, 431, 0x1d6eb9, 95) then -- 抢
-                    touchClick(490, 431)
-                end
-                return
-                -- elseif x6 ~= -1 then
-                --     tiaoShi("红色攻击2")
-                --     touchClick(x6, y6)
-                --     isBug_LiZi = false
-                --     numSearchLiZi = 0
-                --     isLiZi = true
-                --     return
-            elseif x7 ~= -1 then
-                tiaoShi("蓝色采集")
-                touchClick(x7, y7)
-                isBug_LiZi = false
-                numSearchLiZi = 0
-                isLiZi = true
-                return
-            elseif isColor(1106, 574, 0xd88b00, 95) then
-                tiaoShi("这是海盗,不是粒子")
-                mSleep(1000)
-                touchClick(20, 20)
-                mSleep(1000)
-                -- if numSearchLiZi == 0 then -- 上
-                --     touchMoveXY(504, 101, 511, 603)
-                -- elseif numSearchLiZi == 1 then -- 下
-                --     touchMoveXY(511, 530, 504, 25)
-                -- elseif numSearchLiZi == 2 then -- 左
-                --     touchMoveXY(17, 297, 874, 282)
-                -- elseif numSearchLiZi == 3 then -- 右
-                --     touchMoveXY(874, 282, 17, 297)
-                -- elseif numSearchLiZi == 4 then -- 左上
-                --     touchMoveXY(107, 130, 983, 503)
-                -- elseif numSearchLiZi == 5 then -- 右上
-                --     touchMoveXY(885, 117, 16, 478)
-                -- elseif numSearchLiZi == 6 then -- 右下
-                --     touchMoveXY(983, 503, 107, 130)
-                -- elseif numSearchLiZi == 7 then -- 左下
-                --     touchMoveXY(16, 478, 885, 117)
-                -- end
                 if numSearchLiZi == 0 then -- 上
                     touchMoveXY(504, 101, 511, 603 - 100)
                 elseif numSearchLiZi == 1 then -- 下
@@ -2325,61 +2168,17 @@ function searchLiZi()
                     touchMoveXY(16, 478, 885 - 200, 117 + 100)
                 end
                 mSleep(1000)
-            else
-                touchClick(20, 20) -- 瞎点一下
-                mSleep(1000)
-                if isColor(9, 10, 0xff9c00, 95) then
-                    tiaoShi("误开司令官")
-                    touchClick(20, 20)
+                if i == numSearchLiZiSecond then
+                    touchClick(568, 569, 0x0a0a0f) -- 归位
                     mSleep(1000)
+                    numSearchLiZi = numSearchLiZi + 1
+                    if numSearchLiZi == 7 then
+                        numSearchLiZi = 0
+                        isLiZi = true
+                        isBug_LiZi = false
+                    end
                 end
-                if numSearchLiZi == 0 then -- 上
-                    touchMoveXY(504, 101, 511, 603 - 100)
-                elseif numSearchLiZi == 1 then -- 下
-                    touchMoveXY(511, 530, 504, 25 + 100)
-                elseif numSearchLiZi == 2 then -- 左
-                    touchMoveXY(17, 297, 874 - 200, 282)
-                elseif numSearchLiZi == 3 then -- 右
-                    touchMoveXY(874, 282, 17 + 200, 297)
-                elseif numSearchLiZi == 4 then -- 左上
-                    touchMoveXY(107, 130, 983 - 200, 503 - 100)
-                elseif numSearchLiZi == 5 then -- 右上
-                    touchMoveXY(885, 117, 16 + 200, 478 - 100)
-                elseif numSearchLiZi == 6 then -- 右下
-                    touchMoveXY(983, 503, 107 + 200, 130 + 100)
-                elseif numSearchLiZi == 7 then -- 左下
-                    touchMoveXY(16, 478, 885 - 200, 117 + 100)
-                end
-                mSleep(1000)
-            end
-        else -- 如果找不到符合条件的图片
-            if numSearchLiZi == 0 then -- 上
-                touchMoveXY(504, 101, 511, 603 - 100)
-            elseif numSearchLiZi == 1 then -- 下
-                touchMoveXY(511, 530, 504, 25 + 100)
-            elseif numSearchLiZi == 2 then -- 左
-                touchMoveXY(17, 297, 874 - 200, 282)
-            elseif numSearchLiZi == 3 then -- 右
-                touchMoveXY(874, 282, 17 + 200, 297)
-            elseif numSearchLiZi == 4 then -- 左上
-                touchMoveXY(107, 130, 983 - 200, 503 - 100)
-            elseif numSearchLiZi == 5 then -- 右上
-                touchMoveXY(885, 117, 16 + 200, 478 - 100)
-            elseif numSearchLiZi == 6 then -- 右下
-                touchMoveXY(983, 503, 107 + 200, 130 + 100)
-            elseif numSearchLiZi == 7 then -- 左下
-                touchMoveXY(16, 478, 885 - 200, 117 + 100)
-            end
-            mSleep(1000)
-        end
-        if i == numSearchLiZiSecond then
-            touchClick(568, 569, 0x0a0a0f) -- 归位
-            mSleep(1000)
-            numSearchLiZi = numSearchLiZi + 1
-            if numSearchLiZi == 7 then
-                numSearchLiZi = 0
-                isLiZi = true
-                isBug_LiZi = false
+                break
             end
         end
     end
