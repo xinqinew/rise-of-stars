@@ -160,7 +160,7 @@ function onceOther()
     if tmpDaHao ~= nil then
         haoLV = 3
     end
-    
+
     current_time = os.date("%m-%d_%H.%M", os.time());
     snapshot(iphoneId .. "-" .. current_time .. ".png", 0, 0, 1135, 639); -- 以时间戳命名进行截图
     ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
@@ -1856,7 +1856,7 @@ function zhuXian()
             tiaoShi("回基地")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
-        elseif isColor(902, 457, 0xffa100, 95) then -- 4队出完
+        elseif isColor(1022, 457, 0xffa100, 95) then -- 4队出完
             tiaoShi("4队出完")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
@@ -2062,7 +2062,7 @@ function chuHang()
             tiaoShi("回基地")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
-        elseif isColor(902, 457, 0xffa100, 95) then -- 4队出完
+        elseif isColor(1022, 457, 0xffa100, 95) then -- 4队出完
             tiaoShi("4队出完")
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
@@ -2308,21 +2308,21 @@ function searchLiZi()
                 --     touchMoveXY(16, 478, 885, 117)
                 -- end
                 if numSearchLiZi == 0 then -- 上
-                    touchMoveXY(504, 101, 511, 603-100)
+                    touchMoveXY(504, 101, 511, 603 - 100)
                 elseif numSearchLiZi == 1 then -- 下
-                    touchMoveXY(511, 530, 504, 25+100)
+                    touchMoveXY(511, 530, 504, 25 + 100)
                 elseif numSearchLiZi == 2 then -- 左
-                    touchMoveXY(17, 297, 874-200, 282)
+                    touchMoveXY(17, 297, 874 - 200, 282)
                 elseif numSearchLiZi == 3 then -- 右
-                    touchMoveXY(874, 282, 17+200, 297)
+                    touchMoveXY(874, 282, 17 + 200, 297)
                 elseif numSearchLiZi == 4 then -- 左上
-                    touchMoveXY(107, 130, 983-200, 503-100)
+                    touchMoveXY(107, 130, 983 - 200, 503 - 100)
                 elseif numSearchLiZi == 5 then -- 右上
-                    touchMoveXY(885, 117, 16+200, 478-100)
+                    touchMoveXY(885, 117, 16 + 200, 478 - 100)
                 elseif numSearchLiZi == 6 then -- 右下
-                    touchMoveXY(983, 503, 107+200, 130+100)
+                    touchMoveXY(983, 503, 107 + 200, 130 + 100)
                 elseif numSearchLiZi == 7 then -- 左下
-                    touchMoveXY(16, 478, 885-200, 117+100)
+                    touchMoveXY(16, 478, 885 - 200, 117 + 100)
                 end
                 mSleep(1000)
             else
@@ -2334,41 +2334,41 @@ function searchLiZi()
                     mSleep(1000)
                 end
                 if numSearchLiZi == 0 then -- 上
-                    touchMoveXY(504, 101, 511, 603-100)
+                    touchMoveXY(504, 101, 511, 603 - 100)
                 elseif numSearchLiZi == 1 then -- 下
-                    touchMoveXY(511, 530, 504, 25+100)
+                    touchMoveXY(511, 530, 504, 25 + 100)
                 elseif numSearchLiZi == 2 then -- 左
-                    touchMoveXY(17, 297, 874-200, 282)
+                    touchMoveXY(17, 297, 874 - 200, 282)
                 elseif numSearchLiZi == 3 then -- 右
-                    touchMoveXY(874, 282, 17+200, 297)
+                    touchMoveXY(874, 282, 17 + 200, 297)
                 elseif numSearchLiZi == 4 then -- 左上
-                    touchMoveXY(107, 130, 983-200, 503-100)
+                    touchMoveXY(107, 130, 983 - 200, 503 - 100)
                 elseif numSearchLiZi == 5 then -- 右上
-                    touchMoveXY(885, 117, 16+200, 478-100)
+                    touchMoveXY(885, 117, 16 + 200, 478 - 100)
                 elseif numSearchLiZi == 6 then -- 右下
-                    touchMoveXY(983, 503, 107+200, 130+100)
+                    touchMoveXY(983, 503, 107 + 200, 130 + 100)
                 elseif numSearchLiZi == 7 then -- 左下
-                    touchMoveXY(16, 478, 885-200, 117+100)
+                    touchMoveXY(16, 478, 885 - 200, 117 + 100)
                 end
                 mSleep(1000)
             end
         else -- 如果找不到符合条件的图片
             if numSearchLiZi == 0 then -- 上
-                touchMoveXY(504, 101, 511, 603-100)
+                touchMoveXY(504, 101, 511, 603 - 100)
             elseif numSearchLiZi == 1 then -- 下
-                touchMoveXY(511, 530, 504, 25+100)
+                touchMoveXY(511, 530, 504, 25 + 100)
             elseif numSearchLiZi == 2 then -- 左
-                touchMoveXY(17, 297, 874-200, 282)
+                touchMoveXY(17, 297, 874 - 200, 282)
             elseif numSearchLiZi == 3 then -- 右
-                touchMoveXY(874, 282, 17+200, 297)
+                touchMoveXY(874, 282, 17 + 200, 297)
             elseif numSearchLiZi == 4 then -- 左上
-                touchMoveXY(107, 130, 983-200, 503-100)
+                touchMoveXY(107, 130, 983 - 200, 503 - 100)
             elseif numSearchLiZi == 5 then -- 右上
-                touchMoveXY(885, 117, 16+200, 478-100)
+                touchMoveXY(885, 117, 16 + 200, 478 - 100)
             elseif numSearchLiZi == 6 then -- 右下
-                touchMoveXY(983, 503, 107+200, 130+100)
+                touchMoveXY(983, 503, 107 + 200, 130 + 100)
             elseif numSearchLiZi == 7 then -- 左下
-                touchMoveXY(16, 478, 885-200, 117+100)
+                touchMoveXY(16, 478, 885 - 200, 117 + 100)
             end
             mSleep(1000)
         end
@@ -2452,6 +2452,10 @@ end
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
         -- tiaoShi("室外")
+        if isColor(1053, 199, 0xffffff, 95) and isColor(1068, 193, 0xffffff, 95) then
+            tiaoShi("收缩队伍")
+            touchClick(1068, 193, 0xffffff)
+        end
         return true
     else
         return false
