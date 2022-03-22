@@ -2109,18 +2109,21 @@ function searchLiZi()
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
+                tiaoShi("红色攻击1")
                 touchClick(x5, y5)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x6 ~= -1 then
+                tiaoShi("红色攻击2")
                 touchClick(x6, y6)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x7 ~= -1 then
+                tiaoShi("蓝色采集")
                 touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
@@ -2148,18 +2151,21 @@ function searchLiZi()
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
+                tiaoShi("红色攻击1")
                 touchClick(x5, y5)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x6 ~= -1 then
+                tiaoShi("红色攻击2")
                 touchClick(x6, y6)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x7 ~= -1 then
+                tiaoShi("蓝色采集")
                 touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
@@ -2187,18 +2193,21 @@ function searchLiZi()
             x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
+                tiaoShi("红色攻击1")
                 touchClick(x5, y5)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x6 ~= -1 then
+                tiaoShi("红色攻击2")
                 touchClick(x6, y6)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x7 ~= -1 then
+                tiaoShi("蓝色采集")
                 touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
@@ -2227,18 +2236,21 @@ function searchLiZi()
             x7, y7 = findMultiColorInRegionFuzzy(0x00798c, "-92|-39|0x6c1ee0,-14|0|0x00ace4", 90, 66, 14, 1126, 529)
             -- x1, y1 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,84|-43|0xe8e9ea", 90, 66, 14, 1126, 529)
             if x5 ~= -1 then
+                tiaoShi("红色攻击1")
                 touchClick(x5, y5)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x6 ~= -1 then
+                tiaoShi("红色攻击2")
                 touchClick(x6, y6)
                 isBug_LiZi = false
                 numSearchLiZi = 0
                 isLiZi = true
                 return
             elseif x7 ~= -1 then
+                tiaoShi("蓝色采集")
                 touchClick(x7, y7)
                 isBug_LiZi = false
                 numSearchLiZi = 0
