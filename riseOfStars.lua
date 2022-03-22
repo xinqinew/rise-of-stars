@@ -208,7 +208,7 @@ function zongHe(...)
         tiaoShi("关广告--X,黑色")
         touchClick(1088, 47, 0x202124)
     end
-    if isColor(1088, 48, 0xffffff, 95) and isColor(1088, 62, 0x3c4043, 95) and isColor(1087, 36, 0x3c4043, 95) then
+    if isColor(1088, 48, 0xffffff, 95) and isColor(1088, 62, 0x3c4043, 95) and isColor(1132,4,0x292929,95) then
         tiaoShi("关广告--X,白色")
         touchClick(1088, 47, 0x202124)
     end
