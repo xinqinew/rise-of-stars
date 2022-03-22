@@ -59,7 +59,6 @@ function bianLiang()
     isJustBack = false -- 刚回基地
     isBug_LiZi = false -- bug 粒子
 
-    numTimeLIZi = 3
     numSearchLiZiSecond = 20
     numSearchLiZi = 0
     num5DaoJu = 0
@@ -67,7 +66,7 @@ function bianLiang()
     numChuHang = 1 -- 出航编号
     numSearch = 0 -- 搜索
 
-    timeLiZi = nowTime - 60 * 40 -- 粒子--40分钟
+    timeLiZi = nowTime - 3 * 60 -- 粒子在不在采集,3分钟检测一次
     timeYanJiu = nowTime - 60 -- 研究
     timeJiDi = nowTime - 10 * 60 -- 基地红点
     timeLianMengRenWu = nowTime - 60 * 60 -- 联盟任务
@@ -1934,7 +1933,6 @@ function chuHang()
                 end
             end
         end
-
     end
     if isColor(369, 535, 0x39e3f6, 95) and isColor(197, 521, 0xdbddec, 95) then
         tiaoShi("搜索界面--出航")
@@ -1952,8 +1950,7 @@ function chuHang()
                     isKillPirate = false
                 end
             end
-
-        elseif isLiZi == false and nowTime - timeLiZi >= numTimeLIZi * 60 then
+        elseif isLiZi == false then
             touchClick(925, 561, 0x1f101d) -- 粒子
             mSleep(1000)
             for i = 1, 10, 1 do
@@ -2070,6 +2067,7 @@ function chuHang()
             searchLiZi()
         else
             if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) then
+                isRewardLiZi()
                 touchClick(199, 522) -- 搜索
             elseif isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) == false then
                 touchClick(570, 469, 0x4a6181)
@@ -2077,6 +2075,40 @@ function chuHang()
 
         end
     end
+end
+-- 判断是否有队伍在采集粒子
+function isRewardLiZi()
+    if nowTime - timeLiZi >= 3 * 60 then
+        timeLiZi = nowTime
+        if isColor(1022, 271, 0xffa100, 95) then -- 1队有人
+            touchClick(1058, 244, 0xdaa395)
+            mSleep(3000)
+            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+                isLiZi = true
+                return true
+            end
+        end
+        if isColor(1022, 333, 0xffa100, 95) then -- 2队有人
+            touchClick(1058, 300, 0xdaa395)
+            mSleep(3000)
+            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+                isLiZi = true
+                return true
+            end
+        end
+        if isColor(1022, 395, 0xffa100, 95) then -- 3队有人
+            touchClick(1058, 364, 0xdaa395)
+            mSleep(3000)
+            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+                isLiZi = true
+                return true
+            end
+        end
+    else
+        isLiZi = true
+        return true
+    end
+    return false
 end
 -- 搜索粒子
 function searchLiZi()
@@ -2148,7 +2180,7 @@ function searchLiZi()
                         mSleep(1000)
                     end
                 end
-                intX0 = x+10
+                intX0 = x + 10
             else
                 if numSearchLiZi == 0 then -- 上
                     touchMoveXY(504, 101, 511, 603 - 100)
