@@ -173,6 +173,11 @@ function zongHe(...)
             touchClick(335, 213)
         end
     end
+    if isColor(180,147,0x215da6,95) and isColor(202,204,0x4c92da,95) and isColor(503,515,0x233341,95) and isColor(741,516,0x2f2a33,95) then
+        tiaoShi("外太空玩家")
+        touchClick(511,600,0x0c0c0e        )
+        -- touchClick(571,467,0x05305c        )
+    end
     if isColor(158, 328, 0xf57508, 95) and isColor(771, 599, 0xf57508, 95) and isColor(561, 439, 0xf1fc6a, 95) then
         tiaoShi("基地加成")
         if muBiao == mb_CaiJi then
