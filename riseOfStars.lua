@@ -175,7 +175,7 @@ function zongHe(...)
     end
     if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
         isColor(741, 516, 0x2f2a33, 95) then
-        tiaoShi("外太空玩家")
+        tiaoShi("外太空玩家2")
         touchClick(511, 600, 0x0c0c0e)
         -- touchClick(571,467,0x05305c        )
     end
@@ -2086,7 +2086,7 @@ function searchLiZi()
         end
         if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
             isColor(741, 516, 0x2f2a33, 95) then
-            tiaoShi("外太空玩家")
+            tiaoShi("外太空玩家1")
             touchClick(511, 600, 0x0c0c0e)
             touchClick(571, 467, 0x05305c)
         end
