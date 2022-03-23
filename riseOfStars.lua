@@ -267,7 +267,7 @@ function zongHe(...)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             local strDaMa = yunDaMa()
             if strDaMa ~= false then
-                if isColor(1134, 638, 0xcfd2d7, 95) == false then
+                if isColor(1134, 638, 0xcfd2d7, 95) == false then--没有键盘,点击文本框
                     touchClick(659, 45)
                     mSleep(1000)
                 end
