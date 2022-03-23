@@ -2142,6 +2142,7 @@ end
 -- 判断是否有队伍在采集粒子
 function isRewardLiZi()
     if nowTime - timeLiZi >= 3 * 60 then
+        tiaoShi("判断是否有队伍在采集粒子--超过3分钟")
         timeLiZi = nowTime
         if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
             touchClick(1058, 244, 0xdaa395)
