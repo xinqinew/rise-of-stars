@@ -267,7 +267,7 @@ function zongHe(...)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             local strDaMa = yunDaMa()
             if strDaMa ~= false then
-                if isColor(1134, 638, 0xcfd2d7, 95) == false then--没有键盘,点击文本框
+                if isColor(1134, 638, 0xcfd2d7, 95) == false then -- 没有键盘,点击文本框
                     touchClick(659, 45)
                     mSleep(1000)
                 end
@@ -281,7 +281,6 @@ function zongHe(...)
                 if x ~= -1 and y ~= -1 then
                     closeApp(appXiangMu)
                 end
-
             end
         end
         -- lua_exit();
@@ -1734,12 +1733,74 @@ function everyDayTask()
         task_CaiJi()
     elseif muBiao == mb_Reward then
         task_Reward()
+    elseif muBiao == mb_JiNeng then
+        task_JiNeng()
     end
     if outside() then
         tiaoShi("回基地--日常")
         touchClick(1074, 582) -- 回基地
         chongZhiJiDiXianKuang()
     end
+end
+-- 任务--主动技能
+function task_JiNeng()
+    if inside() then
+        tiaoShi("主动技能")
+        if isColor(1093, 82, 0x577ea6, 95) and isColor(1114, 59, 0x354f6a, 95) then
+            touchClick(1103, 68, 0x0d1828) -- 展开
+            touchClick(681, 172, 0x1c2b3b) -- 主动技能
+        end
+        if isColor(960, 185, 0x835523, 95) and isColor(1119, 186, 0x835523, 95) then
+            tiaoShi("技能目录")
+            x, y = findMultiColorInRegionFuzzy(0x375297, "14|-4|0x7c5758,14|10|0xa48e9d", 90, 533, 219, 1117, 418)
+            if x ~= -1 then
+                touchClick(x, y)
+                mSleep(1000)
+                x, y = findMultiColorInRegionFuzzy(0xf28c07, "131|28|0xf87808", 90, 388, 454, 1126, 628)
+                if x ~= -1 then
+                    touchClick(x, y)
+                    mSleep(1000)
+                end
+            end
+
+            x, y = findMultiColorInRegionFuzzy(0xc7af1f, "-7|32|0x111515,5|14|0x72303f", 90, 533, 219, 1117, 418)
+            if x ~= -1 then
+                touchClick(x, y)
+                mSleep(1000)
+                x, y = findMultiColorInRegionFuzzy(0xf28c07, "131|28|0xf87808", 90, 388, 454, 1126, 628)
+                if x ~= -1 then
+                    touchClick(x, y)
+                    mSleep(1000)
+                end
+            end
+
+            x, y = findMultiColorInRegionFuzzy(0x5d9cb7, "6|25|0x15497f,25|0|0x151b20", 90, 533, 219, 1117, 418)
+            if x ~= -1 then
+                touchClick(x, y)
+                mSleep(1000)
+                x, y = findMultiColorInRegionFuzzy(0xf28c07, "131|28|0xf87808", 90, 388, 454, 1126, 628)
+                if x ~= -1 then
+                    touchClick(x, y)
+                    mSleep(1000)
+                end
+            end
+
+            x, y = findMultiColorInRegionFuzzy(0x09baff, "13|-33|0x6796a7,26|-18|0xffff52", 90, 533, 219, 1117, 418)
+            if x ~= -1 then
+                touchClick(x, y)
+                mSleep(1000)
+                x, y = findMultiColorInRegionFuzzy(0xf28c07, "131|28|0xf87808", 90, 388, 454, 1126, 628)
+                if x ~= -1 then
+                    touchClick(x, y)
+                    mSleep(1000)
+                end
+            end
+            touchClick(1105, 72, 0x0b1625)
+            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+            gaiMuBiao(2, mb_Wu, mm_Wu)
+        end
+    end
+
 end
 -- 只做基地
 function task_JiDi()
