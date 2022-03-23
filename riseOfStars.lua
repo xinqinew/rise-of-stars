@@ -189,16 +189,17 @@ function zongHe(...)
         end
 
     end
-    if isColor(605,474,0xc9a571,95) and isColor(645,492,0xd77500,95) and isColor(682,387,0x0b3365,95) and isColor(616,392,0x4a5e9b,95) then
+    if isColor(605, 474, 0xc9a571, 95) and isColor(645, 492, 0xd77500, 95) and isColor(682, 387, 0x0b3365, 95) and
+        isColor(616, 392, 0x4a5e9b, 95) then
         tiaoShi("购买道具--金币")
-        touchClick(511,551,0x0c0c0e    )
+        touchClick(511, 551, 0x0c0c0e)
         if muBiao == mb_YouHua then
-            gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
+            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         end
     end
-    if isColor(339,429,0x1c6fbb,95) and isColor(592,438,0x1c6eba,95) and isColor(282,217,0xff6600,95) then
+    if isColor(339, 429, 0x1c6fbb, 95) and isColor(592, 438, 0x1c6eba, 95) and isColor(282, 217, 0xff6600, 95) then
         tiaoShi("关闭礼包")
-        touchClick(339,429,0x1c6fbb    )
+        touchClick(339, 429, 0x1c6fbb)
     end
     if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
         tiaoShi("骗你充一次钱")
@@ -904,6 +905,14 @@ function zongHe(...)
             -- -- lua 的机制是调用此函数之后的下一行结束，如果不希望出现此情况可以在调用函数之后加入一行无意义代码
             -- mSleep(10)
             touchClick(313, 420)
+            if isColor(484, 432, 0x1c6eba, 95) then
+                tiaoShi("金币不足")
+                touchClick(513, 493, 0x566d7c)
+                touchClick(20, 20)
+                if muBiao == mb_YouHua then
+                    gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+                end
+            end
 
         end
     end
@@ -1270,7 +1279,7 @@ function zongHe(...)
             end
         elseif isColor(60, 334, 0x52524c, 95) and isColor(41, 296, 0xffffff, 95) then
             tiaoShi("充电界面")
-            if isColor(287,514,0x1f2d46            , 95) then
+            if isColor(287, 514, 0x1f2d46, 95) then
                 touchClick(543, 597)
             else
                 touchClick(20, 20)
