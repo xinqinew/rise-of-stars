@@ -2009,7 +2009,7 @@ function chuHang()
                 if isColor(303, 431, 0x116eb9, 95) == false then
                     break
                 end
-                if i == 10 then
+                if i == 3 then
                     isKillPirate = false
                 end
             end
@@ -2022,7 +2022,7 @@ function chuHang()
                 if isColor(876, 430, 0x116eb9, 95) == false then
                     break
                 end
-                if i == 10 then
+                if i == 3 then
                     -- isLiZi = true
                     isBug_LiZi = true -- bug 粒子
                     touchClick(20, 20)
