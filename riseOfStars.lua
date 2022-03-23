@@ -1444,6 +1444,7 @@ function zongHe(...)
                 touchClick(513, 574)
                 gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
                 gaiMuBiao(2, mm_Wu, mm_Wu)
+                muBiaoZhuanHuan()
             end
         else
 
@@ -1695,7 +1696,7 @@ function doTarget()
     mSleep(222)
     tiaoShi("看看2 : "..mb_ZhuXian)
 
-    if muBiao == 0 then
+    if muBiao == "0" then
         muBiao = mb_ZhuXian
         gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
     elseif  muBiao == mb_Wu then
