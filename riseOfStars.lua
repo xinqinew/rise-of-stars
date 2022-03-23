@@ -2147,6 +2147,7 @@ function isRewardLiZi()
         if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
             touchClick(1058, 244, 0xdaa395)
             mSleep(3000)
+            tiaoShi("1队有人")
             if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
                 isLiZi = true
                 return true
@@ -2155,6 +2156,8 @@ function isRewardLiZi()
         if isColor(1115, 304, 0xfefefe, 95) then -- 2队有人
             touchClick(1058, 300, 0xdaa395)
             mSleep(3000)
+            tiaoShi("2队有人")
+
             if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
                 isLiZi = true
                 return true
@@ -2163,6 +2166,8 @@ function isRewardLiZi()
         if isColor(1115, 367, 0xfefefe, 95) then -- 3队有人
             touchClick(1058, 364, 0xdaa395)
             mSleep(3000)
+            tiaoShi("3队有人")
+
             if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
                 isLiZi = true
                 return true
