@@ -204,6 +204,8 @@ function zongHe(...)
             isKaYouHua = true
             writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+        elseif muBiao == mb_ZhuXian then
+            gaiMuBiao(1,mb_WaKuang,mm_WaKuang)
         end
     end
 
@@ -927,6 +929,8 @@ function zongHe(...)
                     isKaYouHua = true
                     writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
                     gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
+                elseif muBiao == mb_ZhuXian then
+                    gaiMuBiao(1,mb_WaKuang,mm_WaKuang)
                 end
             end
 
