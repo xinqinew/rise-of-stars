@@ -2313,7 +2313,7 @@ function searchLiZi()
             x, y = tsFindText(index_lizi2, "1", intX0, 100, 1020, 540, "FAC52A , 030303", 94) -- 竖着从左至右全屏扫
             if x ~= -1 then
                 touchClick(x + 48, y - 23)
-                mSleep(2000)
+                mSleep(500)
                 -- x5, y5 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-105|0xd7d9dc", 90, 66, 14, 1126, 529)--红攻击 不抢
                 -- x6, y6 = findMultiColorInRegionFuzzy(0xa43b40, "-14|0|0x00798c,119|-106|0xd6d8db", 90, 66, 14, 1126, 529)--红攻击 不抢
                 x1, y1 =
@@ -2344,11 +2344,11 @@ function searchLiZi()
                     mSleep(1000)
                 else
                     touchClick(20, 20) -- 瞎点一下
-                    mSleep(1000)
+                    -- mSleep(1000)
                     if isColor(9, 10, 0xff9c00, 95) then
                         tiaoShi("误开司令官")
                         touchClick(20, 20)
-                        mSleep(1000)
+                        -- mSleep(1000)
                     end
                 end
                 intX0 = x + 10
@@ -2370,7 +2370,7 @@ function searchLiZi()
                 elseif numSearchLiZi == 7 then -- 左下
                     touchMoveXY(16, 478, 885 - 200, 117 + 100)
                 end
-                mSleep(1000)
+                mSleep(500)
                 if i == numSearchLiZiSecond then
                     touchClick(568, 569, 0x0a0a0f) -- 归位
                     mSleep(1000)
