@@ -186,14 +186,6 @@ function zongHe(...)
             tiaoShi("free")
             touchClick(33, 493)
         end
-        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and haoLV >= 3 then
-            tiaoShi("收缩任务栏")
-            touchClick(335, 213)
-        end
-        if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
-            tiaoShi("展开任务栏")
-            touchClick(107, 213)
-        end
 
     end
     if isColor(605, 474, 0xc9a571, 95) and isColor(645, 492, 0xd77500, 95) and isColor(682, 387, 0x0b3365, 95) and
@@ -205,7 +197,7 @@ function zongHe(...)
             writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         elseif muBiao == mb_ZhuXian then
-            gaiMuBiao(1,mb_WaKuang,mm_WaKuang)
+            gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
         end
     end
 
@@ -930,7 +922,7 @@ function zongHe(...)
                     writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
                     gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
-                    gaiMuBiao(1,mb_WaKuang,mm_WaKuang)
+                    gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
                 end
             end
 
@@ -2145,7 +2137,7 @@ function chuHang()
         tiaoShi("搜索界面--出航")
         if isKillPirate == true then
             tiaoShi("有体力,杀海盗")
-            if num3Pirate <= 4 then
+            if num3Pirate <= 4 or haoLV <= 2 then
                 num3Pirate = num3Pirate + 1
                 writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
                 touchClick(209, 541, 0xc0b7bf) -- 海盗
@@ -2304,36 +2296,41 @@ end
 function isRewardLiZi()
     -- if nowTime - timeLiZi >= 3 * 60 then
     tiaoShi("判断是否有队伍在采集粒子--超过3分钟")
-    -- timeLiZi = nowTime
-    if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
-        touchClick(1058, 244, 0xdaa395)
-        mSleep(3000)
-        tiaoShi("1队有人")
-        if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
-            isLiZi = true
-            return true
+    if haoLV <= 2 then
+        isLiZi = true
+        return false
+    else
+        -- timeLiZi = nowTime
+        if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
+            touchClick(1058, 244, 0xdaa395)
+            mSleep(3000)
+            tiaoShi("1队有人")
+            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+                isLiZi = true
+                return true
+            end
         end
-    end
-    if isColor(1115, 304, 0xfefefe, 95) then -- 2队有人
-        touchClick(1058, 300, 0xdaa395)
-        mSleep(3000)
-        tiaoShi("2队有人")
-        if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
-            isLiZi = true
-            return true
+        if isColor(1115, 304, 0xfefefe, 95) then -- 2队有人
+            touchClick(1058, 300, 0xdaa395)
+            mSleep(3000)
+            tiaoShi("2队有人")
+            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+                isLiZi = true
+                return true
+            end
         end
-    end
-    if isColor(1115, 367, 0xfefefe, 95) then -- 3队有人
-        touchClick(1058, 364, 0xdaa395)
-        mSleep(3000)
-        tiaoShi("3队有人")
-        if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
-            isLiZi = true
-            return true
+        if isColor(1115, 367, 0xfefefe, 95) then -- 3队有人
+            touchClick(1058, 364, 0xdaa395)
+            mSleep(3000)
+            tiaoShi("3队有人")
+            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+                isLiZi = true
+                return true
+            end
         end
+        isLiZi = false
+        return false
     end
-    isLiZi = false
-    return false
     -- else
     --     isLiZi = true
     --     return true
@@ -2532,6 +2529,14 @@ end
 function inside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1031, 577, 0xffffff, 95) then
         -- tiaoShi("室内")
+        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and muBiao == mb_WaKuang then
+            tiaoShi("收缩任务栏")
+            touchClick(335, 213)
+        end
+        if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
+            tiaoShi("展开任务栏")
+            touchClick(107, 213)
+        end
         return true
     else
         return false
@@ -2541,6 +2546,14 @@ end
 function outside(...)
     if isColor(1019, 544, 0x754218, 95) and isColor(1124, 618, 0x734119, 95) and isColor(1039, 574, 0xf0f0f1, 95) then
         -- tiaoShi("室外")
+        if isColor(335, 213, 0x2a6aab, 95) and isColor(335, 226, 0x2a6aab, 95) and muBiao == mb_WaKuang then
+            tiaoShi("收缩任务栏")
+            touchClick(335, 213)
+        end
+        if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and muBiao == mb_ZhuXian then
+            tiaoShi("展开任务栏")
+            touchClick(107, 213)
+        end
         if isColor(1053, 199, 0xffffff, 95) and isColor(1068, 193, 0xffffff, 95) then
             tiaoShi("收缩队伍")
             touchClick(1068, 193, 0xffffff)
