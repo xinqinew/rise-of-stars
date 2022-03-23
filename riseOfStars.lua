@@ -2162,6 +2162,8 @@ function isRewardLiZi()
                 return true
             end
         end
+        isLiZi = false
+        return false
     else
         isLiZi = true
         return true
