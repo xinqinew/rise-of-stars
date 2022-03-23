@@ -1241,8 +1241,12 @@ function zongHe(...)
             for i = 0, 1, 1 do
                 for j = 0, 3, 1 do
                     if isColor(515 + j * 167, 342 + i * 238, 0x051788, 95) or
-                        isColor(504 + j * 167, 353 + i * 238, 0x33323b, 95) then
+                        isColor(504 + j * 167, 353 + i * 238, 0x33323b, 95) or
+                        isColor(531 + j * 167, 189 + i * 238, 0x923be7, 95) then
                         touchClick(515 + j * 167, 342 + i * 238)
+                        if isColor(538, 455, 0xd78b01, 95) then
+                            touchClick(538, 455)
+                        end
                         return
                     end
                 end
