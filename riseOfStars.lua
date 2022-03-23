@@ -1691,7 +1691,7 @@ function checkRed()
 end
 -- 执行目标
 function doTarget()
-    if  muBiao == mb_GuaJi then
+    if muBiao == mb_GuaJi then
         if haoLV == 1 then
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         elseif haoLV >= 2 then
@@ -2075,7 +2075,7 @@ function chuHang()
     if outside() then
         mSleep(1000)
         if isColor(147, 80, 0x37b8d8) then -- 20体力
-        -- if isColor(210, 79, 0x39bfe1) then -- 70体力
+            -- if isColor(210, 79, 0x39bfe1) then -- 70体力
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
@@ -2322,6 +2322,32 @@ function waKuang()
             else
                 gaiMuBiao(3, mb_ChuHang, mm_ChuHang)
             end
+        elseif isColor(338, 208, 0x306090, 95) then -- 3号休息中
+            tiaoShi("4号休息中,出航")
+            touchClick(338, 208, 0x306090)
+            if isColor(338, 208, 0x306090, 95) then -- 3号出航失败
+
+            else
+                gaiMuBiao(3, mb_ChuHang, mm_ChuHang)
+            end
+
+        elseif isColor(215, 208, 0x306090, 95) then -- 2号休息中
+            tiaoShi("4号休息中,出航")
+            touchClick(215, 208, 0x306090)
+            if isColor(215, 208, 0x306090, 95) then -- 2号出航失败
+
+            else
+                gaiMuBiao(3, mb_ChuHang, mm_ChuHang)
+            end
+        elseif isColor(92, 207, 0x306090, 95) then -- 1号休息中
+            tiaoShi("4号休息中,出航")
+            touchClick(92, 207, 0x306090)
+            if isColor(92, 207, 0x306090, 95) then -- 1号出航失败
+
+            else
+                gaiMuBiao(3, mb_ChuHang, mm_ChuHang)
+            end
+
         elseif nowTime - timeInside >= 5 * 60 then
             touchClick(510, 608, 0x0c0c0e)
             timeInside = nowTime
