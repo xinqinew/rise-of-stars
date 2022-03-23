@@ -191,6 +191,11 @@ function zongHe(...)
         end
 
     end
+    if isColor(310, 103, 0xf5a801, 95) and isColor(311, 159, 0x264569, 95) and isColor(691, 202, 0x116eb9, 95) and
+        isColor(813, 201, 0x116eb9, 95) then
+        tiaoShi("expire notice")
+        touchClick(511, 540, 0x0c0c0e)
+    end
     if isColor(605, 474, 0xc9a571, 95) and isColor(645, 492, 0xd77500, 95) and isColor(682, 387, 0x0b3365, 95) and
         isColor(616, 392, 0x4a5e9b, 95) then
         tiaoShi("购买道具--金币")
