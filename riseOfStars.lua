@@ -206,13 +206,14 @@ function zongHe(...)
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         end
     end
-    if isColor(339, 429, 0x1c6fbb, 95) and isColor(592, 438, 0x1c6eba, 95) and isColor(282, 217, 0xff6600, 95) then
-        tiaoShi("关闭礼包")
-        touchClick(339, 429, 0x1c6fbb)
-    end
+   
     if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
         tiaoShi("骗你充一次钱")
         touchClick(510, 607, 0x375070)
+    end
+    if isColor(339, 429, 0x1c6fbb, 95) and isColor(592, 438, 0x1c6eba, 95) and isColor(282, 217, 0xff6600, 95) then
+        tiaoShi("关闭礼包")
+        touchClick(339, 429, 0x1c6fbb)
     end
     if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
         isColor(741, 516, 0x2f2a33, 95) then
