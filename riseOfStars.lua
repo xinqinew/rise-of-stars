@@ -1946,13 +1946,13 @@ function zhuXian()
                 touchClick(504, 432, 0x1c6eba)
             end
             isLiZi = true -- 粒子
-            timeLiZi = nowTime
-        elseif isColor(634, 157, 0x102a43, 95) then--普通采集 无船可出
-            touchClick(20,20)
+            -- timeLiZi = nowTime
+        elseif isColor(634, 157, 0x102a43, 95) then -- 普通采集 无船可出
+            touchClick(20, 20)
             mSleep(1000)
             touchClick(1074, 582) -- 回基地
             chongZhiJiDiXianKuang()
-        elseif isColor(634, 157, 0x38b3ca, 95) then--普通采集 有船可出
+        elseif isColor(634, 157, 0x38b3ca, 95) then -- 普通采集 有船可出
             touchClick(842, 594, 0xd78b02) -- 出航
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
                 touchClick(512, 496, 0x0c0c0e)
@@ -1983,7 +1983,7 @@ function chuHang()
                 touchClick(504, 432, 0x1c6eba)
             end
             isLiZi = true -- 粒子
-            timeLiZi = nowTime
+            -- timeLiZi = nowTime
         else -- 普通采集
             touchClick(842, 594, 0xd78b02) -- 出航
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
@@ -2080,7 +2080,7 @@ function chuHang()
     if outside() then
         mSleep(1000)
         -- if isColor(147, 80, 0x37b8d8) and haoLV >= 3 then -- 20体力
-            if isColor(210, 79, 0x39bfe1) then -- 70体力
+        if isColor(210, 79, 0x39bfe1) then -- 70体力
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
@@ -2141,43 +2141,43 @@ function chuHang()
 end
 -- 判断是否有队伍在采集粒子
 function isRewardLiZi()
-    if nowTime - timeLiZi >= 3 * 60 then
-        tiaoShi("判断是否有队伍在采集粒子--超过3分钟")
-        timeLiZi = nowTime
-        if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
-            touchClick(1058, 244, 0xdaa395)
-            mSleep(3000)
-            tiaoShi("1队有人")
-            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
-                isLiZi = true
-                return true
-            end
+    -- if nowTime - timeLiZi >= 3 * 60 then
+    tiaoShi("判断是否有队伍在采集粒子--超过3分钟")
+    -- timeLiZi = nowTime
+    if isColor(1115, 242, 0xfefefe, 95) then -- 1队有人
+        touchClick(1058, 244, 0xdaa395)
+        mSleep(3000)
+        tiaoShi("1队有人")
+        if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+            isLiZi = true
+            return true
         end
-        if isColor(1115, 304, 0xfefefe, 95) then -- 2队有人
-            touchClick(1058, 300, 0xdaa395)
-            mSleep(3000)
-            tiaoShi("2队有人")
-            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
-                isLiZi = true
-                return true
-            end
-        end
-        if isColor(1115, 367, 0xfefefe, 95) then -- 3队有人
-            touchClick(1058, 364, 0xdaa395)
-            mSleep(3000)
-            tiaoShi("3队有人")
-            if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
-                isLiZi = true
-                return true
-            end
-        end
-        isLiZi = false
-        return false
-    else
-        isLiZi = true
-        return true
     end
+    if isColor(1115, 304, 0xfefefe, 95) then -- 2队有人
+        touchClick(1058, 300, 0xdaa395)
+        mSleep(3000)
+        tiaoShi("2队有人")
+        if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+            isLiZi = true
+            return true
+        end
+    end
+    if isColor(1115, 367, 0xfefefe, 95) then -- 3队有人
+        touchClick(1058, 364, 0xdaa395)
+        mSleep(3000)
+        tiaoShi("3队有人")
+        if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
+            isLiZi = true
+            return true
+        end
+    end
+    isLiZi = false
     return false
+    -- else
+    --     isLiZi = true
+    --     return true
+    -- end
+    -- return false
 end
 -- 搜索粒子
 function searchLiZi()
