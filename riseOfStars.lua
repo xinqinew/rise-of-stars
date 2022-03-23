@@ -200,6 +200,9 @@ function zongHe(...)
         tiaoShi("加成信息--采集道具--使用")
         if muBiao == mb_CaiJi then
             touchClick(833, 184, 0x116eb9)
+            if isColor(502,437,0x1c6dba,95) then
+                touchClick(511,496,0x566e7d            )
+            end
             gaiMuBiao(2, mb_JiNeng, mm_JiNeng)
         else
             touchClick(511, 585, 0x0c0c0e)
