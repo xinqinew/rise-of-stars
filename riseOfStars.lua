@@ -1371,6 +1371,7 @@ function zongHe(...)
         tiaoShi("充电缺少资源")
         touchClick(511, 586, 0x0c0c0e)
         isChongDianKaZiYuan = true
+        getOut()
     end
     if isColor(275, 58, 0xf5a801, 95) and isColor(737, 130, 0x0d9098, 95) and isColor(290, 225, 0xffffff, 95) and
         isColor(599, 501, 0x1a61a4, 95) then
