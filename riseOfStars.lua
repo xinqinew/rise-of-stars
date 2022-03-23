@@ -1691,7 +1691,10 @@ function checkRed()
 end
 -- 执行目标
 function doTarget()
-    tiaoShi("看看")
+    tiaoShi("看看 : "..muBiao)
+    mSleep(222)
+    tiaoShi("看看2 : "..mb_ZhuXian)
+
     if muBiao == mb_GuaJi then
         mSleep(333)
         tiaoShi("mb_GuaJi")
