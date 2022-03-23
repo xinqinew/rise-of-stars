@@ -909,6 +909,7 @@ function zongHe(...)
                 tiaoShi("金币不足")
                 touchClick(513, 493, 0x566d7c)
                 touchClick(20, 20)
+                getOut()
                 if muBiao == mb_YouHua then
                     gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
                 end
