@@ -2079,8 +2079,8 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        if isColor(147, 80, 0x37b8d8) and haoLV >= 3 then -- 20体力
-            -- if isColor(210, 79, 0x39bfe1) then -- 70体力
+        -- if isColor(147, 80, 0x37b8d8) and haoLV >= 3 then -- 20体力
+            if isColor(210, 79, 0x39bfe1) then -- 70体力
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
@@ -2157,7 +2157,6 @@ function isRewardLiZi()
             touchClick(1058, 300, 0xdaa395)
             mSleep(3000)
             tiaoShi("2队有人")
-
             if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
                 isLiZi = true
                 return true
@@ -2167,7 +2166,6 @@ function isRewardLiZi()
             touchClick(1058, 364, 0xdaa395)
             mSleep(3000)
             tiaoShi("3队有人")
-
             if isColor(154, 305, 0x6c1cde, 95) or isColor(687, 305, 0x6c1cde, 95) then
                 isLiZi = true
                 return true
