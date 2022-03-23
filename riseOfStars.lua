@@ -128,6 +128,13 @@ function oncePlist()
         writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
     end
 
+    -- 卡优化
+    isKaYouHua = loadPlist(luaMuLu .. xiangMu .. ".plist", "卡优化")
+    if isKaYouHua == nil then
+        isKaYouHua = false
+        writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
+    end
+
 end
 -- onceOther
 function onceOther()
@@ -194,6 +201,8 @@ function zongHe(...)
         tiaoShi("购买道具--金币")
         touchClick(511, 551, 0x0c0c0e)
         if muBiao == mb_YouHua then
+            isKaYouHua = true
+            writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         end
     end
@@ -911,6 +920,8 @@ function zongHe(...)
                 touchClick(20, 20)
                 getOut()
                 if muBiao == mb_YouHua then
+                    isKaYouHua = true
+                    writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
                     gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
                 end
             end
@@ -1929,8 +1940,12 @@ function task()
             if haoLV == 1 then
                 -- 主任务
                 tiaoShi("主任务")
+                if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
+                    tiaoShi("展开任务栏")
+                    touchClick(107, 213)
+                end
                 touchClick(161, 268)
-                if isColor(962, 576, 0xe59b48, 95) then
+                if isColor(962, 576, 0xe59b48, 95) then--卡主线,点工具
                     -- if findRed() == true then
                     touchClick(38, 492)
                 end
@@ -1941,13 +1956,20 @@ function task()
                 return
             end
             if haoLV == 2 then
-                gaiMuBiao(1, mb_YouHua, mm_YouHua)
-                -- tiaoShi("主任务")
-                -- touchClick(161, 268)
-                -- if isColor(962, 576, 0xe59b48, 95) then
-                --     -- if findRed() == true then
-                --     touchClick(38, 492)
-                -- end
+                if isKaYouHua == false then
+                    gaiMuBiao(1, mb_YouHua, mm_YouHua)
+                else
+                    tiaoShi("卡优化,做主任务")
+                    if isColor(99, 212, 0x2a6aab, 95) and isColor(106, 219, 0x2a6aab, 95) and haoLV <= 2 then
+                        tiaoShi("展开任务栏")
+                        touchClick(107, 213)
+                    end
+                    touchClick(161, 268)
+                    if isColor(962, 576, 0xe59b48, 95) then--卡主线,点工具
+                        -- if findRed() == true then
+                        touchClick(38, 492)
+                    end
+                end
                 return
 
             end
@@ -2566,6 +2588,9 @@ function everyDayInit(...)
 
             num3Pirate = 0
             writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+
+            isKaYouHua = false
+            writePlist(luaMuLu .. xiangMu .. ".plist", "卡优化", isKaYouHua)
 
             if haoLV >= 2 then
                 gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
