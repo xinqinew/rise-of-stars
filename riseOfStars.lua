@@ -189,6 +189,10 @@ function zongHe(...)
         end
 
     end
+    if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
+        tiaoShi("骗你充一次钱")
+        touchClick(510, 607, 0x375070)
+    end
     if isColor(180, 147, 0x215da6, 95) and isColor(202, 204, 0x4c92da, 95) and isColor(503, 515, 0x233341, 95) and
         isColor(741, 516, 0x2f2a33, 95) then
         tiaoShi("外太空玩家2")
@@ -616,9 +620,9 @@ function zongHe(...)
                 timeLianMengRenWu = nowTime
                 timeJiDi = nowTime
             end
-        elseif isColor(224,511,0x183453,95) then
+        elseif isColor(224, 511, 0x183453, 95) then
             tiaoShi("防卫工程,电不满")
-            touchClick(347,538,0x306090        )
+            touchClick(347, 538, 0x306090)
         elseif muBiao1 == mb_WaKuang then
 
         else
