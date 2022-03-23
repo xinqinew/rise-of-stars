@@ -58,6 +58,7 @@ function bianLiang()
     isJiDiXianKuangIntoProduce = false -- 从基地现况进入生产界面
     isJustBack = false -- 刚回基地
     isBug_LiZi = false -- bug 粒子
+    isChongDianKaZiYuan = false -- 充电卡资源
 
     numSearchLiZiSecond = 20
     numSearchLiZi = 0
@@ -66,6 +67,7 @@ function bianLiang()
     numChuHang = 1 -- 出航编号
     numSearch = 0 -- 搜索
 
+    timeChongDian = nowTime - 4 * 60 * 60 -- 充电卡资源
     timeLiZi = nowTime - 3 * 60 -- 粒子在不在采集,3分钟检测一次
     timeYanJiu = nowTime - 60 -- 研究
     timeJiDi = nowTime - 10 * 60 -- 基地红点
@@ -637,7 +639,7 @@ function zongHe(...)
                 timeLianMengRenWu = nowTime
                 timeJiDi = nowTime
             end
-        elseif isColor(224, 511, 0x183453, 95) then
+        elseif isColor(224, 511, 0x183453, 95) and isChongDianKaZiYuan == false then
             tiaoShi("防卫工程,电不满")
             touchClick(347, 538, 0x306090)
         elseif muBiao1 == mb_WaKuang then
@@ -1364,7 +1366,12 @@ function zongHe(...)
         touchClick(882, 349, 0x8b9fb7)
         touchClick(647, 504, 0x1a69b6)
     end
-
+    if isColor(586, 189, 0x6375a7, 95) and isColor(776, 270, 0xffffff, 95) and isColor(587, 354, 0x5b6ea3, 95) and
+        isColor(719, 507, 0x1c6eba, 95) then
+        tiaoShi("充电缺少资源")
+        touchClick(511, 586, 0x0c0c0e)
+        isChongDianKaZiYuan = true
+    end
     if isColor(275, 58, 0xf5a801, 95) and isColor(737, 130, 0x0d9098, 95) and isColor(290, 225, 0xffffff, 95) and
         isColor(599, 501, 0x1a61a4, 95) then
         tiaoShi("使用道具界面")
@@ -1900,6 +1907,12 @@ function timeChongZhi()
         if nowTime - timeShengChan >= 60 * 60 * 2 then
             isShengChan = true
             timeShengChan = nowTime
+        end
+    end
+    if isChongDianKaZiYuan == true then
+        if nowTime - timeChongDian >= 4 * 60 * 60 then
+            timeChongDian = nowTime
+            isChongDianKaZiYuan = false
         end
     end
 end
