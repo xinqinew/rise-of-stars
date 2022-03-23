@@ -2280,10 +2280,22 @@ function chuHang()
             tiaoShi("采集--左")
             numSearch = numSearch + 1
             touchClick(407, 383)
+            if isColor(358, 428, 0x1c6db9, 95) and isColor(620, 435, 0x1c6dba, 95) then
+                tiaoShi("研究才能出4队")
+                touchClick(513, 496, 0x0c0c0e)
+                touchClick(1074, 582) -- 回基地
+                chongZhiJiDiXianKuang()
+            end
         elseif isColor(639, 378, 0x00ace4, 95) and isColor(1027, 380, 0x00798c, 95) then
             tiaoShi("采集--右")
             numSearch = numSearch + 1
             touchClick(1027, 383)
+            if isColor(358, 428, 0x1c6db9, 95) and isColor(620, 435, 0x1c6dba, 95) then
+                tiaoShi("研究才能出4队")
+                touchClick(513, 496, 0x0c0c0e)
+                touchClick(1074, 582) -- 回基地
+                chongZhiJiDiXianKuang()
+            end
         elseif numSearch >= 10 then
             tiaoShi("回基地")
             touchClick(1074, 582) -- 回基地
