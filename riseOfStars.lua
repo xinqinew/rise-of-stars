@@ -255,20 +255,29 @@ function zongHe(...)
         tiaoShi("认证")
         touchClick(463, 436)
     end
+    if isColor(635, 90, 0x116eb9, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
+    end
     if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
         tiaoShi("云打码")
-        snapshot("yudama.png", 222, 12, 596, 157)
+        -- snapshot("yudama.png", 222, 12, 596, 157)
+        current_time = os.date("%m-%d_%H.%M", os.time());
+        snapshot(iphoneId .. "-" .. current_time .. ".png", 222, 12, 596, 157); -- 以时间戳命名进行截图
+        ftpUpPNG(iphoneId .. "-" .. current_time .. ".png", "PNG/")
         mSleep(2000)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             local strDaMa = yunDaMa()
             if strDaMa ~= false then
+                if isColor(1134, 638, 0xcfd2d7, 95) == false then
+                    touchClick(659, 45)
+                    mSleep(1000)
+                end
                 inputText(strDaMa)
                 mSleep(2000)
                 touchClick(717, 104, 0x1270bb)
                 mSleep(1000)
                 touchClick(717, 104, 0x1270bb)
                 mSleep(5000)
-                x, y = findImage("yudama.png", 221, 11, 597, 158)
+                x, y = findImage(iphoneId .. "-" .. current_time .. ".png", 221, 11, 597, 158)
                 if x ~= -1 and y ~= -1 then
                     closeApp(appXiangMu)
                 end
