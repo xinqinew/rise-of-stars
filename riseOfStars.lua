@@ -189,6 +189,13 @@ function zongHe(...)
         end
 
     end
+    if isColor(605,474,0xc9a571,95) and isColor(645,492,0xd77500,95) and isColor(682,387,0x0b3365,95) and isColor(616,392,0x4a5e9b,95) then
+        tiaoShi("购买道具--金币")
+        touchClick(511,551,0x0c0c0e    )
+        if muBiao == mb_YouHua then
+            gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
+        end
+    end
     if isColor(339,429,0x1c6fbb,95) and isColor(592,438,0x1c6eba,95) and isColor(282,217,0xff6600,95) then
         tiaoShi("关闭礼包")
         touchClick(339,429,0x1c6fbb    )
@@ -1263,7 +1270,7 @@ function zongHe(...)
             end
         elseif isColor(60, 334, 0x52524c, 95) and isColor(41, 296, 0xffffff, 95) then
             tiaoShi("充电界面")
-            if isColor(308, 153, 0x777777, 95) then
+            if isColor(287,514,0x1f2d46            , 95) then
                 touchClick(543, 597)
             else
                 touchClick(20, 20)
