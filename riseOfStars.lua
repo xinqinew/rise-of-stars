@@ -616,7 +616,9 @@ function zongHe(...)
                 timeLianMengRenWu = nowTime
                 timeJiDi = nowTime
             end
-
+        elseif isColor(224,511,0x183453,95) then
+            tiaoShi("防卫工程,电不满")
+            touchClick(347,538,0x306090        )
         elseif muBiao1 == mb_WaKuang then
 
         else
