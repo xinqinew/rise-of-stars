@@ -1444,7 +1444,6 @@ function zongHe(...)
                 touchClick(513, 574)
                 gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
                 gaiMuBiao(2, mb_Wu, mm_Wu)
-                muBiaoZhuanHuan()
             end
         else
 
@@ -1692,50 +1691,24 @@ function checkRed()
 end
 -- 执行目标
 function doTarget()
-    tiaoShi("看看 : "..muBiao)
-    mSleep(222)
-    tiaoShi("看看2 : "..mb_ZhuXian)
-
-    if muBiao == "0" then
-        muBiao = mb_ZhuXian
-        gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
-    elseif  muBiao == mb_Wu then
-        muBiao = mb_ZhuXian
-        gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
-    elseif  muBiao == false then
-        muBiao = mb_ZhuXian
-        gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
-    elseif  muBiao == mb_GuaJi then
-        mSleep(333)
-        tiaoShi("mb_GuaJi")
+    if  muBiao == mb_GuaJi then
         if haoLV == 1 then
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         elseif haoLV >= 2 then
             gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
         end
     elseif muBiao == mb_YouHua then
-        mSleep(333)
-        tiaoShi("mb_YouHua")
         task_JiDi()
     elseif muBiao == mb_ZhuXian then
-        mSleep(333)
-        tiaoShi("看看主线")
         task()
         zhuXian()
     elseif muBiao == mb_WaKuang then
-        mSleep(333)
-        tiaoShi("mb_WaKuang")
         waKuang()
     elseif muBiao == mb_ChuHang then
-        mSleep(333)
-        tiaoShi("mb_ChuHang")
         chuHang()
     elseif muBiao1 == mb_EveryDay then
-        mSleep(333)
-        tiaoShi("mb_EveryDay")
         everyDayTask()
     end
-
 end
 -- 日常
 function everyDayTask()
