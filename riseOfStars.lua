@@ -1947,7 +1947,12 @@ function zhuXian()
             end
             isLiZi = true -- 粒子
             timeLiZi = nowTime
-        else -- 普通采集
+        elseif isColor(634, 157, 0x102a43, 95) then--普通采集 无船可出
+            touchClick(20,20)
+            mSleep(1000)
+            touchClick(1074, 582) -- 回基地
+            chongZhiJiDiXianKuang()
+        elseif isColor(634, 157, 0x38b3ca, 95) then--普通采集 有船可出
             touchClick(842, 594, 0xd78b02) -- 出航
             if isColor(508, 426, 0x1c6ebb, 95) then -- 介绍,其他司令官,继续--否 
                 touchClick(512, 496, 0x0c0c0e)
