@@ -2022,6 +2022,7 @@ function chongZhiJiDiXianKuang()
     if haoLV == 2 then
         if muBiao == mb_WaKuang and nowTime - timeRound >= 1 * 60 * 60 then
             gaiMuBiao(1, mb_YouHua, mm_YouHua)
+            timeRound = nowTime
         end
     end
 
