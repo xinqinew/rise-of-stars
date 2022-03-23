@@ -2020,7 +2020,7 @@ function chongZhiJiDiXianKuang()
         end
     end
     if haoLV == 2 then
-        if muBiao == mb_WaKuang and nowTime - timeRound >= 4 * 60 * 60 then
+        if muBiao == mb_WaKuang and nowTime - timeRound >= 1 * 60 * 60 then
             gaiMuBiao(1, mb_YouHua, mm_YouHua)
         end
     end
