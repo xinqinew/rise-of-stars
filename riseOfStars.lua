@@ -200,7 +200,7 @@ function zongHe(...)
         tiaoShi("加成信息--采集道具--使用")
         if muBiao == mb_CaiJi then
             touchClick(833, 184, 0x116eb9)
-            gaiMuBiao(2, mb_Reward, mm_Reward)
+            gaiMuBiao(2, mb_JiNeng, mm_JiNeng)
         else
             touchClick(511, 585, 0x0c0c0e)
         end
@@ -1796,8 +1796,7 @@ function task_JiNeng()
                 end
             end
             touchClick(1105, 72, 0x0b1625)
-            gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
-            gaiMuBiao(2, mb_Wu, mm_Wu)
+            gaiMuBiao(2, mb_Reward, mm_Reward)
         end
     end
 
