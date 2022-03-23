@@ -206,7 +206,7 @@ function zongHe(...)
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         end
     end
-   
+
     if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
         tiaoShi("骗你充一次钱")
         touchClick(510, 607, 0x375070)
@@ -780,6 +780,9 @@ function zongHe(...)
             if isColor(1001, 197, 0xf18e07, 95) then
                 tiaoShi("领取")
                 touchClick(1001, 197)
+            elseif isColor(605, 550, 0x4e83de, 95) then
+                tiaoShi("120")
+                touchClick(605, 550)
             elseif isColor(714, 95, 0x9e1111, 95) then
                 tiaoShi("新任司令官--红点")
                 touchClick(714, 95)
@@ -1946,7 +1949,7 @@ function task()
                     touchClick(107, 213)
                 end
                 touchClick(161, 268)
-                if isColor(962, 576, 0xe59b48, 95) then--卡主线,点工具
+                if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
                     -- if findRed() == true then
                     touchClick(38, 492)
                 end
@@ -1966,7 +1969,7 @@ function task()
                         touchClick(107, 213)
                     end
                     touchClick(161, 268)
-                    if isColor(962, 576, 0xe59b48, 95) then--卡主线,点工具
+                    if isColor(962, 576, 0xe59b48, 95) then -- 卡主线,点工具
                         -- if findRed() == true then
                         touchClick(38, 492)
                     end
