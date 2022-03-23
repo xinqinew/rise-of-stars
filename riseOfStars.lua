@@ -107,6 +107,13 @@ function oncePlist()
         writePlist(luaMuLu .. xiangMu .. ".plist", "每日5道具", num5DaoJu)
     end
 
+    -- 每日3海盗
+    num3Pirate = loadPlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗")
+    if num3Pirate == nil then
+        num3Pirate = 0
+        writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+    end
+
     -- 增产
     numAddChangLiang = loadPlist(luaMuLu .. xiangMu .. ".plist", "增产")
     if numAddChangLiang == nil then
@@ -200,8 +207,8 @@ function zongHe(...)
         tiaoShi("加成信息--采集道具--使用")
         if muBiao == mb_CaiJi then
             touchClick(833, 184, 0x116eb9)
-            if isColor(502,437,0x1c6dba,95) then
-                touchClick(511,496,0x566e7d            )
+            if isColor(502, 437, 0x1c6dba, 95) then
+                touchClick(511, 496, 0x566e7d)
             end
             gaiMuBiao(2, mb_JiNeng, mm_JiNeng)
         else
@@ -1365,7 +1372,7 @@ function zongHe(...)
     end
     if isColor(17, 24, 0xffffff, 95) and isColor(5, 24, 0xff9c00, 95) and isColor(101, 75, 0xffb500, 95) then
         tiaoShi("背包界面")
-        if muBiao == mb_5DaoJu and num5DaoJu <= 4 then
+        if muBiao == mb_5DaoJu and num5DaoJu <= 7 then
             for i = 0, 8, 1 do
                 if isColor(215 + i * 100, 78, 0xa0a0a0, 95) or isColor(215 + i * 100, 78, 0x33a904, 95) then
                     touchClick(215 + i * 100, 117)
@@ -2077,16 +2084,33 @@ function chuHang()
         tiaoShi("搜索界面--出航")
         if isKillPirate == true then
             tiaoShi("有体力,杀海盗")
-            touchClick(358, 537, 0xaecffa) -- 精英
-            mSleep(1000)
-            for i = 1, 3, 1 do
-                touchClick(353, 432, 0x075ea8) -- 搜索
+            if num3Pirate <= 4 then
+                num3Pirate = num3Pirate + 1
+                writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
+                touchClick(209, 541, 0xc0b7bf) -- 海盗
                 mSleep(1000)
-                if isColor(303, 431, 0x116eb9, 95) == false then
-                    break
+                for i = 1, 3, 1 do
+                    touchClick(217, 429, 0x377ab4) -- 搜索
+                    mSleep(1000)
+                    if isColor(303, 431, 0x116eb9, 95) == false then
+                        break
+                    end
+                    if i == 3 then
+                        isKillPirate = false
+                    end
                 end
-                if i == 3 then
-                    isKillPirate = false
+            else
+                touchClick(358, 537, 0xaecffa) -- 精英
+                mSleep(1000)
+                for i = 1, 3, 1 do
+                    touchClick(353, 432, 0x075ea8) -- 搜索
+                    mSleep(1000)
+                    if isColor(303, 431, 0x116eb9, 95) == false then
+                        break
+                    end
+                    if i == 3 then
+                        isKillPirate = false
+                    end
                 end
             end
         elseif isLiZi == false then
@@ -2155,8 +2179,8 @@ function chuHang()
     end
     if outside() then
         mSleep(1000)
-        -- if isColor(147, 80, 0x37b8d8) and haoLV >= 3 then -- 20体力
-        if isColor(210, 79, 0x39bfe1) then -- 70体力
+        if isColor(147, 80, 0x37b8d8) and haoLV >= 3 then -- 20体力
+            -- if isColor(210, 79, 0x39bfe1) then -- 70体力
             tiaoShi("有体力")
             if nowTime - timeKillPirate >= 10 * 60 then
                 isKillPirate = true -- 杀海盗
@@ -2508,6 +2532,9 @@ function everyDayInit(...)
 
             isAgainReward = false
             writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
+
+            num3Pirate = 0
+            writePlist(luaMuLu .. xiangMu .. ".plist", "每日3海盗", num3Pirate)
 
             if haoLV >= 2 then
                 gaiMuBiao(1, mb_EveryDay, mm_EveryDay)
