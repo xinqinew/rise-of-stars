@@ -1200,8 +1200,10 @@ function zongHe(...)
                         timeShengChan = nowTime
                         getOut()
                     elseif haoLV == 2 then -- 成品号
-                        isAutoNext = false
-                        touchClick(47, 230, 0x7b4c2e) -- 升级
+                        if muBiao ~= mb_YouHua then
+                            isAutoNext = false
+                            touchClick(47, 230, 0x7b4c2e) -- 升级
+                        end
                     end
 
                 else
