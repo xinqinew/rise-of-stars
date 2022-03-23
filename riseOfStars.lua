@@ -67,6 +67,7 @@ function bianLiang()
     numChuHang = 1 -- 出航编号
     numSearch = 0 -- 搜索
 
+    timeRound = nowTime - 4 * 60 * 60 -- 成品号循环 优化--主线--挖矿
     timeChongDian = nowTime - 4 * 60 * 60 -- 充电卡资源
     timeLiZi = nowTime - 3 * 60 -- 粒子在不在采集,3分钟检测一次
     timeYanJiu = nowTime - 60 -- 研究
@@ -200,6 +201,7 @@ function zongHe(...)
             gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
         elseif muBiao == mb_ZhuXian then
             gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
+            timeRound = nowTime
         end
     end
 
@@ -926,6 +928,7 @@ function zongHe(...)
                     gaiMuBiao(1, mb_ZhuXian, mm_ZhuXian)
                 elseif muBiao == mb_ZhuXian then
                     gaiMuBiao(1, mb_WaKuang, mm_WaKuang)
+                    timeRound = nowTime
                 end
             end
 
@@ -1916,6 +1919,7 @@ function timeChongZhi()
             isChongDianKaZiYuan = false
         end
     end
+
 end
 -- 5分钟不见某界面
 function checkXXX(...)
@@ -2013,6 +2017,11 @@ function chongZhiJiDiXianKuang()
                 writePlist(luaMuLu .. xiangMu .. ".plist", "再次收获", isAgainReward)
             end
 
+        end
+    end
+    if haoLV == 2 then
+        if muBiao == mb_WaKuang and nowTime - timeRound >= 4 * 60 * 60 then
+            gaiMuBiao(1, mb_YouHua, mm_YouHua)
         end
     end
 
