@@ -1101,11 +1101,11 @@ function zongHe(...)
         end
         if isColor(57, 216, 0x69ff1d, 95) and isColor(53, 190, 0xffffff, 95) then
             tiaoShi("升级界面")
-            if haoLV >= 2 and isTrade == false and isColor(42, 331, 0x831c89, 95) then
+            if haoLV >= 3 and isTrade == false and isColor(42, 331, 0x831c89, 95) then
                 tiaoShi("点击交易所")
                 touchClick(42, 331)
                 return
-            elseif haoLV >= 2 and numAddChangLiang <= 2 and isColor(30, 336, 0x01f520, 95) then
+            elseif haoLV >= 3 and numAddChangLiang <= 2 and isColor(30, 336, 0x01f520, 95) then
                 tiaoShi("点击增产")
                 touchClick(42, 331)
                 return
