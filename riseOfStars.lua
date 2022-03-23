@@ -189,6 +189,10 @@ function zongHe(...)
         end
 
     end
+    if isColor(339,429,0x1c6fbb,95) and isColor(592,438,0x1c6eba,95) and isColor(282,217,0xff6600,95) then
+        tiaoShi("关闭礼包")
+        touchClick(339,429,0x1c6fbb    )
+    end
     if isColor(123, 125, 0xff6600, 95) and isColor(147, 254, 0x5fb1ff, 95) and isColor(785, 505, 0xd78c01, 95) then
         tiaoShi("骗你充一次钱")
         touchClick(510, 607, 0x375070)
