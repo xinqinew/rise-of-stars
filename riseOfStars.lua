@@ -1694,8 +1694,10 @@ function doTarget()
     tiaoShi("看看 : "..muBiao)
     mSleep(222)
     tiaoShi("看看2 : "..mb_ZhuXian)
-
-    if muBiao == mb_Wu then
+    if muBiao == 0 then
+        muBiao = mb_ZhuXian
+        gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
+    elseif  muBiao == mb_Wu then
         muBiao = mb_ZhuXian
         gaiMuBiao(1,mb_ZhuXian,mm_ZhuXian)
     elseif  muBiao == mb_GuaJi then
