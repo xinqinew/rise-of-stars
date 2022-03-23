@@ -2368,6 +2368,8 @@ function everyDayInit(...)
         if nowDateTime.hour >= 8 and nowDateTime.min >= 0 then
             tiaoShi("8点0分重置")
 
+            closeApp(appXiangMu)
+
             nowDay = nowDateTime.day
             writePlist(luaMuLu .. xiangMu .. ".plist", "日期", nowDay)
 
