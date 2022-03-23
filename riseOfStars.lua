@@ -1133,7 +1133,9 @@ function zongHe(...)
                 elseif isColor(421, 598, 0x1eb686, 95) then
                     tiaoShi("建设--加速")
                     touchClick(421, 598)
-                    isAutoNext = false
+                    if muBiao ~= mb_YouHua then
+                        isAutoNext = false
+                    end
                 elseif isColor(652, 368, 0x3e8fee, 95) and isAutoNext == true then
                     tiaoShi("1蓝")
                     touchClick(1089, 356)
