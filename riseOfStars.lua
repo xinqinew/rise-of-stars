@@ -2323,7 +2323,7 @@ function waKuang()
                 gaiMuBiao(3, mb_ChuHang, mm_ChuHang)
             end
         elseif isColor(338, 208, 0x306090, 95) then -- 3号休息中
-            tiaoShi("4号休息中,出航")
+            tiaoShi("3号休息中,出航")
             touchClick(338, 208, 0x306090)
             if isColor(338, 208, 0x306090, 95) then -- 3号出航失败
 
@@ -2332,7 +2332,7 @@ function waKuang()
             end
 
         elseif isColor(215, 208, 0x306090, 95) then -- 2号休息中
-            tiaoShi("4号休息中,出航")
+            tiaoShi("2号休息中,出航")
             touchClick(215, 208, 0x306090)
             if isColor(215, 208, 0x306090, 95) then -- 2号出航失败
 
@@ -2340,7 +2340,7 @@ function waKuang()
                 gaiMuBiao(3, mb_ChuHang, mm_ChuHang)
             end
         elseif isColor(92, 207, 0x306090, 95) then -- 1号休息中
-            tiaoShi("4号休息中,出航")
+            tiaoShi("1号休息中,出航")
             touchClick(92, 207, 0x306090)
             if isColor(92, 207, 0x306090, 95) then -- 1号出航失败
 
