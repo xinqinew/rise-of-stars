@@ -66,7 +66,9 @@ function bianLiang()
     numDiaoXian = 0
     numChuHang = 1 -- 出航编号
     numSearch = 0 -- 搜索
-
+    
+    
+    timeRed=nowTime-15*60  --红点
     timeRound = nowTime - 4 * 60 * 60 -- 成品号循环 优化--主线--挖矿
     timeChongDian = nowTime - 4 * 60 * 60 -- 充电卡资源
     timeLiZi = nowTime - 3 * 60 -- 粒子在不在采集,3分钟检测一次
@@ -1737,13 +1739,19 @@ function checkRed()
         timeLianMeng = nowTime
         touchClick(869, 582)
         return true
-    elseif isColor(1124, 51, 0x9e1111, 95) then -- 右上角红点
+    elseif isColor(712, 43, 0x9d1111, 95) and isColor(643, 74, 0x7b5aa3, 95) then
+        tiaoShi("联盟帮忙红点")
+        touchClick(662, 68)
+        -- elseif isColor(902,541,0x9d1111,95) then
+        --     tiaoShi("联盟红点")
+        --     touchClick(881,594    )
+        return true 
+    elseif isColor(1124, 51, 0x9e1111, 95) and nowTime-timeRed>=15*60 then -- 右上角红点
         tiaoShi("右上角红点")
         touchClick(1106, 71, 0x111e2e)
         if isColor(730, 106, 0x9d1111, 95) then -- 1-1红点
             touchClick(684, 182, 0x445569)
-        elseif isColor(858, 106, 0x9d1111, 95) then -- 1-2红点
-            touchClick(810, 169, 0x1c2b3d)
+        
         elseif isColor(993, 115, 0x9e1111, 95) then -- 1-3 红点
             touchClick(937, 187, 0x263649)
         elseif isColor(1120, 115, 0x9e1111, 95) then -- 1-4红点
@@ -1754,17 +1762,15 @@ function checkRed()
             touchClick(816, 321, 0x1e2635)
         elseif isColor(993, 254, 0x9d1111, 95) then -- 2-3红点
             touchClick(946, 299, 0x182738)
+        elseif isColor(858, 106, 0x9d1111, 95) then -- 1-2红点
+            --touchClick(810, 169, 0x1c2b3d)
+            timeRed=nowTime
+ 
 
         end
         return true
 
-    elseif isColor(712, 43, 0x9d1111, 95) and isColor(643, 74, 0x7b5aa3, 95) then
-        tiaoShi("联盟帮忙红点")
-        touchClick(662, 68)
-        -- elseif isColor(902,541,0x9d1111,95) then
-        --     tiaoShi("联盟红点")
-        --     touchClick(881,594    )
-        return true
+    
     else
         return false
     end
