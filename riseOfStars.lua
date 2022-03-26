@@ -193,6 +193,10 @@ function zongHe(...)
         end
 
     end
+    if isColor(273,149,0xf7a901,95) and isColor(260,490,0x658090,95) and isColor(694,318,0x4693cf,95) and isColor(844,462,0x052b57,95) then
+        tiaoShi("认证和观看视频")
+        touchClick(769,330)
+    end
     if isColor(310, 103, 0xf5a801, 95) and isColor(311, 159, 0x264569, 95) and isColor(691, 202, 0x116eb9, 95) and
         isColor(813, 201, 0x116eb9, 95) then
         tiaoShi("expire notice")
