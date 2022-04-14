@@ -914,11 +914,12 @@ function zongHe1(...)
             touchClick(511, 500)
         end
     end
-    if isColor(273, 149, 0xf7a901, 95) and isColor(260, 490, 0x658090, 95) and isColor(694, 318, 0x4693cf, 95) and
-        isColor(844, 462, 0x052b57, 95) then
+    if isColor(271,196,0xf7a901,95) and isColor(690,355,0x114c8a,95) and isColor(860,412,0xb8b7b8,95) then
+    -- if isColor(273, 149, 0xf7a901, 95) and isColor(260, 490, 0x658090, 95) and isColor(694, 318, 0x4693cf, 95) and
+        -- isColor(844, 462, 0x052b57, 95) then
         debug("认证和观看视频")
-        touchClick(726, 433, 0x1c6dba) -- 观看视频
-        --     touchClick(769, 330)--认证
+        -- touchClick(726, 433, 0x1c6dba) -- 观看视频
+            touchClick(769,381,0xffffff        )--认证
     end
     if isColor(310, 103, 0xf5a801, 95) and isColor(311, 159, 0x264569, 95) and isColor(691, 202, 0x116eb9, 95) and
         isColor(813, 201, 0x116eb9, 95) then
