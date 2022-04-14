@@ -1,4 +1,4 @@
-toast("在线版本0.9.2")
+toast("在线版本0.9.3")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1200,7 +1200,7 @@ function zongHe1(...)
         if isColor(635, 90, 0x126fba, 95) and isColor(805, 123, 0x075ea8, 95) and isColor(900, 120, 0xffffff, 95) then
             closeFw() -- 关闭所有视图
             mSleep(500)
-            local strDaMa = yunDaMa()
+            local strDaMa = yunDaMa(op)
             if strDaMa ~= false then
                 for i = 1, 10, 1 do
                     if isPause == true then
