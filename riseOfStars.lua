@@ -4449,7 +4449,7 @@ function searchLiZi()
         nowTime = os.time();
         timeXXX = nowTime
 
-        -- debug("搜索粒子")
+        debug("搜索粒子")
         if isColor(6, 24, 0xf59600, 95) and isColor(18, 24, 0xffffff, 95) and isColor(355, 86, 0x5195db, 95) then
             debug("司令官界面")
             touchClick(20, 20)
