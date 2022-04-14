@@ -1,4 +1,4 @@
-toast("在线版本0.9.1")
+toast("在线版本0.9.2")
 -- 对比颜色加强
 do
     oldIsColor = isColor
@@ -1218,7 +1218,7 @@ function zongHe1(...)
                         return
                     end
                 end
-                inputText(strDaMa)
+                inputText(strDaMa,1)
                 mSleep(2000)
                 touchClick(717, 104, 0x1270bb)
                 mSleep(1000)
