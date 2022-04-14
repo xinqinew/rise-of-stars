@@ -39,7 +39,7 @@ function bianLiang()
         writePlist(luaMuLu .. xiangMu .. ".plist", "YDM_password", YDM_password)
     end
     YDM_password = loadPlist(luaMuLu .. xiangMu .. ".plist", "YDM_password")
-
+debug(YDM_username.."   "..YDM_password)
     op = {
         -- 必填参数
         ["platform"] = "hyocr", -- 平台类型，具体参数参照参数表
