@@ -4343,7 +4343,9 @@ function chuHang()
         else
             if isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) then
                 isRewardLiZi()
+            if isBug_LiZi==false then
                 touchClick(199, 522) -- 搜索
+            end
             elseif isColor(45, 517, 0xd8e4ee, 95) and isColor(282, 518, 0xe0ecf6, 95) == false then
                 touchClick(570, 469, 0x4a6181)
             end
