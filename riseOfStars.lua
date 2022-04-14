@@ -39,9 +39,7 @@ function bianLiang()
         writePlist(luaMuLu .. xiangMu .. ".plist", "YDM_password", YDM_password)
     end
     YDM_password = loadPlist(luaMuLu .. xiangMu .. ".plist", "YDM_password")
-toast(YDM_username.."   "..YDM_password)
-mSleep(1000)
-toast("1")
+
     op = {
         -- 必填参数
         ["platform"] = "hyocr", -- 平台类型，具体参数参照参数表
@@ -1220,7 +1218,7 @@ function zongHe1(...)
                         return
                     end
                 end
-                inputText(strDaMa,1)
+                inputText(strDaMa)
                 mSleep(2000)
                 touchClick(717, 104, 0x1270bb)
                 mSleep(1000)
